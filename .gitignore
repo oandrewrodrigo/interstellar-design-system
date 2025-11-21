@@ -1,0 +1,24 @@
+node_modules/
+dist/
+build/
+.storybook-static/
+storybook-static/
+.DS_Store
+*.log
+.env
+.env.local
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Bundle analysis
+stats.json
+*.stats.json
