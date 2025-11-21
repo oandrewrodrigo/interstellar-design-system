@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "Brand": {
+      "5": { "$type": "color", "$value": "#eef2ff" },
+      "10": { "$type": "color", "$value": "#e0e7ff" },
+      "20": { "$type": "color", "$value": "#c7d2fe" },
+      "30": { "$type": "color", "$value": "#a5b4fc" },
+      "40": { "$type": "color", "$value": "#818cf8" },
+      "50": { "$type": "color", "$value": "#6366f1" },
+      "60": { "$type": "color", "$value": "#4f46e5" },
+      "70": { "$type": "color", "$value": "#4338ca" },
+      "80": { "$type": "color", "$value": "#3730a3" },
+      "90": { "$type": "color", "$value": "#312e81" }
+    }
+  }
+}
+

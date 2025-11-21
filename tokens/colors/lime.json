@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "Lime": {
+      "5": { "$type": "color", "$value": "#f7fee7" },
+      "10": { "$type": "color", "$value": "#ecfccb" },
+      "20": { "$type": "color", "$value": "#d9f99d" },
+      "30": { "$type": "color", "$value": "#bef264" },
+      "40": { "$type": "color", "$value": "#a3e635" },
+      "50": { "$type": "color", "$value": "#84cc16" },
+      "60": { "$type": "color", "$value": "#65a30d" },
+      "70": { "$type": "color", "$value": "#4d7c0f" },
+      "80": { "$type": "color", "$value": "#3f6212" },
+      "90": { "$type": "color", "$value": "#365314" }
+    }
+  }
+}
+

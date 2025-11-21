@@ -1,0 +1,9 @@
+{
+  "font-family": {
+    "font-family-primary": {
+      "$type": "string",
+      "$value": "Inter"
+    }
+  }
+}
+

@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "Success": {
+      "5": { "$type": "color", "$value": "#f0fdf4" },
+      "10": { "$type": "color", "$value": "#dcfce7" },
+      "20": { "$type": "color", "$value": "#bbf7d0" },
+      "30": { "$type": "color", "$value": "#86efac" },
+      "40": { "$type": "color", "$value": "#4ade80" },
+      "50": { "$type": "color", "$value": "#22c55e" },
+      "60": { "$type": "color", "$value": "#16a34a" },
+      "70": { "$type": "color", "$value": "#15803d" },
+      "80": { "$type": "color", "$value": "#166534" },
+      "90": { "$type": "color", "$value": "#14532d" }
+    }
+  }
+}
+

@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+.storybook-static
+storybook-static
+package-lock.json
+*.min.js
+*.min.css
+coverage
+.vscode
+.idea
+

@@ -1,0 +1,47 @@
+{
+  "colors": {
+    "Transparent": {
+      "White-16": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.16)"
+      },
+      "White-32": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.32)"
+      },
+      "White-48": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.48)"
+      },
+      "White-64": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.64)"
+      },
+      "White-80": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.8)"
+      },
+      "Black-16": {
+        "$type": "color",
+        "$value": "rgba(2, 6, 23, 0.16)"
+      },
+      "Black-32": {
+        "$type": "color",
+        "$value": "rgba(2, 6, 23, 0.32)"
+      },
+      "Black-48": {
+        "$type": "color",
+        "$value": "rgba(2, 6, 23, 0.48)"
+      },
+      "Black-64": {
+        "$type": "color",
+        "$value": "rgba(2, 6, 23, 0.64)"
+      },
+      "Black-80": {
+        "$type": "color",
+        "$value": "rgba(2, 6, 23, 0.8)"
+      }
+    }
+  }
+}
+

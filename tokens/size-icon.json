@@ -1,0 +1,10 @@
+{
+  "size-icon": {
+    "size-icon-lg": { "$type": "number", "$value": 32 },
+    "size-icon-md": { "$type": "number", "$value": 24 },
+    "size-icon-sm": { "$type": "number", "$value": 20 },
+    "size-icon-xs": { "$type": "number", "$value": 16 },
+    "size-icon-2xs": { "$type": "number", "$value": 12 }
+  }
+}
+

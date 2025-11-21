@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "Destructive": {
+      "5": { "$type": "color", "$value": "#fff1f2" },
+      "10": { "$type": "color", "$value": "#ffe4e6" },
+      "20": { "$type": "color", "$value": "#fecdd3" },
+      "30": { "$type": "color", "$value": "#fda4af" },
+      "40": { "$type": "color", "$value": "#fb7185" },
+      "50": { "$type": "color", "$value": "#f43f5e" },
+      "60": { "$type": "color", "$value": "#e11d48" },
+      "70": { "$type": "color", "$value": "#be123c" },
+      "80": { "$type": "color", "$value": "#9f1239" },
+      "90": { "$type": "color", "$value": "#881337" }
+    }
+  }
+}
+

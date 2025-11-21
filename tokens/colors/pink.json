@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "Pink": {
+      "5": { "$type": "color", "$value": "#fdf2f8" },
+      "10": { "$type": "color", "$value": "#fdf2f8" },
+      "20": { "$type": "color", "$value": "#fbcfe8" },
+      "30": { "$type": "color", "$value": "#f9a8d4" },
+      "40": { "$type": "color", "$value": "#f472b6" },
+      "50": { "$type": "color", "$value": "#ec4899" },
+      "60": { "$type": "color", "$value": "#db2777" },
+      "70": { "$type": "color", "$value": "#be185d" },
+      "80": { "$type": "color", "$value": "#9d174d" },
+      "90": { "$type": "color", "$value": "#831843" }
+    }
+  }
+}
+

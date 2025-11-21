@@ -1,0 +1,46 @@
+# Dependências
+node_modules/
+package-lock.json
+
+# Build e desenvolvimento
+.storybook/
+storybook-static/
+build/
+
+# Arquivos de configuração de desenvolvimento
+vite.config.js
+postcss.config.cjs
+tailwind.config.cjs
+.storybook/
+
+# Stories (não precisam ser distribuídos)
+stories/
+
+# Scripts de desenvolvimento
+scripts/
+
+# Arquivos de sistema
+.DS_Store
+*.log
+.env
+.env.local
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testes (se adicionar depois)
+coverage/
+.nyc_output/
+
+# Arquivos temporários
+*.tgz
+*.tar.gz
+

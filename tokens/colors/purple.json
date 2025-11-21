@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "Purple": {
+      "5": { "$type": "color", "$value": "#faf5ff" },
+      "10": { "$type": "color", "$value": "#f3e8ff" },
+      "20": { "$type": "color", "$value": "#e9d5ff" },
+      "30": { "$type": "color", "$value": "#d8b4fe" },
+      "40": { "$type": "color", "$value": "#c084fc" },
+      "50": { "$type": "color", "$value": "#a855f7" },
+      "60": { "$type": "color", "$value": "#9333ea" },
+      "70": { "$type": "color", "$value": "#7e22ce" },
+      "80": { "$type": "color", "$value": "#6b21a8" },
+      "90": { "$type": "color", "$value": "#581c87" }
+    }
+  }
+}
+

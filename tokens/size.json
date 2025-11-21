@@ -1,0 +1,11 @@
+{
+  "size": {
+    "size-xl": { "$type": "number", "$value": 64 },
+    "size-lg": { "$type": "number", "$value": 48 },
+    "size-md": { "$type": "number", "$value": 40 },
+    "size-sm": { "$type": "number", "$value": 32 },
+    "size-xs": { "$type": "number", "$value": 24 },
+    "size-2xs": { "$type": "number", "$value": 16 }
+  }
+}
+

@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "Cyan": {
+      "5": { "$type": "color", "$value": "#ecfeff" },
+      "10": { "$type": "color", "$value": "#cffafe" },
+      "20": { "$type": "color", "$value": "#a5f3fc" },
+      "30": { "$type": "color", "$value": "#67e8f9" },
+      "40": { "$type": "color", "$value": "#22d3ee" },
+      "50": { "$type": "color", "$value": "#06b6d4" },
+      "60": { "$type": "color", "$value": "#0891b2" },
+      "70": { "$type": "color", "$value": "#0e7490" },
+      "80": { "$type": "color", "$value": "#155e75" },
+      "90": { "$type": "color", "$value": "#164e63" }
+    }
+  }
+}
+

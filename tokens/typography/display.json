@@ -1,0 +1,95 @@
+{
+  "typography": {
+    "display-lg-extrabold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 180,
+        "fontWeight": 800,
+        "lineHeight": 188,
+        "letterSpacing": -9
+      }
+    },
+    "display-lg-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 180,
+        "fontWeight": 700,
+        "lineHeight": 188,
+        "letterSpacing": -9
+      }
+    },
+    "display-lg-semibold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 180,
+        "fontWeight": 600,
+        "lineHeight": 188,
+        "letterSpacing": -9
+      }
+    },
+    "display-md-extrabold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 128,
+        "fontWeight": 800,
+        "lineHeight": 136,
+        "letterSpacing": -5.12
+      }
+    },
+    "display-md-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 128,
+        "fontWeight": 700,
+        "lineHeight": 136,
+        "letterSpacing": -5.12
+      }
+    },
+    "display-md-semibold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 128,
+        "fontWeight": 600,
+        "lineHeight": 136,
+        "letterSpacing": -5.12
+      }
+    },
+    "display-sm-extrabold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 96,
+        "fontWeight": 800,
+        "lineHeight": 104,
+        "letterSpacing": -2.88
+      }
+    },
+    "display-sm-bold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 96,
+        "fontWeight": 700,
+        "lineHeight": 104,
+        "letterSpacing": -2.88
+      }
+    },
+    "display-sm-semibold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontSize": 96,
+        "fontWeight": 600,
+        "lineHeight": 104,
+        "letterSpacing": -2.88
+      }
+    }
+  }
+}
+
