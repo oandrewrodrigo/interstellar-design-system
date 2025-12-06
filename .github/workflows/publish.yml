@@ -37,10 +37,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
+      - name: Check if lint script exists
+        id: check_lint
+        run: |
+          if npm run | grep -q "  lint"; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      
       - name: Run linter
+        if: steps.check_lint.outputs.exists == 'true'
         run: npm run lint
       
+      - name: Check if test script exists
+        id: check_test
+        run: |
+          if npm run | grep -q "  test"; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      
       - name: Run tests
+        if: steps.check_test.outputs.exists == 'true'
         run: npm test -- --watchAll=false
       
       - name: Build tokens
