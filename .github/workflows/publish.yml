@@ -20,6 +20,8 @@ jobs:
     name: Publish Package
     runs-on: ubuntu-latest
     if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     
     steps:
       - name: Checkout code
@@ -77,9 +79,7 @@ jobs:
           fi
       
       - name: Publish to NPM
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
       
       - name: Create GitHub Release
         if: github.event_name == 'release'
