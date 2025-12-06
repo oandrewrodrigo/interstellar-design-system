@@ -1,6 +1,7 @@
 // Script CommonJS para converter JSON para JS puro
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // Usar process.cwd() para garantir que funciona independente de onde o script é executado
 // O script deve ser executado da raiz do projeto
@@ -24,5 +25,14 @@ export default tokens;
 `;
 
 fs.writeFileSync(jsPath, jsContent, 'utf8');
+
+// Formatar o arquivo gerado com Prettier
+try {
+  console.log('Formatando arquivo com Prettier...');
+  execSync(`npx prettier --write "${jsPath}"`, { cwd: projectRoot, stdio: 'inherit' });
+} catch (error) {
+  console.warn('Aviso: Não foi possível formatar o arquivo com Prettier. Continue mesmo assim.');
+}
+
 console.log('✓ Arquivo tokens/index.js criado com sucesso!');
 
