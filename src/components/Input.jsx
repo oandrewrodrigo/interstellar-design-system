@@ -3,7 +3,7 @@ import { Icon } from './Icon';
 
 /**
  * Componente Input do Design System Interstellar
- * 
+ *
  * @param {string} size - Tamanho do input: 'md' | 'lg'
  * @param {string} type - Tipo do input: 'default' | 'action' | 'currency' | 'credit-card' | 'date' | 'link' | 'password' | 'phone' | 'number'
  * @param {string} state - Estado do input: 'default' | 'hover' | 'filled' | 'focused' | 'disabled' | 'error'
@@ -39,7 +39,6 @@ export const Input = ({
   className = '',
   ...props
 }) => {
-
   // Mapeamento de tamanhos para classes Tailwind
   const sizeClasses = {
     md: 'h-10 px-3', // 40px altura, 12px padding horizontal
@@ -122,21 +121,27 @@ export const Input = ({
     transition-colors
     ${disabled || state === 'disabled' ? 'cursor-not-allowed' : ''}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do label
   const labelClasses = `
     ${labelTypographyClasses[size]}
     ${state === 'error' ? 'text-destructive-60' : 'text-gray-80'}
     ${disabled || state === 'disabled' ? 'text-gray-50' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do helper text
   const helperTextClasses = `
     ${helperTextTypographyClasses[size]}
     ${state === 'error' ? 'text-destructive-60' : 'text-gray-60'}
     ${disabled || state === 'disabled' ? 'text-gray-50' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Determinar o tipo HTML do input baseado no type prop
   const getInputType = () => {
@@ -157,18 +162,33 @@ export const Input = ({
       // Permitir alguns caracteres de formatação para telefone e cartão
       const isFormatChar = [' ', '-', '(', ')', '.', ','].includes(char);
       // Permitir teclas de controle (Backspace, Delete, Tab, Arrow keys, etc.)
-      const isControlKey = e.ctrlKey || e.metaKey || 
-        ['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Enter', 'Escape'].includes(e.key);
+      const isControlKey =
+        e.ctrlKey ||
+        e.metaKey ||
+        [
+          'Backspace',
+          'Delete',
+          'Tab',
+          'ArrowLeft',
+          'ArrowRight',
+          'ArrowUp',
+          'ArrowDown',
+          'Home',
+          'End',
+          'Enter',
+          'Escape',
+        ].includes(e.key);
       // Permitir colar (Ctrl+V, Cmd+V)
       const isPaste = (e.ctrlKey || e.metaKey) && e.key === 'v';
       // Permitir copiar/cortar/selecionar tudo
-      const isCopyCutSelect = (e.ctrlKey || e.metaKey) && ['c', 'x', 'a'].includes(e.key.toLowerCase());
-      
+      const isCopyCutSelect =
+        (e.ctrlKey || e.metaKey) && ['c', 'x', 'a'].includes(e.key.toLowerCase());
+
       if (!isNumber && !isFormatChar && !isControlKey && !isPaste && !isCopyCutSelect) {
         e.preventDefault();
       }
     }
-    
+
     // Chamar handler customizado se fornecido
     if (props.onKeyDown) {
       props.onKeyDown(e);
@@ -186,7 +206,7 @@ export const Input = ({
       // Para phone, permitir números e caracteres de formatação comuns
       newValue = newValue.replace(/[^0-9\s\-()]/g, '');
     }
-    
+
     // Só atualizar se o valor mudou (para evitar loops)
     if (newValue !== e.target.value) {
       // Criar novo evento com valor filtrado
@@ -194,10 +214,10 @@ export const Input = ({
         ...e,
         target: {
           ...e.target,
-          value: newValue
-        }
+          value: newValue,
+        },
       };
-      
+
       if (onChange) {
         onChange(syntheticEvent);
       }
@@ -248,7 +268,9 @@ export const Input = ({
   const renderLeftAdornment = () => {
     if (leftAdornment) {
       return (
-        <span className={`${helperTextTypographyClasses[size]} ${state === 'disabled' ? 'text-gray-50' : 'text-gray-60'} flex-shrink-0`}>
+        <span
+          className={`${helperTextTypographyClasses[size]} ${state === 'disabled' ? 'text-gray-50' : 'text-gray-60'} flex-shrink-0`}
+        >
           {leftAdornment}
         </span>
       );
@@ -260,7 +282,9 @@ export const Input = ({
   const renderRightAdornment = () => {
     if (rightAdornment) {
       return (
-        <span className={`${helperTextTypographyClasses[size]} ${state === 'disabled' ? 'text-gray-50' : 'text-gray-60'} flex-shrink-0`}>
+        <span
+          className={`${helperTextTypographyClasses[size]} ${state === 'disabled' ? 'text-gray-50' : 'text-gray-60'} flex-shrink-0`}
+        >
           {rightAdornment}
         </span>
       );
@@ -271,11 +295,7 @@ export const Input = ({
   return (
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
-      {label && (
-        <label className={labelClasses}>
-          {label}
-        </label>
-      )}
+      {label && <label className={labelClasses}>{label}</label>}
 
       {/* Input Container */}
       <div className={inputContainerClasses}>

@@ -8,4 +8,3 @@ export { default as AccordionDefault } from '../Accordion';
 
 // Export default para compatibilidade
 export { default } from '../Accordion';
-

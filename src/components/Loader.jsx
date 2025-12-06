@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 /**
  * Componente Loader do Design System Interstellar
  * Indicador de carregamento com múltiplos tipos e tamanhos
- * 
+ *
  * @param {boolean} isLabel - Se deve mostrar o label abaixo do loader
  * @param {string} labelDescription - Texto do label (padrão: "Loading...")
  * @param {string} size - Tamanho do loader: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
@@ -257,7 +257,7 @@ export const Loader = ({
     const barWidth = barWidthMap[size];
     const barHeight = barHeightMap[size];
     const radius = radiusMap[size];
-    
+
     return (
       <div className={`${sizeConfig.size} relative flex items-center justify-center`}>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -302,7 +302,7 @@ export const Loader = ({
     };
     const barHeight = barHeightMap[size];
     const radius = radiusMap[size];
-    
+
     return (
       <div className={`${sizeConfig.size} relative flex items-center justify-center`}>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -346,7 +346,7 @@ export const Loader = ({
     };
     const dotSize = dotSizeMap[size];
     const radius = radiusMap[size];
-    
+
     return (
       <div className={`${sizeConfig.size} relative flex items-center justify-center`}>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -372,8 +372,19 @@ export const Loader = ({
 
   // Renderizar Box
   const renderBox = () => {
-    const boxSize = size === 'xs' ? '14.667px' : size === 'sm' ? '18.333px' : size === 'md' ? '22px' : size === 'lg' ? '25.667px' : size === 'xl' ? '29.333px' : '36.667px';
-    
+    const boxSize =
+      size === 'xs'
+        ? '14.667px'
+        : size === 'sm'
+          ? '18.333px'
+          : size === 'md'
+            ? '22px'
+            : size === 'lg'
+              ? '25.667px'
+              : size === 'xl'
+                ? '29.333px'
+                : '36.667px';
+
     return (
       <div className={`${sizeConfig.size} relative`}>
         <div className="absolute left-0 top-0" style={{ width: boxSize, height: boxSize }}>
@@ -448,7 +459,9 @@ export const Loader = ({
   const containerClasses = `
     flex flex-col gap-md items-center justify-center
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={containerClasses} {...props}>
@@ -463,4 +476,3 @@ export const Loader = ({
 };
 
 export default Loader;
-

@@ -15,7 +15,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Exemplo completo de chat exatamente como no design do Figma, com sidebar de conversas e área de mensagens.',
+        component:
+          'Exemplo completo de chat exatamente como no design do Figma, com sidebar de conversas e área de mensagens.',
       },
     },
   },
@@ -76,53 +77,53 @@ export const FullChatInterface = () => {
   };
 
   const chats = [
-    { 
-      name: 'Andrew Rodrigo', 
-      lastMessage: 'Cara, o interstellar é demais,...', 
-      time: '12:25', 
-      isOnline: true, 
-      hasUnread: true, 
-      unreadCount: 2, 
+    {
+      name: 'Andrew Rodrigo',
+      lastMessage: 'Cara, o interstellar é demais,...',
+      time: '12:25',
+      isOnline: true,
+      hasUnread: true,
+      unreadCount: 2,
       state: 'active',
       avatar: 'https://via.placeholder.com/48?text=AR',
     },
-    { 
-      name: 'Andrew Rodrigo', 
-      lastMessage: 'Cara, o interstellar é demais,...', 
-      time: '12:25', 
-      isOnline: false, 
-      hasUnread: true, 
-      unreadCount: 2, 
+    {
+      name: 'Andrew Rodrigo',
+      lastMessage: 'Cara, o interstellar é demais,...',
+      time: '12:25',
+      isOnline: false,
+      hasUnread: true,
+      unreadCount: 2,
       state: 'default',
       avatar: 'https://via.placeholder.com/48?text=AR',
     },
-    { 
-      name: 'Andrew Rodrigo', 
-      lastMessage: 'Cara, o interstellar é demais,...', 
-      time: '12:25', 
-      isOnline: false, 
-      hasUnread: true, 
-      unreadCount: 2, 
+    {
+      name: 'Andrew Rodrigo',
+      lastMessage: 'Cara, o interstellar é demais,...',
+      time: '12:25',
+      isOnline: false,
+      hasUnread: true,
+      unreadCount: 2,
       state: 'default',
       avatar: 'https://via.placeholder.com/48?text=AR',
     },
-    { 
-      name: 'Andrew Rodrigo', 
-      lastMessage: 'Cara, o interstellar é demais,...', 
-      time: '12:25', 
-      isOnline: false, 
-      hasUnread: true, 
-      unreadCount: 2, 
+    {
+      name: 'Andrew Rodrigo',
+      lastMessage: 'Cara, o interstellar é demais,...',
+      time: '12:25',
+      isOnline: false,
+      hasUnread: true,
+      unreadCount: 2,
       state: 'default',
       avatar: 'https://via.placeholder.com/48?text=AR',
     },
-    { 
-      name: 'Andrew Rodrigo', 
-      lastMessage: 'Cara, o interstellar é demais,...', 
-      time: '12:25', 
-      isOnline: false, 
-      hasUnread: true, 
-      unreadCount: 2, 
+    {
+      name: 'Andrew Rodrigo',
+      lastMessage: 'Cara, o interstellar é demais,...',
+      time: '12:25',
+      isOnline: false,
+      hasUnread: true,
+      unreadCount: 2,
       state: 'default',
       avatar: 'https://via.placeholder.com/48?text=AR',
     },
@@ -135,9 +136,7 @@ export const FullChatInterface = () => {
         {/* Header da Sidebar */}
         <div className="px-3 py-3.5 border-b border-gray-20">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xl font-bold leading-7 tracking-[-0.2px] text-gray-80">
-              Chat
-            </h2>
+            <h2 className="text-xl font-bold leading-7 tracking-[-0.2px] text-gray-80">Chat</h2>
             <div className="flex items-center gap-2">
               <button
                 type="button"
@@ -169,7 +168,7 @@ export const FullChatInterface = () => {
               </button>
             </div>
           </div>
-          
+
           {/* Tabs */}
           <div className="flex gap-1 bg-gray-10 rounded-md p-1">
             <button
@@ -213,10 +212,10 @@ export const FullChatInterface = () => {
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <div className="relative shrink-0 w-12 h-12">
               <div className="relative rounded-full w-12 h-12 overflow-hidden bg-gray-20">
-                <img 
-                  src="https://via.placeholder.com/48?text=AD" 
-                  alt="Andreza Rodrigues" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="https://via.placeholder.com/48?text=AD"
+                  alt="Andreza Rodrigues"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute bottom-0 right-0 w-3 h-3 bg-success-50 border-2 border-gray-0 rounded-full" />
@@ -232,19 +231,10 @@ export const FullChatInterface = () => {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <Button
-              size="md"
-              color="gray"
-              hierarchy="outlined"
-              rightIcon="Video"
-            >
+            <Button size="md" color="gray" hierarchy="outlined" rightIcon="Video">
               Video conferência
             </Button>
-            <Button
-              size="md"
-              color="brand"
-              hierarchy="primary"
-            >
+            <Button size="md" color="brand" hierarchy="primary">
               Ver perfil
             </Button>
             <button
@@ -265,7 +255,14 @@ export const FullChatInterface = () => {
           {/* Messages */}
           <div className="space-y-4 max-w-2xl mx-auto">
             {messages.map((message) => (
-              <div key={message.id} className={message.type === 'sender' ? 'flex flex-col items-end gap-1' : 'flex flex-col items-start gap-1'}>
+              <div
+                key={message.id}
+                className={
+                  message.type === 'sender'
+                    ? 'flex flex-col items-end gap-1'
+                    : 'flex flex-col items-start gap-1'
+                }
+              >
                 <ChatMessage
                   type={message.type}
                   messageType={message.messageType}
@@ -301,4 +298,3 @@ export const FullChatInterface = () => {
     </div>
   );
 };
-

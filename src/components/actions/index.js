@@ -10,4 +10,3 @@ export { default as ButtonGroupDefault } from '../ButtonGroup';
 
 // Export default para compatibilidade (Button como default principal)
 export { default } from '../Button';
-

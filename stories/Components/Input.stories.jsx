@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Input do Design System Interstellar. Suporta múltiplas variações de tamanho, tipo e estado.',
+        component:
+          'Componente Input do Design System Interstellar. Suporta múltiplas variações de tamanho, tipo e estado.',
       },
     },
   },
@@ -20,7 +21,17 @@ export default {
     },
     type: {
       control: { type: 'select' },
-      options: ['default', 'action', 'currency', 'credit-card', 'date', 'link', 'password', 'phone', 'number'],
+      options: [
+        'default',
+        'action',
+        'currency',
+        'credit-card',
+        'date',
+        'link',
+        'password',
+        'phone',
+        'number',
+      ],
       description: 'Tipo do input',
     },
     state: {
@@ -76,7 +87,7 @@ Default.args = {
 export const Sizes = () => {
   const [valueMd, setValueMd] = useState('');
   const [valueLg, setValueLg] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Input
@@ -116,7 +127,7 @@ export const States = () => {
   const [value4, setValue4] = useState('');
   const [value5, setValue5] = useState('');
   const [value6, setValue6] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Input
@@ -202,7 +213,7 @@ export const Types = () => {
   const [value7, setValue7] = useState('');
   const [value8, setValue8] = useState('');
   const [value9, setValue9] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Input
@@ -303,7 +314,8 @@ export const Types = () => {
 Types.parameters = {
   docs: {
     description: {
-      story: 'Diferentes tipos de input: Default, Action (com botão), Currency, Credit Card, Date, Link, Password, Phone e Number',
+      story:
+        'Diferentes tipos de input: Default, Action (com botão), Currency, Credit Card, Date, Link, Password, Phone e Number',
     },
   },
 };
@@ -313,7 +325,7 @@ export const WithIcons = () => {
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('');
   const [value3, setValue3] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Input
@@ -363,7 +375,7 @@ export const WithAdornments = () => {
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('');
   const [value3, setValue3] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Input
@@ -410,7 +422,7 @@ WithAdornments.parameters = {
 // Componente helper para Input com estado
 const InputWithState = ({ state, typeConfig }) => {
   const [value, setValue] = useState(state === 'filled' ? 'Texto preenchido' : '');
-  
+
   return (
     <div className="w-[320px]">
       <Input
@@ -451,9 +463,7 @@ export const AllTypesStates = () => {
     <div className="flex flex-col gap-6">
       {types.map((typeConfig, typeIndex) => (
         <div key={typeIndex} className="flex flex-col gap-2">
-          <h3 className="text-sm font-semibold text-gray-90">
-            Type: {typeConfig.type}
-          </h3>
+          <h3 className="text-sm font-semibold text-gray-90">Type: {typeConfig.type}</h3>
           <div className="flex flex-wrap gap-4">
             {states.map((state) => (
               <InputWithState key={state} state={state} typeConfig={typeConfig} />
@@ -475,7 +485,7 @@ AllTypesStates.parameters = {
 // Componente helper para Input com estado (md)
 const InputWithStateMd = ({ state, typeConfig }) => {
   const [value, setValue] = useState(state === 'filled' ? 'Texto preenchido' : '');
-  
+
   return (
     <div className="w-[320px]">
       <Input
@@ -516,9 +526,7 @@ export const AllTypesStatesMd = () => {
     <div className="flex flex-col gap-6">
       {types.map((typeConfig, typeIndex) => (
         <div key={typeIndex} className="flex flex-col gap-2">
-          <h3 className="text-sm font-semibold text-gray-90">
-            Type: {typeConfig.type}
-          </h3>
+          <h3 className="text-sm font-semibold text-gray-90">Type: {typeConfig.type}</h3>
           <div className="flex flex-wrap gap-4">
             {states.map((state) => (
               <InputWithStateMd key={state} state={state} typeConfig={typeConfig} />
@@ -554,4 +562,3 @@ Interactive.parameters = {
     },
   },
 };
-

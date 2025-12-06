@@ -146,28 +146,14 @@ const Produtos = () => {
       {/* Header */}
       <div className="mb-xl flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">
-            Produtos
-          </h1>
-          <p className="text-md text-gray-60 font-primary">
-            Gerencie seu catálogo de produtos
-          </p>
+          <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">Produtos</h1>
+          <p className="text-md text-gray-60 font-primary">Gerencie seu catálogo de produtos</p>
         </div>
         <div className="flex items-center gap-sm">
-          <Button
-            size="md"
-            color="gray"
-            hierarchy="outlined"
-            leftIcon="Download"
-          >
+          <Button size="md" color="gray" hierarchy="outlined" leftIcon="Download">
             Exportar
           </Button>
-          <Button
-            size="md"
-            color="brand"
-            hierarchy="primary"
-            leftIcon="Plus"
-          >
+          <Button size="md" color="brand" hierarchy="primary" leftIcon="Plus">
             Novo Produto
           </Button>
         </div>
@@ -208,9 +194,7 @@ const Produtos = () => {
                 size="md"
                 color="brand"
               />
-              <span className="text-sm text-gray-60 font-primary">
-                Apenas produtos ativos
-              </span>
+              <span className="text-sm text-gray-60 font-primary">Apenas produtos ativos</span>
             </div>
           </div>
         </div>
@@ -218,15 +202,10 @@ const Produtos = () => {
 
       {/* Table */}
       <div className="bg-gray-0 rounded-lg border border-gray-20 overflow-hidden shadow-sm">
-        <Table
-          columns={columns}
-          data={produtosData}
-          formControl="checkbox"
-        />
+        <Table columns={columns} data={produtosData} formControl="checkbox" />
       </div>
     </div>
   );
 };
 
 export default Produtos;
-

@@ -8,7 +8,8 @@ export default {
     layout: 'padded',
     docs: {
       description: {
-        component: 'Componente Breadcrumb do Design System Interstellar. Navegação de migalhas de pão para indicar a localização atual na hierarquia.',
+        component:
+          'Componente Breadcrumb do Design System Interstellar. Navegação de migalhas de pão para indicar a localização atual na hierarquia.',
       },
     },
   },
@@ -56,34 +57,23 @@ export const Styles = () => (
   <div className="p-8 space-y-8">
     <div>
       <h3 className="text-sm font-bold mb-4 text-gray-90">Default Style</h3>
-      <Breadcrumb
-        items={['Link Item', 'Link Item', 'Link Item']}
-        style="Default"
-        divider="Icon"
-      />
+      <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Icon" />
     </div>
     <div>
       <h3 className="text-sm font-bold mb-4 text-gray-90">Fill Style</h3>
-      <Breadcrumb
-        items={['Link Item', 'Link Item', 'Link Item']}
-        style="Fill"
-        divider="Icon"
-      />
+      <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Fill" divider="Icon" />
     </div>
     <div>
       <h3 className="text-sm font-bold mb-4 text-gray-90">Outlined Style</h3>
-      <Breadcrumb
-        items={['Link Item', 'Link Item', 'Link Item']}
-        style="Outlined"
-        divider="Icon"
-      />
+      <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Outlined" divider="Icon" />
     </div>
   </div>
 );
 Styles.parameters = {
   docs: {
     description: {
-      story: 'Variações de estilo dos itens: Default (texto simples), Fill (com fundo), Outlined (com borda)',
+      story:
+        'Variações de estilo dos itens: Default (texto simples), Fill (com fundo), Outlined (com borda)',
     },
   },
 };
@@ -93,27 +83,15 @@ export const Dividers = () => (
   <div className="p-8 space-y-8">
     <div>
       <h3 className="text-sm font-bold mb-4 text-gray-90">Icon Divider (ChevronRight)</h3>
-      <Breadcrumb
-        items={['Link Item', 'Link Item', 'Link Item']}
-        style="Default"
-        divider="Icon"
-      />
+      <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Icon" />
     </div>
     <div>
       <h3 className="text-sm font-bold mb-4 text-gray-90">Slash Divider</h3>
-      <Breadcrumb
-        items={['Link Item', 'Link Item', 'Link Item']}
-        style="Default"
-        divider="Slash"
-      />
+      <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Slash" />
     </div>
     <div>
       <h3 className="text-sm font-bold mb-4 text-gray-90">Colon Divider</h3>
-      <Breadcrumb
-        items={['Link Item', 'Link Item', 'Link Item']}
-        style="Default"
-        divider="Colon"
-      />
+      <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Colon" />
     </div>
   </div>
 );
@@ -172,9 +150,21 @@ export const AllVariations = () => (
     <div className="space-y-4">
       <h3 className="text-base font-bold text-gray-90">Default Style - Não Boxed</h3>
       <div className="flex flex-col gap-4">
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Icon" />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Slash" />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Colon" />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Default"
+          divider="Icon"
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Default"
+          divider="Slash"
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Default"
+          divider="Colon"
+        />
       </div>
     </div>
 
@@ -192,9 +182,21 @@ export const AllVariations = () => (
     <div className="space-y-4">
       <h3 className="text-base font-bold text-gray-90">Outlined Style - Não Boxed</h3>
       <div className="flex flex-col gap-4">
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Outlined" divider="Icon" />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Outlined" divider="Slash" />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Outlined" divider="Colon" />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Outlined"
+          divider="Icon"
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Outlined"
+          divider="Slash"
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Outlined"
+          divider="Colon"
+        />
       </div>
     </div>
 
@@ -202,9 +204,24 @@ export const AllVariations = () => (
     <div className="space-y-4">
       <h3 className="text-base font-bold text-gray-90">Default Style - Boxed</h3>
       <div className="flex flex-col gap-4">
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Icon" isBoxed={true} />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Slash" isBoxed={true} />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Default" divider="Colon" isBoxed={true} />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Default"
+          divider="Icon"
+          isBoxed={true}
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Default"
+          divider="Slash"
+          isBoxed={true}
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Default"
+          divider="Colon"
+          isBoxed={true}
+        />
       </div>
     </div>
 
@@ -212,9 +229,24 @@ export const AllVariations = () => (
     <div className="space-y-4">
       <h3 className="text-base font-bold text-gray-90">Fill Style - Boxed</h3>
       <div className="flex flex-col gap-4">
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Fill" divider="Icon" isBoxed={true} />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Fill" divider="Slash" isBoxed={true} />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Fill" divider="Colon" isBoxed={true} />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Fill"
+          divider="Icon"
+          isBoxed={true}
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Fill"
+          divider="Slash"
+          isBoxed={true}
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Fill"
+          divider="Colon"
+          isBoxed={true}
+        />
       </div>
     </div>
 
@@ -222,9 +254,24 @@ export const AllVariations = () => (
     <div className="space-y-4">
       <h3 className="text-base font-bold text-gray-90">Outlined Style - Boxed</h3>
       <div className="flex flex-col gap-4">
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Outlined" divider="Icon" isBoxed={true} />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Outlined" divider="Slash" isBoxed={true} />
-        <Breadcrumb items={['Link Item', 'Link Item', 'Link Item']} style="Outlined" divider="Colon" isBoxed={true} />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Outlined"
+          divider="Icon"
+          isBoxed={true}
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Outlined"
+          divider="Slash"
+          isBoxed={true}
+        />
+        <Breadcrumb
+          items={['Link Item', 'Link Item', 'Link Item']}
+          style="Outlined"
+          divider="Colon"
+          isBoxed={true}
+        />
       </div>
     </div>
   </div>
@@ -274,4 +321,3 @@ WithoutHomeIcon.parameters = {
     },
   },
 };
-

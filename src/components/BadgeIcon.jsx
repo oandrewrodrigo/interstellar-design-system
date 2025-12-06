@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 /**
  * Componente BadgeIcon do Design System Interstellar
  * Badge circular com apenas ícone ou número
- * 
+ *
  * @param {string|number|React.ReactNode} content - Conteúdo do badge: nome do ícone Lucide (string), número (number) ou elemento React
  * @param {string} size - Tamanho do badge: 'sm' | 'md' | 'lg'
  * @param {string} color - Cor do badge: 'brand' | 'destructive' | 'warning' | 'success' | 'gray'
@@ -48,11 +48,7 @@ export const BadgeIcon = ({
 
     // Se for número, renderizar como texto
     if (typeof content === 'number') {
-      return (
-        <span className={sizeClasses[size].typography}>
-          {content}
-        </span>
-      );
+      return <span className={sizeClasses[size].typography}>{content}</span>;
     }
 
     // Se for string, assumir que é nome de ícone Lucide
@@ -67,13 +63,7 @@ export const BadgeIcon = ({
         iconColor = `${color}-60`;
       }
 
-      return (
-        <Icon
-          name={content}
-          size={sizeClasses[size].iconSize}
-          color={iconColor}
-        />
-      );
+      return <Icon name={content} size={sizeClasses[size].iconSize} color={iconColor} />;
     }
 
     // Se for ReactNode, renderizar diretamente
@@ -149,17 +139,20 @@ export const BadgeIcon = ({
       }
       if (color === 'destructive') {
         if (isDisabled) return 'border border-gray-30 text-gray-50 bg-transparent';
-        if (isHover) return 'border border-destructive-60 text-destructive-60 bg-transparent hover:bg-destructive-5';
+        if (isHover)
+          return 'border border-destructive-60 text-destructive-60 bg-transparent hover:bg-destructive-5';
         return 'border border-destructive-60 text-destructive-60 bg-transparent';
       }
       if (color === 'warning') {
         if (isDisabled) return 'border border-gray-30 text-gray-50 bg-transparent';
-        if (isHover) return 'border border-warning-60 text-warning-60 bg-transparent hover:bg-warning-5';
+        if (isHover)
+          return 'border border-warning-60 text-warning-60 bg-transparent hover:bg-warning-5';
         return 'border border-warning-60 text-warning-60 bg-transparent';
       }
       if (color === 'success') {
         if (isDisabled) return 'border border-gray-30 text-gray-50 bg-transparent';
-        if (isHover) return 'border border-success-60 text-success-60 bg-transparent hover:bg-success-5';
+        if (isHover)
+          return 'border border-success-60 text-success-60 bg-transparent hover:bg-success-5';
         return 'border border-success-60 text-success-60 bg-transparent';
       }
       if (color === 'gray') {
@@ -186,7 +179,9 @@ export const BadgeIcon = ({
     font-primary
     transition-colors
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={badgeClasses} {...props}>
@@ -196,4 +191,3 @@ export const BadgeIcon = ({
 };
 
 export default BadgeIcon;
-

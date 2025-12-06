@@ -5,7 +5,7 @@ import { Icon } from './Icon';
 /**
  * Componente ChatTopNav do Design System Interstellar
  * Barra superior do chat com informações do usuário e ações
- * 
+ *
  * @param {string} name - Nome do usuário/conversa
  * @param {string} caption - Caption/username abaixo do nome
  * @param {string} avatar - URL ou path do avatar
@@ -37,7 +37,9 @@ export const ChatTopNav = ({
     px-6 py-4
     flex items-center justify-between
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Renderizar avatar
   const renderAvatar = () => {
@@ -52,7 +54,7 @@ export const ChatTopNav = ({
         </div>
       );
     }
-    
+
     return (
       <div className="relative rounded-full shrink-0 w-12 h-12 overflow-hidden bg-gray-20 flex items-center justify-center">
         <Icon name="User" size="md" color="gray-60" />
@@ -145,4 +147,3 @@ ChatTopNav.defaultProps = {
 };
 
 export default ChatTopNav;
-

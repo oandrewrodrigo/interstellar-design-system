@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 /**
  * Componente Slider do Design System Interstellar
  * Slider single ou range com múltiplos tamanhos e opções de label
- * 
+ *
  * @param {number} value - Valor do slider (0-100) para single slider
  * @param {Array} range - Array [min, max] para range slider (0-100 cada)
  * @param {string} type - Tipo do slider: 'single' | 'range'
@@ -39,22 +39,22 @@ export const Slider = ({
   const [internalRange, setInternalRange] = useState(controlledRange ?? [0, 25]);
   const [isDragging, setIsDragging] = useState(false);
   const [activeThumb, setActiveThumb] = useState(null); // 'min' | 'max' | null para range slider
-  
+
   // Refs para elementos
   const trackRef = useRef(null);
   const isControlled = controlledValue !== undefined || controlledRange !== undefined;
-  
+
   // Usar valores controlados ou internos
   const value = isControlled ? (controlledValue ?? 0) : internalValue;
   const range = isControlled ? (controlledRange ?? [0, 25]) : internalRange;
-  
+
   // Garantir que valores estão entre 0 e 100
   const clampedValue = Math.max(0, Math.min(100, value));
   const clampedRange = [
     Math.max(0, Math.min(100, range[0])),
     Math.max(0, Math.min(100, range[1])),
   ].sort((a, b) => a - b);
-  
+
   // Refs para valores atuais (evitar problemas de closure no useEffect)
   const draggingRef = useRef(false);
   const activeThumbRef = useRef(null);
@@ -63,7 +63,7 @@ export const Slider = ({
   const onChangeRef = useRef(onChange);
   const rangeRef = useRef(clampedRange);
   const valueRef = useRef(clampedValue);
-  
+
   // Atualizar refs quando valores mudam
   useEffect(() => {
     typeRef.current = type;
@@ -155,7 +155,7 @@ export const Slider = ({
   // Função para calcular o valor baseado na posição do mouse
   const getValueFromPosition = (clientX) => {
     if (!trackRef.current) return 0;
-    
+
     const rect = trackRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
     const percentage = (x / rect.width) * 100;
@@ -165,19 +165,19 @@ export const Slider = ({
   // Handler para iniciar o arrasto
   const handleMouseDown = (e, thumbType = null) => {
     if (disabled) return;
-    
+
     e.preventDefault();
     setIsDragging(true);
     draggingRef.current = true;
-    
+
     if (type === 'range' && thumbType) {
       setActiveThumb(thumbType);
       activeThumbRef.current = thumbType;
     }
-    
+
     // Atualizar valor imediatamente ao clicar
     const newValue = getValueFromPosition(e.clientX);
-    
+
     if (type === 'single') {
       valueRef.current = newValue;
       if (!isControlled) {
@@ -189,7 +189,7 @@ export const Slider = ({
     } else {
       const [minValue, maxValue] = clampedRange;
       let newRange;
-      
+
       if (thumbType === 'min') {
         newRange = [Math.min(newValue, maxValue), maxValue];
         activeThumbRef.current = 'min';
@@ -202,7 +202,7 @@ export const Slider = ({
         // Clicou na track, determinar qual thumb mover
         const distanceToMin = Math.abs(newValue - minValue);
         const distanceToMax = Math.abs(newValue - maxValue);
-        
+
         if (distanceToMin < distanceToMax) {
           newRange = [Math.min(newValue, maxValue), maxValue];
           activeThumbRef.current = 'min';
@@ -213,7 +213,7 @@ export const Slider = ({
           setActiveThumb('max');
         }
       }
-      
+
       rangeRef.current = newRange;
       if (!isControlled) {
         setInternalRange(newRange);
@@ -227,9 +227,9 @@ export const Slider = ({
   // Handler para mover durante o arrasto
   const handleMouseMove = (e) => {
     if (!draggingRef.current || disabled) return;
-    
+
     const newValue = getValueFromPosition(e.clientX);
-    
+
     if (typeRef.current === 'single') {
       valueRef.current = newValue;
       if (!isControlledRef.current) {
@@ -242,7 +242,7 @@ export const Slider = ({
       // Para range slider, usar o ref atualizado
       const [minValue, maxValue] = rangeRef.current;
       let newRange;
-      
+
       if (activeThumbRef.current === 'min') {
         newRange = [Math.min(newValue, maxValue), maxValue];
       } else if (activeThumbRef.current === 'max') {
@@ -250,10 +250,10 @@ export const Slider = ({
       } else {
         return;
       }
-      
+
       // Atualizar o ref
       rangeRef.current = newRange;
-      
+
       if (!isControlledRef.current) {
         setInternalRange(newRange);
       }
@@ -278,7 +278,7 @@ export const Slider = ({
     if (isDragging) {
       document.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('mouseup', handleMouseUp);
-      
+
       return () => {
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
@@ -292,13 +292,7 @@ export const Slider = ({
 
     if (icon) {
       if (typeof icon === 'string') {
-        return (
-          <Icon
-            name={icon}
-            size={sizeConfig.iconSize}
-            color="gray-0"
-          />
-        );
+        return <Icon name={icon} size={sizeConfig.iconSize} color="gray-0" />;
       }
       return icon;
     }
@@ -308,10 +302,7 @@ export const Slider = ({
     return (
       <div className="flex flex-col gap-0.5 items-center justify-center">
         {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="w-0.5 h-0.5 bg-gray-0 rounded-full"
-          />
+          <div key={i} className="w-0.5 h-0.5 bg-gray-0 rounded-full" />
         ))}
       </div>
     );
@@ -322,7 +313,9 @@ export const Slider = ({
     if (!isLabel) return null;
 
     return (
-      <p className={`${sizeConfig.labelTypography} text-gray-60 text-center font-primary whitespace-nowrap`}>
+      <p
+        className={`${sizeConfig.labelTypography} text-gray-60 text-center font-primary whitespace-nowrap`}
+      >
         {labelValue}%
       </p>
     );
@@ -336,15 +329,17 @@ export const Slider = ({
     return (
       <div className="flex flex-col gap-xs items-start justify-center">
         {/* Slider Track */}
-        <div 
+        <div
           ref={trackRef}
-          className="relative w-full cursor-pointer" 
+          className="relative w-full cursor-pointer"
           style={{ height: size === 'sm' ? '16px' : size === 'md' ? '20px' : '24px' }}
           onMouseDown={(e) => handleMouseDown(e)}
         >
           {/* Track Background */}
-          <div className={`absolute top-1/2 left-0 -translate-y-1/2 w-full ${sizeConfig.trackHeight} bg-gray-20 rounded-full`} />
-          
+          <div
+            className={`absolute top-1/2 left-0 -translate-y-1/2 w-full ${sizeConfig.trackHeight} bg-gray-20 rounded-full`}
+          />
+
           {/* Filled Track */}
           {clampedValue > 0 && (
             <div
@@ -390,14 +385,16 @@ export const Slider = ({
     return (
       <div className="flex flex-col gap-xs items-start justify-center">
         {/* Slider Track */}
-        <div 
+        <div
           ref={trackRef}
           className={`relative w-full cursor-pointer ${sizeConfig.containerHeight}`}
           onMouseDown={(e) => handleMouseDown(e)}
         >
           {/* Track Background */}
-          <div className={`absolute top-1/2 left-0 -translate-y-1/2 w-full ${sizeConfig.trackHeight} bg-gray-20 rounded-full`} />
-          
+          <div
+            className={`absolute top-1/2 left-0 -translate-y-1/2 w-full ${sizeConfig.trackHeight} bg-gray-20 rounded-full`}
+          />
+
           {/* Filled Track */}
           {fillWidth > 0 && (
             <div
@@ -438,7 +435,7 @@ export const Slider = ({
             <>
               <div
                 className={`absolute top-full left-1/2 -translate-x-1/2 flex flex-col gap-2 items-center ${size === 'sm' ? 'mt-1' : 'mt-2'}`}
-                style={{ 
+                style={{
                   left: `${minValue}%`,
                 }}
               >
@@ -446,7 +443,7 @@ export const Slider = ({
               </div>
               <div
                 className={`absolute top-full left-1/2 -translate-x-1/2 flex flex-col gap-2 items-center ${size === 'sm' ? 'mt-1' : 'mt-2'}`}
-                style={{ 
+                style={{
                   left: `${maxValue}%`,
                 }}
               >
@@ -463,7 +460,9 @@ export const Slider = ({
   const containerClasses = `
     flex flex-col
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={containerClasses} {...props}>
@@ -473,4 +472,3 @@ export const Slider = ({
 };
 
 export default Slider;
-

@@ -7,7 +7,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
-  
+
   // Configuração para build de biblioteca
   build: {
     lib: {
@@ -40,4 +40,3 @@ export default defineConfig({
     minify: true,
   },
 });
-

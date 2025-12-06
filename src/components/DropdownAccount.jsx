@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 /**
  * Componente DropdownAccount do Design System Interstellar
  * Menu dropdown para conta do usuário com header, itens de menu e atalhos de teclado
- * 
+ *
  * @param {string} triggerType - Tipo de trigger: 'avatar' | 'button' | 'button-icon'
  * @param {string} state - Estado do dropdown: 'default' | 'hover' | 'opened' | 'disabled'
  * @param {object} user - Objeto com informações do usuário { name, email, avatar?, status? }
@@ -22,7 +22,7 @@ export const DropdownAccount = ({
     name: 'Cara do Marketing',
     email: 'ocaradomarketing@gmail.com',
     avatar: null,
-    status: 'online'
+    status: 'online',
   },
   menuItems = [],
   onItemClick,
@@ -64,13 +64,13 @@ export const DropdownAccount = ({
   // Handler para clicar em um item do menu
   const handleItemClick = (item) => {
     if (disabled || state === 'disabled') return;
-    
+
     if (item.value === 'logout' && onLogout) {
       onLogout();
     } else if (onItemClick) {
       onItemClick(item);
     }
-    
+
     setIsOpen(false);
   };
 
@@ -134,7 +134,9 @@ export const DropdownAccount = ({
             transition-colors
             ${buttonTypographyClasses}
             ${disabled || state === 'disabled' ? 'text-gray-50 cursor-not-allowed' : 'text-gray-60 hover:border-gray-40'}
-          `.trim().replace(/\s+/g, ' ')}
+          `
+            .trim()
+            .replace(/\s+/g, ' ')}
         >
           <span>Conta</span>
           <Icon
@@ -160,7 +162,9 @@ export const DropdownAccount = ({
             cursor-pointer
             transition-colors
             ${disabled || state === 'disabled' ? 'text-gray-50 cursor-not-allowed' : 'text-gray-60 hover:border-gray-40'}
-          `.trim().replace(/\s+/g, ' ')}
+          `
+            .trim()
+            .replace(/\s+/g, ' ')}
         >
           <Icon
             name="MoreHorizontal"
@@ -219,9 +223,7 @@ export const DropdownAccount = ({
           <div className="py-1">
             {menuItems.map((item, index) => (
               <React.Fragment key={item.value || index}>
-                {item.divider && index > 0 && (
-                  <div className="h-px bg-gray-20 my-1" />
-                )}
+                {item.divider && index > 0 && <div className="h-px bg-gray-20 my-1" />}
                 <div
                   onClick={() => handleItemClick(item)}
                   className={`
@@ -230,7 +232,9 @@ export const DropdownAccount = ({
                     cursor-pointer
                     transition-colors
                     ${item.value === 'logout' ? 'hover:bg-gray-5' : 'hover:bg-gray-5'}
-                  `.trim().replace(/\s+/g, ' ')}
+                  `
+                    .trim()
+                    .replace(/\s+/g, ' ')}
                 >
                   {/* Icon */}
                   {item.icon && (
@@ -248,7 +252,9 @@ export const DropdownAccount = ({
                   )}
 
                   {/* Label */}
-                  <span className={`${itemTypographyClasses} ${item.value === 'logout' ? 'text-destructive-60' : 'text-gray-80'} flex-1`}>
+                  <span
+                    className={`${itemTypographyClasses} ${item.value === 'logout' ? 'text-destructive-60' : 'text-gray-80'} flex-1`}
+                  >
                     {item.label}
                   </span>
 
@@ -269,4 +275,3 @@ export const DropdownAccount = ({
 };
 
 export default DropdownAccount;
-

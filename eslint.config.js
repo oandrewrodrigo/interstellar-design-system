@@ -57,7 +57,13 @@ export default [
     },
   },
   {
-    ignores: ['dist/**', 'node_modules/**', 'build/**', '.storybook-static/**', 'storybook-static/**', 'coverage/**'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'build/**',
+      '.storybook-static/**',
+      'storybook-static/**',
+      'coverage/**',
+    ],
   },
 ];
-

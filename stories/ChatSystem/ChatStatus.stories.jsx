@@ -55,4 +55,3 @@ export const Interactive = (args) => {
 Interactive.args = {
   status: 'read',
 };
-

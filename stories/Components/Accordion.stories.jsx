@@ -8,7 +8,8 @@ export default {
     layout: 'padded',
     docs: {
       description: {
-        component: 'Componente Accordion do Design System Interstellar. Painel expansível/retrátil com header e conteúdo opcional.',
+        component:
+          'Componente Accordion do Design System Interstellar. Painel expansível/retrátil com header e conteúdo opcional.',
       },
     },
   },
@@ -52,11 +53,7 @@ const Template = (args) => {
 
   return (
     <div className="p-8 max-w-2xl">
-      <Accordion
-        {...args}
-        isOpened={isOpened}
-        onChange={setIsOpened}
-      />
+      <Accordion {...args} isOpened={isOpened} onChange={setIsOpened} />
     </div>
   );
 };
@@ -193,4 +190,3 @@ export const Multiple = () => {
     </div>
   );
 };
-

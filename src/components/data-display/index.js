@@ -16,4 +16,3 @@ export { default as TrendDefault } from '../Trend';
 
 // Export default para compatibilidade (Table como default principal)
 export { default } from '../Table';
-

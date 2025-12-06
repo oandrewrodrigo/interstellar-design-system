@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 /**
  * Componente Badge do Design System Interstellar
  * Badge com texto, dot opcional e ícone opcional
- * 
+ *
  * @param {React.ReactNode} children - Conteúdo do badge (texto)
  * @param {string} size - Tamanho do badge: 'sm' | 'md' | 'lg'
  * @param {string} color - Cor do badge: 'brand' | 'destructive' | 'warning' | 'success' | 'gray'
@@ -14,7 +14,7 @@ import { Icon } from './Icon';
  * @param {string|React.ReactNode} rightIcon - Nome do ícone Lucide (string) ou elemento React à direita
  * @param {string} className - Classes CSS adicionais
  * @param {object} props - Outras props do elemento
- * 
+ *
  * @directive Uso em Tabelas: Sempre que o componente Badge for usado em uma tabela, utilize a hierarquia 'secondary'.
  */
 export const Badge = ({
@@ -62,15 +62,15 @@ export const Badge = ({
 
   // Mapeamento de tamanho do badge para tamanho do ícone
   const iconSizeMap = {
-    sm: 'xs',   // 16px
-    md: 'xs',   // 16px
-    lg: 'sm',   // 20px
+    sm: 'xs', // 16px
+    md: 'xs', // 16px
+    lg: 'sm', // 20px
   };
 
   // Função helper para renderizar ícone
   const renderIcon = (icon, badgeSize, badgeHierarchy, badgeColor) => {
     if (!icon) return null;
-    
+
     // Se for string, usar componente Icon
     if (typeof icon === 'string') {
       // Determinar cor do ícone baseado na hierarquia
@@ -83,15 +83,9 @@ export const Badge = ({
         iconColor = `${badgeColor}-60`;
       }
 
-      return (
-        <Icon
-          name={icon}
-          size={iconSizeMap[badgeSize]}
-          color={iconColor}
-        />
-      );
+      return <Icon name={icon} size={iconSizeMap[badgeSize]} color={iconColor} />;
     }
-    
+
     // Se for ReactNode, renderizar diretamente
     return icon;
   };
@@ -165,17 +159,20 @@ export const Badge = ({
       }
       if (color === 'destructive') {
         if (isDisabled) return 'border border-gray-30 text-gray-50 bg-transparent';
-        if (isHover) return 'border border-destructive-60 text-destructive-60 bg-transparent hover:bg-destructive-5';
+        if (isHover)
+          return 'border border-destructive-60 text-destructive-60 bg-transparent hover:bg-destructive-5';
         return 'border border-destructive-60 text-destructive-60 bg-transparent';
       }
       if (color === 'warning') {
         if (isDisabled) return 'border border-gray-30 text-gray-50 bg-transparent';
-        if (isHover) return 'border border-warning-60 text-warning-60 bg-transparent hover:bg-warning-5';
+        if (isHover)
+          return 'border border-warning-60 text-warning-60 bg-transparent hover:bg-warning-5';
         return 'border border-warning-60 text-warning-60 bg-transparent';
       }
       if (color === 'success') {
         if (isDisabled) return 'border border-gray-30 text-gray-50 bg-transparent';
-        if (isHover) return 'border border-success-60 text-success-60 bg-transparent hover:bg-success-5';
+        if (isHover)
+          return 'border border-success-60 text-success-60 bg-transparent hover:bg-success-5';
         return 'border border-success-60 text-success-60 bg-transparent';
       }
       if (color === 'gray') {
@@ -217,7 +214,9 @@ export const Badge = ({
     font-primary
     transition-colors
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={badgeClasses} {...props}>
@@ -225,19 +224,16 @@ export const Badge = ({
       {showDot && (
         <div className={`${sizeConfig.dotSize} ${dotColor} rounded-full flex-shrink-0`} />
       )}
-      
+
       {/* Conteúdo (texto) */}
       {children && <span className="text-center">{children}</span>}
-      
+
       {/* Ícone à direita */}
       {renderIcon(rightIcon, size, hierarchy, color) && (
-        <span className="flex-shrink-0">
-          {renderIcon(rightIcon, size, hierarchy, color)}
-        </span>
+        <span className="flex-shrink-0">{renderIcon(rightIcon, size, hierarchy, color)}</span>
       )}
     </div>
   );
 };
 
 export default Badge;
-

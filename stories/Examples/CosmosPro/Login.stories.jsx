@@ -8,7 +8,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Tela de Login do Cosmos Pro - Exemplo de uso dos componentes do Design System Interstellar.',
+        component:
+          'Tela de Login do Cosmos Pro - Exemplo de uso dos componentes do Design System Interstellar.',
       },
     },
   },
@@ -21,10 +22,3 @@ export const Default = () => {
 Default.parameters = {
   layout: 'fullscreen',
 };
-
-
-
-
-
-
-

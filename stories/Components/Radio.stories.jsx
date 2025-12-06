@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Radio do Design System Interstellar. Suporta múltiplas variações de tamanho e estado.',
+        component:
+          'Componente Radio do Design System Interstellar. Suporta múltiplas variações de tamanho e estado.',
       },
     },
   },
@@ -37,13 +38,7 @@ export default {
 // Template básico
 const Template = (args) => {
   const [checked, setChecked] = useState(args.checked || false);
-  return (
-    <Radio
-      {...args}
-      checked={checked}
-      onChange={(e) => setChecked(e.target.checked)}
-    />
-  );
+  return <Radio {...args} checked={checked} onChange={(e) => setChecked(e.target.checked)} />;
 };
 
 // Story padrão
@@ -59,19 +54,37 @@ export const Sizes = () => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
-  
+
   return (
     <div className="flex flex-col gap-4 items-start">
       <div className="flex gap-4 items-center">
-        <Radio size="sm" checked={checked1} onChange={(e) => setChecked1(e.target.checked)} name="sizes" value="sm" />
+        <Radio
+          size="sm"
+          checked={checked1}
+          onChange={(e) => setChecked1(e.target.checked)}
+          name="sizes"
+          value="sm"
+        />
         <span className="text-sm text-gray-80">Small (16px)</span>
       </div>
       <div className="flex gap-4 items-center">
-        <Radio size="md" checked={checked2} onChange={(e) => setChecked2(e.target.checked)} name="sizes" value="md" />
+        <Radio
+          size="md"
+          checked={checked2}
+          onChange={(e) => setChecked2(e.target.checked)}
+          name="sizes"
+          value="md"
+        />
         <span className="text-sm text-gray-80">Medium (20px)</span>
       </div>
       <div className="flex gap-4 items-center">
-        <Radio size="lg" checked={checked3} onChange={(e) => setChecked3(e.target.checked)} name="sizes" value="lg" />
+        <Radio
+          size="lg"
+          checked={checked3}
+          onChange={(e) => setChecked3(e.target.checked)}
+          name="sizes"
+          value="lg"
+        />
         <span className="text-sm text-gray-80">Large (24px)</span>
       </div>
     </div>
@@ -92,10 +105,28 @@ export const States = () => {
       <div className="flex flex-col gap-4">
         <h3 className="text-sm font-semibold text-gray-90">Unchecked</h3>
         <div className="flex gap-4 items-center">
-          <Radio size="md" state="default" checked={false} name="states-unchecked" value="default" />
+          <Radio
+            size="md"
+            state="default"
+            checked={false}
+            name="states-unchecked"
+            value="default"
+          />
           <Radio size="md" state="hover" checked={false} name="states-unchecked" value="hover" />
-          <Radio size="md" state="focused" checked={false} name="states-unchecked" value="focused" />
-          <Radio size="md" state="disabled" checked={false} name="states-unchecked" value="disabled" />
+          <Radio
+            size="md"
+            state="focused"
+            checked={false}
+            name="states-unchecked"
+            value="focused"
+          />
+          <Radio
+            size="md"
+            state="disabled"
+            checked={false}
+            name="states-unchecked"
+            value="disabled"
+          />
         </div>
       </div>
       <div className="flex flex-col gap-4">
@@ -131,9 +162,7 @@ export const AllCombinations = () => {
     <div className="flex flex-col gap-8">
       {sizes.map((size) => (
         <div key={size} className="flex flex-col gap-4">
-          <h3 className="text-sm font-semibold text-gray-90">
-            Size: {size.toUpperCase()}
-          </h3>
+          <h3 className="text-sm font-semibold text-gray-90">Size: {size.toUpperCase()}</h3>
           {variants.map((variant) => (
             <div key={variant.label} className="flex flex-col gap-2">
               <h4 className="text-xs font-medium text-gray-60">{variant.label}</h4>
@@ -169,7 +198,7 @@ AllCombinations.parameters = {
 // Grupo de radios
 export const RadioGroup = () => {
   const [selected, setSelected] = useState('option1');
-  
+
   return (
     <div className="flex flex-col gap-4 items-start">
       <label className="flex items-center gap-2 cursor-pointer">
@@ -218,7 +247,7 @@ export const WithLabel = () => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
-  
+
   return (
     <div className="flex flex-col gap-4 items-start">
       <label className="flex items-center gap-2 cursor-pointer">
@@ -278,4 +307,3 @@ Interactive.parameters = {
     },
   },
 };
-

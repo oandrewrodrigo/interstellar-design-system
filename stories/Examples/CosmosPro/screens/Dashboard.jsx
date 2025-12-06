@@ -83,12 +83,8 @@ const Dashboard = () => {
       {/* Header with Actions */}
       <div className="flex items-center justify-between mb-2xl">
         <div>
-          <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">
-            Dashboard
-          </h1>
-          <p className="text-md text-gray-60 font-primary">
-            Visão geral do seu negócio
-          </p>
+          <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">Dashboard</h1>
+          <p className="text-md text-gray-60 font-primary">Visão geral do seu negócio</p>
         </div>
         {/* Quick Actions */}
         <div className="flex items-center gap-sm">
@@ -122,9 +118,7 @@ const Dashboard = () => {
                 <p className="text-xs text-gray-60 font-primary mb-xs uppercase tracking-wide">
                   {stat.title}
                 </p>
-                <h3 className="text-2xl font-bold text-gray-90 font-primary mb-xs">
-                  {stat.value}
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-90 font-primary mb-xs">{stat.value}</h3>
                 <Trend
                   text="vs. mês anterior"
                   percentage={stat.trend.percentage}
@@ -156,12 +150,8 @@ const Dashboard = () => {
           <div className="flex flex-col gap-xl">
             <div>
               <div className="flex items-center justify-between mb-sm">
-                <span className="text-sm font-semibold text-gray-70 font-primary">
-                  Meta Mensal
-                </span>
-                <span className="text-sm font-bold text-brand-60 font-primary">
-                  75%
-                </span>
+                <span className="text-sm font-semibold text-gray-70 font-primary">Meta Mensal</span>
+                <span className="text-sm font-bold text-brand-60 font-primary">75%</span>
               </div>
               <ProgressBar progression={75} size="lg" color="brand" label="Right" />
             </div>
@@ -170,20 +160,14 @@ const Dashboard = () => {
                 <span className="text-sm font-semibold text-gray-70 font-primary">
                   Meta Trimestral
                 </span>
-                <span className="text-sm font-bold text-success-60 font-primary">
-                  45%
-                </span>
+                <span className="text-sm font-bold text-success-60 font-primary">45%</span>
               </div>
               <ProgressBar progression={45} size="lg" color="success" label="Right" />
             </div>
             <div>
               <div className="flex items-center justify-between mb-sm">
-                <span className="text-sm font-semibold text-gray-70 font-primary">
-                  Meta Anual
-                </span>
-                <span className="text-sm font-bold text-warning-60 font-primary">
-                  32%
-                </span>
+                <span className="text-sm font-semibold text-gray-70 font-primary">Meta Anual</span>
+                <span className="text-sm font-bold text-warning-60 font-primary">32%</span>
               </div>
               <ProgressBar progression={32} size="lg" color="warning" label="Right" />
             </div>
@@ -196,24 +180,17 @@ const Dashboard = () => {
             <h2 className="text-xl font-semibold text-gray-90 font-primary mb-xs">
               Atividades Recentes
             </h2>
-            <p className="text-sm text-gray-60 font-primary">
-              Últimas atualizações
-            </p>
+            <p className="text-sm text-gray-60 font-primary">Últimas atualizações</p>
           </div>
           <div className="flex flex-col gap-lg">
             {recentActivities.map((activity) => (
-              <div
-                key={activity.id}
-                className="flex items-start gap-sm"
-              >
+              <div key={activity.id} className="flex items-start gap-sm">
                 <Avatar src={activity.avatar} size="md" alt={activity.user} />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-gray-90 font-primary mb-2xs truncate">
                     {activity.user}
                   </p>
-                  <p className="text-xs text-gray-60 font-primary mb-xs">
-                    {activity.action}
-                  </p>
+                  <p className="text-xs text-gray-60 font-primary mb-xs">{activity.action}</p>
                   <div className="flex items-center gap-xs text-xs text-gray-50 font-primary">
                     <Icon name={activity.icon} size="xs" color="gray-40" />
                     <span>{activity.time}</span>
@@ -229,4 +206,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

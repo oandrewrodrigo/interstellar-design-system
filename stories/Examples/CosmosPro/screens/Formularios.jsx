@@ -41,9 +41,7 @@ const Formularios = () => {
     <div className="p-2xl max-w-[1600px] mx-auto">
       {/* Header */}
       <div className="mb-xl">
-        <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">
-          Formulários
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">Formulários</h1>
         <p className="text-md text-gray-60 font-primary">
           Exemplos de formulários usando os componentes do design system
         </p>
@@ -52,9 +50,7 @@ const Formularios = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-md">
         {/* Formulário Principal */}
         <div className="bg-gray-0 rounded-lg p-xl border border-gray-20">
-          <h2 className="text-xl font-semibold text-gray-90 font-primary mb-md">
-            Novo Projeto
-          </h2>
+          <h2 className="text-xl font-semibold text-gray-90 font-primary mb-md">Novo Projeto</h2>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-md">
             {/* Inputs */}
@@ -169,9 +165,7 @@ const Formularios = () => {
                 <label className="block text-sm font-medium text-gray-60 font-primary mb-xs">
                   Receber Notificações
                 </label>
-                <p className="text-xs text-gray-50 font-primary">
-                  Receba atualizações por email
-                </p>
+                <p className="text-xs text-gray-50 font-primary">Receba atualizações por email</p>
               </div>
               <Toggle
                 checked={formData.notifications}
@@ -210,12 +204,7 @@ const Formularios = () => {
 
             {/* Buttons */}
             <div className="flex gap-sm pt-md mt-xs">
-              <Button
-                type="submit"
-                size="md"
-                color="brand"
-                hierarchy="primary"
-              >
+              <Button type="submit" size="md" color="brand" hierarchy="primary">
                 Salvar Projeto
               </Button>
               <Button
@@ -223,18 +212,20 @@ const Formularios = () => {
                 size="md"
                 color="gray"
                 hierarchy="outlined"
-                onClick={() => setFormData({
-                  name: '',
-                  email: '',
-                  phone: '',
-                  description: '',
-                  category: '',
-                  priority: 'medium',
-                  notifications: true,
-                  budget: 50,
-                  terms: false,
-                  plan: 'basic',
-                })}
+                onClick={() =>
+                  setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    description: '',
+                    category: '',
+                    priority: 'medium',
+                    notifications: true,
+                    budget: 50,
+                    terms: false,
+                    plan: 'basic',
+                  })
+                }
               >
                 Limpar
               </Button>
@@ -278,12 +269,7 @@ const Formularios = () => {
             <h3 className="text-lg font-semibold text-gray-90 font-primary mb-md">
               Progresso do Formulário
             </h3>
-            <ProgressBar
-              progression={65}
-              size="lg"
-              color="brand"
-              label="Bottom"
-            />
+            <ProgressBar progression={65} size="lg" color="brand" label="Bottom" />
           </div>
 
           {/* Badges Example */}
@@ -310,4 +296,3 @@ const Formularios = () => {
 };
 
 export default Formularios;
-

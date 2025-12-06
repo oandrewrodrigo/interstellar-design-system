@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Componente ProgressBar do Design System Interstellar
  * Barra de progresso com múltiplos tamanhos e opções de label
- * 
+ *
  * @param {number} progression - Valor de progresso de 0 a 100 (padrão: 0)
  * @param {string} size - Tamanho da barra: 'sm' | 'md' | 'lg'
  * @param {string} label - Posição do label: 'None' | 'Bottom' | 'Right'
@@ -99,7 +99,9 @@ export const ProgressBar = ({
 
     if (label === 'Right') {
       return (
-        <p className={`${sizeConfig.typography} text-gray-60 text-right font-primary whitespace-nowrap`}>
+        <p
+          className={`${sizeConfig.typography} text-gray-60 text-right font-primary whitespace-nowrap`}
+        >
           {labelText}
         </p>
       );
@@ -109,9 +111,10 @@ export const ProgressBar = ({
   };
 
   // Classes do container baseado na posição do label
-  const containerClasses = label === 'Right'
-    ? `flex gap-xs items-center ${className}`
-    : `flex flex-col gap-sm items-start ${className}`;
+  const containerClasses =
+    label === 'Right'
+      ? `flex gap-xs items-center ${className}`
+      : `flex flex-col gap-sm items-start ${className}`;
 
   // Classes da barra de progresso
   const progressBarClasses = `
@@ -121,7 +124,9 @@ export const ProgressBar = ({
     rounded-full
     ${colors.track}
     overflow-hidden
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do preenchimento
   const fillClasses = `
@@ -134,7 +139,9 @@ export const ProgressBar = ({
     transition-all
     duration-300
     ease-out
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={containerClasses} {...props}>
@@ -155,4 +162,3 @@ export const ProgressBar = ({
 };
 
 export default ProgressBar;
-

@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 /**
  * Componente Rating do Design System Interstellar
  * Avaliação com estrelas
- * 
+ *
  * @param {number} value - Valor da avaliação (0-5, pode ser decimal como 4.5)
  * @param {number} max - Valor máximo (padrão: 5)
  * @param {boolean} readonly - Se a avaliação é somente leitura
@@ -76,7 +76,9 @@ export const Rating = ({
     flex items-center
     ${sizeConfig.gap}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={containerClasses} {...props}>
@@ -93,4 +95,3 @@ export const Rating = ({
 };
 
 export default Rating;
-

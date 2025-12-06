@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { 
-  Button, 
-  Input, 
-  Textarea, 
-  Checkbox, 
-  Radio, 
-  Dropdown, 
+import {
+  Button,
+  Input,
+  Textarea,
+  Checkbox,
+  Radio,
+  Dropdown,
   DropdownAccount,
   Notification,
-  Icon 
+  Icon,
 } from '../../src/components';
 
 export default {
@@ -17,7 +17,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Página de exemplo do ERP Cosmos Pro demonstrando o uso dos componentes do Design System Interstellar.',
+        component:
+          'Página de exemplo do ERP Cosmos Pro demonstrando o uso dos componentes do Design System Interstellar.',
       },
     },
   },
@@ -104,36 +105,20 @@ export const Dashboard = () => {
 
           {/* Navegação */}
           <nav className="flex items-center gap-4">
-            <Button 
-              hierarchy="link" 
-              size="md"
-              leftIcon="Home"
-            >
+            <Button hierarchy="link" size="md" leftIcon="Home">
               Dashboard
             </Button>
-            <Button 
-              hierarchy="link" 
-              size="md"
-              leftIcon="FileText"
-            >
+            <Button hierarchy="link" size="md" leftIcon="FileText">
               Relatórios
             </Button>
-            <Button 
-              hierarchy="link" 
-              size="md"
-              leftIcon="Settings"
-            >
+            <Button hierarchy="link" size="md" leftIcon="Settings">
               Configurações
             </Button>
           </nav>
 
           {/* Account Dropdown */}
           <div className="flex items-center gap-4">
-            <Button 
-              hierarchy="outlined" 
-              size="sm"
-              leftIcon="Bell"
-            >
+            <Button hierarchy="outlined" size="sm" leftIcon="Bell">
               <span className="relative">
                 Notificações
                 <span className="absolute -top-1 -right-1 w-2 h-2 bg-destructive-60 rounded-full"></span>
@@ -165,7 +150,9 @@ export const Dashboard = () => {
             icon="Info"
             actionButtonLabel="Ver Tarefas"
             showClose={true}
-            onClose={() => setNotifications(prev => prev.map(n => n.id === 1 ? { ...n, show: false } : n))}
+            onClose={() =>
+              setNotifications((prev) => prev.map((n) => (n.id === 1 ? { ...n, show: false } : n)))
+            }
             onActionClick={() => console.log('Ver tarefas')}
           />
         )}
@@ -178,7 +165,9 @@ export const Dashboard = () => {
             icon="AlertTriangle"
             actionButtonLabel="Enviar Agora"
             showClose={true}
-            onClose={() => setNotifications(prev => prev.map(n => n.id === 2 ? { ...n, show: false } : n))}
+            onClose={() =>
+              setNotifications((prev) => prev.map((n) => (n.id === 2 ? { ...n, show: false } : n)))
+            }
             onActionClick={() => console.log('Enviar relatório')}
           />
         )}
@@ -306,16 +295,18 @@ export const Dashboard = () => {
                     size="lg"
                     color="gray"
                     hierarchy="outlined"
-                    onClick={() => setFormData({
-                      nome: '',
-                      email: '',
-                      telefone: '',
-                      categoria: '',
-                      prioridade: 'media',
-                      descricao: '',
-                      receberNotificacoes: true,
-                      termos: false,
-                    })}
+                    onClick={() =>
+                      setFormData({
+                        nome: '',
+                        email: '',
+                        telefone: '',
+                        categoria: '',
+                        prioridade: 'media',
+                        descricao: '',
+                        receberNotificacoes: true,
+                        termos: false,
+                      })
+                    }
                   >
                     Limpar Formulário
                   </Button>
@@ -326,7 +317,7 @@ export const Dashboard = () => {
             {/* Card de Filtros */}
             <div className="bg-gray-0 border border-gray-20 rounded-md p-6">
               <h3 className="text-base font-extrabold text-gray-90 mb-4">Filtros de Busca</h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <Dropdown
                   label="Status"
@@ -356,30 +347,15 @@ export const Dashboard = () => {
                 </label>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2">
-                    <Radio
-                      name="ordenacao"
-                      value="data"
-                      checked={false}
-                      size="sm"
-                    />
+                    <Radio name="ordenacao" value="data" checked={false} size="sm" />
                     <label className="text-sm font-medium text-gray-80">Por Data</label>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Radio
-                      name="ordenacao"
-                      value="prioridade"
-                      checked={true}
-                      size="sm"
-                    />
+                    <Radio name="ordenacao" value="prioridade" checked={true} size="sm" />
                     <label className="text-sm font-medium text-gray-80">Por Prioridade</label>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Radio
-                      name="ordenacao"
-                      value="nome"
-                      checked={false}
-                      size="sm"
-                    />
+                    <Radio name="ordenacao" value="nome" checked={false} size="sm" />
                     <label className="text-sm font-medium text-gray-80">Por Nome</label>
                   </div>
                 </div>
@@ -392,7 +368,7 @@ export const Dashboard = () => {
             {/* Card de Estatísticas Rápidas */}
             <div className="bg-gray-0 border border-gray-20 rounded-md p-6">
               <h3 className="text-base font-extrabold text-gray-90 mb-4">Estatísticas</h3>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-3 bg-brand-5 rounded-md">
                   <div className="flex items-center gap-3">
@@ -423,7 +399,7 @@ export const Dashboard = () => {
             {/* Card de Ações Rápidas */}
             <div className="bg-gray-0 border border-gray-20 rounded-md p-6">
               <h3 className="text-base font-extrabold text-gray-90 mb-4">Ações Rápidas</h3>
-              
+
               <div className="space-y-2">
                 <Button
                   size="md"
@@ -470,7 +446,7 @@ export const Dashboard = () => {
                 <Icon name="HelpCircle" size="md" color="brand-60" />
                 <h3 className="text-base font-extrabold text-gray-90">Precisa de Ajuda?</h3>
               </div>
-              
+
               <p className="text-sm font-medium text-gray-60 mb-4">
                 Nossa equipe de suporte está disponível 24/7 para ajudar você.
               </p>
@@ -526,4 +502,3 @@ export const Dashboard = () => {
 Dashboard.parameters = {
   layout: 'fullscreen',
 };
-

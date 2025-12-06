@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 /**
  * Componente Breadcrumb do Design System Interstellar
  * Navegação de migalhas de pão para indicar a localização atual na hierarquia
- * 
+ *
  * @param {Array} items - Array de objetos com { label, href?, onClick? } ou strings simples
  * @param {string} style - Estilo dos itens: 'Default' | 'Fill' | 'Outlined'
  * @param {boolean} isBoxed - Se o breadcrumb deve estar dentro de um container com borda
@@ -33,16 +33,9 @@ export const Breadcrumb = ({
   // Renderizar o separador entre itens
   const renderDivider = () => {
     if (divider === 'Icon') {
-      return (
-        <Icon
-          name="ChevronRight"
-          size="sm"
-          color="gray-30"
-          className="shrink-0"
-        />
-      );
+      return <Icon name="ChevronRight" size="sm" color="gray-30" className="shrink-0" />;
     }
-    
+
     if (divider === 'Slash') {
       return (
         <span className="text-sm font-semibold leading-5 text-gray-30 shrink-0 w-5 h-5 flex items-center justify-center pb-1 whitespace-pre-wrap">
@@ -50,7 +43,7 @@ export const Breadcrumb = ({
         </span>
       );
     }
-    
+
     if (divider === 'Colon') {
       return (
         <span className="text-sm font-semibold leading-5 text-gray-30 shrink-0 w-5 h-5 flex items-center justify-center pb-1">
@@ -58,7 +51,7 @@ export const Breadcrumb = ({
         </span>
       );
     }
-    
+
     return null;
   };
 
@@ -71,7 +64,7 @@ export const Breadcrumb = ({
 
     // Classes base do item
     const baseItemClasses = 'flex gap-3xs items-center shrink-0';
-    
+
     // Classes de estilo do item
     const getItemStyleClasses = () => {
       if (isCurrent) {
@@ -103,7 +96,9 @@ export const Breadcrumb = ({
     const itemClasses = `
       ${baseItemClasses}
       ${getItemStyleClasses()}
-    `.trim().replace(/\s+/g, ' ');
+    `
+      .trim()
+      .replace(/\s+/g, ' ');
 
     const handleClick = (e) => {
       if (itemOnClick) {
@@ -122,12 +117,7 @@ export const Breadcrumb = ({
 
     if (itemHref && !isCurrent) {
       return (
-        <a
-          key={index}
-          href={itemHref}
-          onClick={handleClick}
-          className={itemClasses}
-        >
+        <a key={index} href={itemHref} onClick={handleClick} className={itemClasses}>
           {content}
         </a>
       );
@@ -151,25 +141,19 @@ export const Breadcrumb = ({
     const homeIconClasses = `
       box-border flex items-center justify-center overflow-clip p-md
       rounded-full shrink-0 w-sm-old h-sm-old
-    `.trim().replace(/\s+/g, ' ');
+    `
+      .trim()
+      .replace(/\s+/g, ' ');
 
     if (typeof homeIcon === 'string') {
       return (
         <div className={homeIconClasses}>
-          <Icon
-            name={homeIcon}
-            size="xs"
-            color="gray-60"
-          />
+          <Icon name={homeIcon} size="xs" color="gray-60" />
         </div>
       );
     }
 
-    return (
-      <div className={homeIconClasses}>
-        {homeIcon}
-      </div>
-    );
+    return <div className={homeIconClasses}>{homeIcon}</div>;
   };
 
   // Classes do container principal
@@ -177,7 +161,9 @@ export const Breadcrumb = ({
     flex gap-xs items-center relative
     ${isBoxed ? 'border border-gray-30 rounded-xl p-sm' : ''}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <nav className={containerClasses} aria-label="Breadcrumb" {...props}>
@@ -186,11 +172,7 @@ export const Breadcrumb = ({
         const isLast = index === items.length - 1;
         return (
           <React.Fragment key={index}>
-            {index > 0 && (
-              <div className="shrink-0">
-                {renderDivider()}
-              </div>
-            )}
+            {index > 0 && <div className="shrink-0">{renderDivider()}</div>}
             {renderItem(item, index, isLast)}
           </React.Fragment>
         );
@@ -200,4 +182,3 @@ export const Breadcrumb = ({
 };
 
 export default Breadcrumb;
-

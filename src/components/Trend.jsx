@@ -5,20 +5,14 @@ import { Icon } from './Icon';
 /**
  * Componente Trend do Design System Interstellar
  * Mostra texto principal com badge indicando tendência (percentual)
- * 
+ *
  * @param {string} text - Texto principal
  * @param {number} percentage - Percentual da tendência (pode ser negativo)
  * @param {string} color - Cor da tendência: 'success' | 'destructive' | 'warning' | 'brand' | 'gray'
  * @param {string} className - Classes CSS adicionais
  * @param {object} props - Outras props do elemento
  */
-export const Trend = ({
-  text,
-  percentage = 0,
-  color = 'success',
-  className = '',
-  ...props
-}) => {
+export const Trend = ({ text, percentage = 0, color = 'success', className = '', ...props }) => {
   // Determinar cor baseado no percentual se não especificado
   const trendColor = color || (percentage >= 0 ? 'success' : 'destructive');
 
@@ -29,7 +23,9 @@ export const Trend = ({
   const containerClasses = `
     flex items-center gap-xs
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={containerClasses} {...props}>
@@ -50,4 +46,3 @@ export const Trend = ({
 };
 
 export default Trend;
-

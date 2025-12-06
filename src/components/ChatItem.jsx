@@ -37,27 +37,37 @@ export const ChatItem = ({
     flex items-center gap-3 p-3 rounded-md cursor-pointer transition-colors
     ${state === 'active' ? 'bg-brand-5' : 'hover:bg-gray-5'}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   const nameClasses = `
     text-sm font-bold leading-5 tracking-[-0.084px] truncate
     ${state === 'active' ? 'text-brand-60' : 'text-gray-80'}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   const messageClasses = `
     text-xs font-medium leading-4 tracking-[-0.06px] truncate
     ${state === 'active' ? 'text-brand-60' : 'text-gray-60'}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   const timeClasses = `
     text-xs font-medium leading-4 tracking-[-0.06px]
     ${state === 'active' ? 'text-brand-60' : 'text-gray-60'}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   const unreadCountClasses = `
     flex items-center justify-center w-5 h-5 rounded-full text-2xs font-semibold leading-3 tracking-[-0.04px]
     ${state === 'active' || hasUnread ? 'bg-brand-60 text-gray-0' : 'bg-gray-30 text-gray-60'}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={containerClasses} onClick={onClick} {...props}>
@@ -69,12 +79,10 @@ export const ChatItem = ({
             ) : (
               avatar
             )
+          ) : avatarType === 'person' ? (
+            <Icon name="User" size="md" color="gray-60" />
           ) : (
-            avatarType === 'person' ? (
-              <Icon name="User" size="md" color="gray-60" />
-            ) : (
-              <Icon name="Briefcase" size="md" color="gray-60" />
-            )
+            <Icon name="Briefcase" size="md" color="gray-60" />
           )}
         </div>
         {isOnline && avatarType === 'person' && (

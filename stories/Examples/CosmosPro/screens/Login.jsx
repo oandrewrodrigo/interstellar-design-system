@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Input,
-  Icon,
-} from '../../../../src/components/index.js';
+import { Button, Input, Icon } from '../../../../src/components/index.js';
 
 /**
  * Tela de Login do Cosmos Pro
@@ -22,7 +18,10 @@ const Login = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left Section - Branding */}
-      <div className="flex-1 relative flex items-center justify-center p-2xl" style={{ background: 'linear-gradient(180deg, #4F46E5 0%, #FFFFFF 100%)' }}>
+      <div
+        className="flex-1 relative flex items-center justify-center p-2xl"
+        style={{ background: 'linear-gradient(180deg, #4F46E5 0%, #FFFFFF 100%)' }}
+      >
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-between h-full w-full max-w-[600px]">
           {/* Logo */}
@@ -101,11 +100,7 @@ const Login = () => {
                     className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer hover:opacity-70 transition-opacity z-10 p-2xs"
                     aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                   >
-                    <Icon
-                      name={showPassword ? 'EyeOff' : 'Eye'}
-                      size="sm"
-                      color="gray-30"
-                    />
+                    <Icon name={showPassword ? 'EyeOff' : 'Eye'} size="sm" color="gray-30" />
                   </button>
                 </div>
               </div>
@@ -151,4 +146,3 @@ const Login = () => {
 };
 
 export default Login;
-

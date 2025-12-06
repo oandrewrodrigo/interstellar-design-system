@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Componente Radio do Design System Interstellar
- * 
+ *
  * @param {string} size - Tamanho do radio: 'sm' | 'md' | 'lg'
  * @param {string} state - Estado do radio: 'default' | 'hover' | 'focused' | 'disabled'
  * @param {boolean} checked - Se o radio está marcado
@@ -114,7 +114,9 @@ export const Radio = ({
     relative
     ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <label className="inline-flex items-center cursor-pointer">
@@ -131,7 +133,9 @@ export const Radio = ({
       <div className={containerClasses}>
         {/* Círculo interno quando checked */}
         {checked && (
-          <div className={`${sizeConfig.innerCircle} ${stateClasses.innerCircle} rounded-full absolute`} />
+          <div
+            className={`${sizeConfig.innerCircle} ${stateClasses.innerCircle} rounded-full absolute`}
+          />
         )}
       </div>
     </label>
@@ -139,4 +143,3 @@ export const Radio = ({
 };
 
 export default Radio;
-

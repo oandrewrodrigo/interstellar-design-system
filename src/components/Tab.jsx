@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 /**
  * Componente Tab do Design System Interstellar
  * Tab individual com suporte a ícone, texto e badge
- * 
+ *
  * @param {React.ReactNode} children - Conteúdo do tab (texto)
  * @param {string} size - Tamanho do tab: 'sm' | 'md' | 'lg'
  * @param {string} style - Estilo do tab: 'default' | 'outlined' | 'bottomBorder' | 'leftBorder'
@@ -159,11 +159,7 @@ export const Tab = ({
     if (typeof leftIcon === 'string') {
       const stateClasses = getStateClasses();
       return (
-        <Icon
-          name={leftIcon}
-          size={sizeClasses[size].iconSize}
-          color={stateClasses.iconColor}
-        />
+        <Icon name={leftIcon} size={sizeClasses[size].iconSize} color={stateClasses.iconColor} />
       );
     }
 
@@ -190,7 +186,9 @@ export const Tab = ({
           rounded-full
           flex items-center justify-center
           font-primary
-        `.trim().replace(/\s+/g, ' ')}
+        `
+          .trim()
+          .replace(/\s+/g, ' ')}
       >
         {badge}
       </div>
@@ -221,7 +219,9 @@ export const Tab = ({
     transition-colors
     ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   const handleClick = () => {
     if (!isDisabled && onClick) {

@@ -42,9 +42,7 @@ const Configuracoes = () => {
     <div className="p-2xl max-w-[1600px] mx-auto">
       {/* Header */}
       <div className="mb-xl">
-        <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">
-          Configurações
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">Configurações</h1>
         <p className="text-md text-gray-60 font-primary">
           Personalize sua experiência no Cosmos Pro
         </p>
@@ -149,7 +147,9 @@ const Configuracoes = () => {
                   </div>
                   <Toggle
                     checked={settings.emailNotifications}
-                    onChange={(checked) => setSettings({ ...settings, emailNotifications: checked })}
+                    onChange={(checked) =>
+                      setSettings({ ...settings, emailNotifications: checked })
+                    }
                     size="md"
                     color="brand"
                     disabled={!settings.notifications}
@@ -177,9 +177,7 @@ const Configuracoes = () => {
         {activeTab === 'aparencia' && (
           <div className="flex flex-col gap-lg">
             <div>
-              <h2 className="text-lg font-semibold text-gray-90 font-primary mb-md">
-                Aparência
-              </h2>
+              <h2 className="text-lg font-semibold text-gray-90 font-primary mb-md">Aparência</h2>
 
               <div className="flex flex-col gap-md">
                 <div>
@@ -222,9 +220,7 @@ const Configuracoes = () => {
                     <label className="block text-sm font-medium text-gray-60 font-primary mb-xs">
                       Modo Escuro
                     </label>
-                    <p className="text-xs text-gray-50 font-primary">
-                      Ative o tema escuro
-                    </p>
+                    <p className="text-xs text-gray-50 font-primary">Ative o tema escuro</p>
                   </div>
                   <Toggle
                     checked={settings.darkMode}
@@ -241,50 +237,32 @@ const Configuracoes = () => {
         {activeTab === 'seguranca' && (
           <div className="flex flex-col gap-lg">
             <div>
-              <h2 className="text-lg font-semibold text-gray-90 font-primary mb-md">
-                Segurança
-              </h2>
+              <h2 className="text-lg font-semibold text-gray-90 font-primary mb-md">Segurança</h2>
 
               <div className="flex flex-col gap-md">
                 <div>
                   <label className="block text-sm font-medium text-gray-60 font-primary mb-xs">
                     Nova Senha
                   </label>
-                  <Input
-                    type="password"
-                    placeholder="Digite sua nova senha"
-                    leftIcon="Lock"
-                  />
+                  <Input type="password" placeholder="Digite sua nova senha" leftIcon="Lock" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-60 font-primary mb-xs">
                     Confirmar Senha
                   </label>
-                  <Input
-                    type="password"
-                    placeholder="Confirme sua senha"
-                    leftIcon="Lock"
-                  />
+                  <Input type="password" placeholder="Confirme sua senha" leftIcon="Lock" />
                 </div>
 
                 <div className="flex items-center gap-xs">
-                  <Checkbox
-                    checked={true}
-                    onChange={() => {}}
-                  />
+                  <Checkbox checked={true} onChange={() => {}} />
                   <span className="text-sm text-gray-60 font-primary">
                     Ativar autenticação de dois fatores
                   </span>
                 </div>
 
                 <div className="pt-md">
-                  <Button
-                    size="md"
-                    color="brand"
-                    hierarchy="primary"
-                    leftIcon="Save"
-                  >
+                  <Button size="md" color="brand" hierarchy="primary" leftIcon="Save">
                     Salvar Alterações
                   </Button>
                 </div>
@@ -296,19 +274,10 @@ const Configuracoes = () => {
 
       {/* Loader Example */}
       <div className="mt-md bg-gray-0 rounded-lg p-lg border border-gray-20">
-        <h3 className="text-lg font-semibold text-gray-90 font-primary mb-md">
-          Status do Sistema
-        </h3>
+        <h3 className="text-lg font-semibold text-gray-90 font-primary mb-md">Status do Sistema</h3>
         <div className="flex items-center gap-md">
-          <Loader
-            type="Circle Single"
-            size="sm"
-            color="brand"
-            isLabel={false}
-          />
-          <span className="text-sm text-gray-60 font-primary">
-            Sincronizando dados...
-          </span>
+          <Loader type="Circle Single" size="sm" color="brand" isLabel={false} />
+          <span className="text-sm text-gray-60 font-primary">Sincronizando dados...</span>
         </div>
       </div>
     </div>
@@ -316,4 +285,3 @@ const Configuracoes = () => {
 };
 
 export default Configuracoes;
-

@@ -27,4 +27,3 @@ export function getTokensSync() {
   }
   return null;
 }
-

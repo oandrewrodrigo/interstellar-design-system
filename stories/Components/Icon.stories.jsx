@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Icon do Design System Interstellar. Wrapper para ícones Lucide que obedece os tokens de tamanho do design system.',
+        component:
+          'Componente Icon do Design System Interstellar. Wrapper para ícones Lucide que obedece os tokens de tamanho do design system.',
       },
     },
   },
@@ -69,7 +70,8 @@ export const Sizes = () => (
 Sizes.parameters = {
   docs: {
     description: {
-      story: 'Variações de tamanho do ícone usando tokens size-icon: 2xs (12px), xs (16px), sm (20px), md (24px), lg (32px)',
+      story:
+        'Variações de tamanho do ícone usando tokens size-icon: 2xs (12px), xs (16px), sm (20px), md (24px), lg (32px)',
     },
   },
 };
@@ -177,7 +179,8 @@ export const CommonIcons = () => (
 CommonIcons.parameters = {
   docs: {
     description: {
-      story: 'Exemplos de ícones comuns organizados por categoria. Todos os ícones da biblioteca Lucide estão disponíveis.',
+      story:
+        'Exemplos de ícones comuns organizados por categoria. Todos os ícones da biblioteca Lucide estão disponíveis.',
     },
   },
 };
@@ -210,4 +213,3 @@ SizesInContext.parameters = {
     },
   },
 };
-

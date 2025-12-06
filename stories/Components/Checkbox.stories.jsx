@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Checkbox do Design System Interstellar. Suporta múltiplas variações de tamanho, estado e estado indeterminado.',
+        component:
+          'Componente Checkbox do Design System Interstellar. Suporta múltiplas variações de tamanho, estado e estado indeterminado.',
       },
     },
   },
@@ -41,13 +42,7 @@ export default {
 // Template básico
 const Template = (args) => {
   const [checked, setChecked] = useState(args.checked || false);
-  return (
-    <Checkbox
-      {...args}
-      checked={checked}
-      onChange={(e) => setChecked(e.target.checked)}
-    />
-  );
+  return <Checkbox {...args} checked={checked} onChange={(e) => setChecked(e.target.checked)} />;
 };
 
 // Story padrão
@@ -63,7 +58,7 @@ export const Sizes = () => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
-  
+
   return (
     <div className="flex flex-col gap-4 items-start">
       <div className="flex gap-4 items-center">
@@ -145,9 +140,7 @@ export const AllCombinations = () => {
     <div className="flex flex-col gap-8">
       {sizes.map((size) => (
         <div key={size} className="flex flex-col gap-4">
-          <h3 className="text-sm font-semibold text-gray-90">
-            Size: {size.toUpperCase()}
-          </h3>
+          <h3 className="text-sm font-semibold text-gray-90">Size: {size.toUpperCase()}</h3>
           {variants.map((variant) => (
             <div key={variant.label} className="flex flex-col gap-2">
               <h4 className="text-xs font-medium text-gray-60">{variant.label}</h4>
@@ -199,31 +192,19 @@ export const WithLabel = () => {
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
-  
+
   return (
     <div className="flex flex-col gap-4 items-start">
       <label className="flex items-center gap-2 cursor-pointer">
-        <Checkbox
-          size="sm"
-          checked={checked1}
-          onChange={(e) => setChecked1(e.target.checked)}
-        />
+        <Checkbox size="sm" checked={checked1} onChange={(e) => setChecked1(e.target.checked)} />
         <span className="text-sm text-gray-80">Checkbox pequeno com label</span>
       </label>
       <label className="flex items-center gap-2 cursor-pointer">
-        <Checkbox
-          size="md"
-          checked={checked2}
-          onChange={(e) => setChecked2(e.target.checked)}
-        />
+        <Checkbox size="md" checked={checked2} onChange={(e) => setChecked2(e.target.checked)} />
         <span className="text-sm text-gray-80">Checkbox médio com label</span>
       </label>
       <label className="flex items-center gap-2 cursor-pointer">
-        <Checkbox
-          size="lg"
-          checked={checked3}
-          onChange={(e) => setChecked3(e.target.checked)}
-        />
+        <Checkbox size="lg" checked={checked3} onChange={(e) => setChecked3(e.target.checked)} />
         <span className="text-sm text-gray-80">Checkbox grande com label</span>
       </label>
     </div>
@@ -236,4 +217,3 @@ WithLabel.parameters = {
     },
   },
 };
-

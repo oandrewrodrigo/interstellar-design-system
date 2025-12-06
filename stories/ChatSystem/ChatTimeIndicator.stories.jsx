@@ -50,4 +50,3 @@ export const Interactive = (args) => {
 Interactive.args = {
   text: 'Hoje',
 };
-

@@ -90,7 +90,7 @@ export const Selected = () => {
 
 export const Clickable = () => {
   const [selected, setSelected] = useState(false);
-  
+
   return (
     <div className="space-x-2 flex items-center">
       <ChatReaction
@@ -106,7 +106,7 @@ export const Clickable = () => {
 
 export const MultipleReactions = () => {
   const reactions = ['👍', '❤️', '😄', '🎉', '🔥'];
-  
+
   return (
     <div className="flex flex-wrap gap-2">
       {reactions.map((reaction, index) => (
@@ -131,4 +131,3 @@ Interactive.args = {
   isText: true,
   isSelected: false,
 };
-

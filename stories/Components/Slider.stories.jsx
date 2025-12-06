@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Slider do Design System Interstellar. Slider single ou range com múltiplos tamanhos e opções de label.',
+        component:
+          'Componente Slider do Design System Interstellar. Slider single ou range com múltiplos tamanhos e opções de label.',
       },
     },
   },
@@ -80,15 +81,39 @@ export const SizesSingle = () => (
   <div className="flex flex-col gap-6 items-start" style={{ width: '343px' }}>
     <div className="flex flex-col gap-2 w-full">
       <span className="text-sm text-gray-60">Small (4px track, 16px thumb)</span>
-      <Slider value={50} type="single" size="sm" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
+      <Slider
+        value={50}
+        type="single"
+        size="sm"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
     </div>
     <div className="flex flex-col gap-2 w-full">
       <span className="text-sm text-gray-60">Medium (8px track, 20px thumb)</span>
-      <Slider value={50} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
+      <Slider
+        value={50}
+        type="single"
+        size="md"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
     </div>
     <div className="flex flex-col gap-2 w-full">
       <span className="text-sm text-gray-60">Large (12px track, 24px thumb)</span>
-      <Slider value={50} type="single" size="lg" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
+      <Slider
+        value={50}
+        type="single"
+        size="lg"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
     </div>
   </div>
 );
@@ -103,11 +128,51 @@ SizesSingle.parameters = {
 // Progressões - Single
 export const ProgressionsSingle = () => (
   <div className="flex flex-col gap-4 items-start" style={{ width: '343px' }}>
-    <Slider value={0} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-    <Slider value={25} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-    <Slider value={50} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-    <Slider value={75} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-    <Slider value={100} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
+    <Slider
+      value={0}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Slider Label"
+      color="brand"
+    />
+    <Slider
+      value={25}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Slider Label"
+      color="brand"
+    />
+    <Slider
+      value={50}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Slider Label"
+      color="brand"
+    />
+    <Slider
+      value={75}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Slider Label"
+      color="brand"
+    />
+    <Slider
+      value={100}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Slider Label"
+      color="brand"
+    />
   </div>
 );
 ProgressionsSingle.parameters = {
@@ -165,7 +230,15 @@ WithoutLabel.parameters = {
 // Sem ícone
 export const WithoutIcon = () => (
   <div className="flex flex-col gap-4 items-start" style={{ width: '343px' }}>
-    <Slider value={50} type="single" size="md" isLabel={true} isIcon={false} labelText="Slider Label" color="brand" />
+    <Slider
+      value={50}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={false}
+      labelText="Slider Label"
+      color="brand"
+    />
     <Slider range={[25, 75]} type="range" size="md" isLabel={true} isIcon={false} color="brand" />
   </div>
 );
@@ -180,11 +253,51 @@ WithoutIcon.parameters = {
 // Cores
 export const Colors = () => (
   <div className="flex flex-col gap-4 items-start" style={{ width: '343px' }}>
-    <Slider value={60} type="single" size="md" isLabel={true} isIcon={true} labelText="Brand" color="brand" />
-    <Slider value={60} type="single" size="md" isLabel={true} isIcon={true} labelText="Destructive" color="destructive" />
-    <Slider value={60} type="single" size="md" isLabel={true} isIcon={true} labelText="Warning" color="warning" />
-    <Slider value={60} type="single" size="md" isLabel={true} isIcon={true} labelText="Success" color="success" />
-    <Slider value={60} type="single" size="md" isLabel={true} isIcon={true} labelText="Gray" color="gray" />
+    <Slider
+      value={60}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Brand"
+      color="brand"
+    />
+    <Slider
+      value={60}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Destructive"
+      color="destructive"
+    />
+    <Slider
+      value={60}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Warning"
+      color="warning"
+    />
+    <Slider
+      value={60}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Success"
+      color="success"
+    />
+    <Slider
+      value={60}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Gray"
+      color="gray"
+    />
   </div>
 );
 Colors.parameters = {
@@ -198,8 +311,25 @@ Colors.parameters = {
 // Disabled
 export const Disabled = () => (
   <div className="flex flex-col gap-4 items-start" style={{ width: '343px' }}>
-    <Slider value={50} type="single" size="md" isLabel={true} isIcon={true} labelText="Disabled Single" color="brand" disabled={true} />
-    <Slider range={[25, 75]} type="range" size="md" isLabel={true} isIcon={true} color="brand" disabled={true} />
+    <Slider
+      value={50}
+      type="single"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      labelText="Disabled Single"
+      color="brand"
+      disabled={true}
+    />
+    <Slider
+      range={[25, 75]}
+      type="range"
+      size="md"
+      isLabel={true}
+      isIcon={true}
+      color="brand"
+      disabled={true}
+    />
   </div>
 );
 Disabled.parameters = {
@@ -215,21 +345,93 @@ export const AllVariations = () => (
   <div className="flex flex-col gap-8 items-start p-8" style={{ width: '400px' }}>
     <div className="flex flex-col gap-4 w-full">
       <h3 className="text-lg font-semibold text-gray-90">Single Slider - Small</h3>
-      <Slider value={0} type="single" size="sm" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-      <Slider value={50} type="single" size="sm" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-      <Slider value={100} type="single" size="sm" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
+      <Slider
+        value={0}
+        type="single"
+        size="sm"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
+      <Slider
+        value={50}
+        type="single"
+        size="sm"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
+      <Slider
+        value={100}
+        type="single"
+        size="sm"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
     </div>
     <div className="flex flex-col gap-4 w-full">
       <h3 className="text-lg font-semibold text-gray-90">Single Slider - Medium</h3>
-      <Slider value={0} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-      <Slider value={50} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-      <Slider value={100} type="single" size="md" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
+      <Slider
+        value={0}
+        type="single"
+        size="md"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
+      <Slider
+        value={50}
+        type="single"
+        size="md"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
+      <Slider
+        value={100}
+        type="single"
+        size="md"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
     </div>
     <div className="flex flex-col gap-4 w-full">
       <h3 className="text-lg font-semibold text-gray-90">Single Slider - Large</h3>
-      <Slider value={0} type="single" size="lg" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-      <Slider value={50} type="single" size="lg" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
-      <Slider value={100} type="single" size="lg" isLabel={true} isIcon={true} labelText="Slider Label" color="brand" />
+      <Slider
+        value={0}
+        type="single"
+        size="lg"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
+      <Slider
+        value={50}
+        type="single"
+        size="lg"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
+      <Slider
+        value={100}
+        type="single"
+        size="lg"
+        isLabel={true}
+        isIcon={true}
+        labelText="Slider Label"
+        color="brand"
+      />
     </div>
     <div className="flex flex-col gap-4 w-full">
       <h3 className="text-lg font-semibold text-gray-90">Range Slider</h3>
@@ -248,4 +450,3 @@ AllVariations.parameters = {
     },
   },
 };
-

@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Loader do Design System Interstellar. Indicador de carregamento com múltiplos tipos e tamanhos, com animações suaves.',
+        component:
+          'Componente Loader do Design System Interstellar. Indicador de carregamento com múltiplos tipos e tamanhos, com animações suaves.',
       },
     },
   },
@@ -28,7 +29,14 @@ export default {
     },
     type: {
       control: { type: 'select' },
-      options: ['Circle Single', 'Circle Multi', 'Spinner Thick', 'Spinner Thin', 'Spinner Dot', 'Box'],
+      options: [
+        'Circle Single',
+        'Circle Multi',
+        'Spinner Thick',
+        'Spinner Thin',
+        'Spinner Dot',
+        'Box',
+      ],
       description: 'Tipo do loader',
     },
     color: {
@@ -68,7 +76,8 @@ export const Sizes = () => (
 Sizes.parameters = {
   docs: {
     description: {
-      story: 'Variações de tamanho do loader: xs (32px), sm (40px), md (48px), lg (56px), xl (64px), 2xl (80px)',
+      story:
+        'Variações de tamanho do loader: xs (32px), sm (40px), md (48px), lg (56px), xl (64px), 2xl (80px)',
     },
   },
 };
@@ -89,7 +98,8 @@ export const Types = () => (
 Types.parameters = {
   docs: {
     description: {
-      story: 'Diferentes tipos de loader: Circle Single, Circle Multi, Spinner Thick, Spinner Thin, Spinner Dot, Box',
+      story:
+        'Diferentes tipos de loader: Circle Single, Circle Multi, Spinner Thick, Spinner Thin, Spinner Dot, Box',
     },
   },
 };
@@ -230,4 +240,3 @@ AllVariations.parameters = {
     },
   },
 };
-

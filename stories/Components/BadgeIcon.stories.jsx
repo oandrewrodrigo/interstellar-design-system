@@ -8,14 +8,16 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente BadgeIcon do Design System Interstellar. Badge circular com apenas ícone ou número.',
+        component:
+          'Componente BadgeIcon do Design System Interstellar. Badge circular com apenas ícone ou número.',
       },
     },
   },
   argTypes: {
     content: {
       control: { type: 'text' },
-      description: 'Conteúdo do badge: nome do ícone Lucide (string), número (number) ou elemento React',
+      description:
+        'Conteúdo do badge: nome do ícone Lucide (string), número (number) ou elemento React',
     },
     size: {
       control: { type: 'select' },
@@ -140,7 +142,8 @@ export const Hierarchies = () => (
 Hierarchies.parameters = {
   docs: {
     description: {
-      story: 'Variações de hierarquia: Primary (sólido), Secondary (fundo claro), Outlined (apenas borda)',
+      story:
+        'Variações de hierarquia: Primary (sólido), Secondary (fundo claro), Outlined (apenas borda)',
     },
   },
 };
@@ -211,4 +214,3 @@ export const AllVariations = () => (
 AllVariations.parameters = {
   layout: 'padded',
 };
-

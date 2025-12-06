@@ -52,11 +52,23 @@
     "size-2xs": { "$type": "number", "$value": 8, "$description": "8px - Tailwind 2" },
     "size-1.5xs": { "$type": "number", "$value": 10, "$description": "10px - Tailwind 2.5" },
     "size-xs": { "$type": "number", "$value": 12, "$description": "12px - Tailwind 3" },
-    "size-2xs-old": { "$type": "number", "$value": 16, "$description": "16px - Tailwind 4 (compatibilidade)" },
+    "size-2xs-old": {
+      "$type": "number",
+      "$value": 16,
+      "$description": "16px - Tailwind 4 (compatibilidade)"
+    },
     "size-sm": { "$type": "number", "$value": 20, "$description": "20px - Tailwind 5" },
-    "size-xs-old": { "$type": "number", "$value": 24, "$description": "24px - Tailwind 6 (compatibilidade)" },
+    "size-xs-old": {
+      "$type": "number",
+      "$value": 24,
+      "$description": "24px - Tailwind 6 (compatibilidade)"
+    },
     "size-7": { "$type": "number", "$value": 28, "$description": "28px - Tailwind 7" },
-    "size-sm-old": { "$type": "number", "$value": 32, "$description": "32px - Tailwind 8 (compatibilidade)" },
+    "size-sm-old": {
+      "$type": "number",
+      "$value": 32,
+      "$description": "32px - Tailwind 8 (compatibilidade)"
+    },
     "size-9": { "$type": "number", "$value": 36, "$description": "36px - Tailwind 9" },
     "size-md": { "$type": "number", "$value": 40, "$description": "40px - Tailwind 10" },
     "size-11": { "$type": "number", "$value": 44, "$description": "44px - Tailwind 11" },
@@ -1009,4 +1021,3 @@
     }
   }
 }
-

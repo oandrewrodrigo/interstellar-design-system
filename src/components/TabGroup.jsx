@@ -4,7 +4,7 @@ import { Tab } from './Tab';
 /**
  * Componente TabGroup do Design System Interstellar
  * Grupo de tabs com orientação horizontal ou vertical
- * 
+ *
  * @param {Array} tabs - Array de objetos com { label, icon, badge, disabled, onClick }
  * @param {number} activeIndex - Índice do tab ativo
  * @param {function} onTabChange - Callback quando o tab muda (recebe o índice)
@@ -35,7 +35,9 @@ export const TabGroup = ({
     bg-gray-10
     rounded-md
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do tab wrapper (para separadores verticais em horizontal)
   const tabWrapperClasses = (index) => {

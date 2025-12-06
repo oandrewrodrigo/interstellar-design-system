@@ -8,7 +8,8 @@ export default {
     layout: 'fullwidth',
     docs: {
       description: {
-        component: 'Item da lista de conversas/chats com avatar, nome, última mensagem, hora e indicador de não lidas.',
+        component:
+          'Item da lista de conversas/chats com avatar, nome, última mensagem, hora e indicador de não lidas.',
       },
     },
   },
@@ -181,10 +182,40 @@ export const LongMessages = () => {
 
 export const FullList = () => {
   const chats = [
-    { name: 'Andrew Rodrigo', lastMessage: 'Olá, como você está?', time: '11:25', isOnline: true, hasUnread: true, unreadCount: 2, state: 'active' },
-    { name: 'Maria Silva', lastMessage: 'Vou enviar o documento hoje', time: '10:15', isOnline: true, hasUnread: false, state: 'default' },
-    { name: 'João Santos', lastMessage: 'Reunião às 15h', time: '09:30', isOnline: false, hasUnread: true, unreadCount: 1, state: 'default' },
-    { name: 'Suporte Técnico', lastMessage: 'Sua solicitação foi resolvida', time: 'Ontem', isOnline: true, hasUnread: false, state: 'default' },
+    {
+      name: 'Andrew Rodrigo',
+      lastMessage: 'Olá, como você está?',
+      time: '11:25',
+      isOnline: true,
+      hasUnread: true,
+      unreadCount: 2,
+      state: 'active',
+    },
+    {
+      name: 'Maria Silva',
+      lastMessage: 'Vou enviar o documento hoje',
+      time: '10:15',
+      isOnline: true,
+      hasUnread: false,
+      state: 'default',
+    },
+    {
+      name: 'João Santos',
+      lastMessage: 'Reunião às 15h',
+      time: '09:30',
+      isOnline: false,
+      hasUnread: true,
+      unreadCount: 1,
+      state: 'default',
+    },
+    {
+      name: 'Suporte Técnico',
+      lastMessage: 'Sua solicitação foi resolvida',
+      time: 'Ontem',
+      isOnline: true,
+      hasUnread: false,
+      state: 'default',
+    },
   ];
 
   return (
@@ -206,4 +237,3 @@ export const FullList = () => {
     </div>
   );
 };
-

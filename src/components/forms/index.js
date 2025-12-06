@@ -18,4 +18,3 @@ export { default as SliderDefault } from '../Slider';
 
 // Export default para compatibilidade (Input como default principal)
 export { default } from '../Input';
-

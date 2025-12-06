@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Componente Textarea do Design System Interstellar
- * 
+ *
  * @param {string} state - Estado do textarea: 'default' | 'hover' | 'filled' | 'focused' | 'disabled' | 'error'
  * @param {string} label - Label do textarea (opcional)
  * @param {string} placeholder - Placeholder do textarea
@@ -109,36 +109,40 @@ export const Textarea = ({
     min-h-[200px]
     ${disabled || state === 'disabled' ? 'cursor-not-allowed' : ''}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do label
   const labelClasses = `
     ${labelTypographyClasses}
     ${state === 'error' ? 'text-destructive-60' : 'text-gray-80'}
     ${disabled || state === 'disabled' ? 'text-gray-30' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do helper text
   const helperTextClasses = `
     ${helperTextTypographyClasses}
     ${state === 'error' ? 'text-destructive-60' : 'text-gray-60'}
     ${disabled || state === 'disabled' ? 'text-gray-30' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do contador
   const counterClasses = `
     ${counterTypographyClasses}
     ${disabled || state === 'disabled' ? 'text-gray-30' : 'text-gray-40'}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
-      {label && (
-        <label className={labelClasses}>
-          {label}
-        </label>
-      )}
+      {label && <label className={labelClasses}>{label}</label>}
 
       {/* Textarea Container */}
       <div className={textareaContainerClasses}>
@@ -161,18 +165,16 @@ export const Textarea = ({
             ${textareaTypographyClasses}
             ${disabled || state === 'disabled' ? 'text-gray-30' : 'text-gray-60'}
             ${disabled || state === 'disabled' ? 'placeholder:text-gray-30' : 'placeholder:text-gray-60'}
-          `.trim().replace(/\s+/g, ' ')}
+          `
+            .trim()
+            .replace(/\s+/g, ' ')}
           {...props}
         />
 
         {/* Footer com contador e handle de redimensionamento */}
         <div className="flex gap-2 items-center justify-end w-full">
           {/* Counter */}
-          {showCounter && (
-            <p className={counterClasses}>
-              {counterText}
-            </p>
-          )}
+          {showCounter && <p className={counterClasses}>{counterText}</p>}
 
           {/* Resize Handle Icon */}
           <div className="flex-shrink-0 w-3 h-3 flex items-center justify-center">
@@ -206,4 +208,3 @@ export const Textarea = ({
 };
 
 export default Textarea;
-

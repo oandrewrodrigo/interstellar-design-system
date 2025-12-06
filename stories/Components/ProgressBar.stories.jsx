@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente ProgressBar do Design System Interstellar. Barra de progresso com múltiplos tamanhos e opções de label.',
+        component:
+          'Componente ProgressBar do Design System Interstellar. Barra de progresso com múltiplos tamanhos e opções de label.',
       },
     },
   },
@@ -203,4 +204,3 @@ AllVariations.parameters = {
     },
   },
 };
-

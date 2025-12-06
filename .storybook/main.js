@@ -16,7 +16,7 @@ const config = {
   viteFinal: async (config) => {
     // Garantir que PostCSS está configurado
     config.css = config.css || {};
-    
+
     // Configurações do servidor
     config.server = {
       ...config.server,
@@ -29,14 +29,14 @@ const config = {
         overlay: true,
       },
     };
-    
+
     // Otimização de dependências
     config.optimizeDeps = {
       ...config.optimizeDeps,
       include: ['react', 'react-dom', 'lucide-react'],
       exclude: [],
     };
-    
+
     // Configurações de build
     config.build = {
       ...config.build,
@@ -51,7 +51,7 @@ const config = {
         },
       },
     };
-    
+
     // Resolver duplicatas de dependências e extensões
     config.resolve = {
       ...config.resolve,
@@ -61,13 +61,13 @@ const config = {
         ...config.resolve?.alias,
       },
     };
-    
+
     // Configuração para melhorar o carregamento de módulos dinâmicos
     config.define = {
       ...config.define,
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     };
-    
+
     return config;
   },
 };

@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Badge do Design System Interstellar. Badge com texto, dot opcional e ícone opcional.\n\n**Diretriz de Uso:** Sempre que o componente Badge for usado em uma tabela, utilize a hierarquia `secondary`.',
+        component:
+          'Componente Badge do Design System Interstellar. Badge com texto, dot opcional e ícone opcional.\n\n**Diretriz de Uso:** Sempre que o componente Badge for usado em uma tabela, utilize a hierarquia `secondary`.',
       },
     },
   },
@@ -58,9 +59,15 @@ Default.args = {
 export const Sizes = () => (
   <div className="flex flex-col gap-4 items-start">
     <div className="flex gap-4 items-center">
-      <Badge size="sm" color="brand" hierarchy="primary">Label</Badge>
-      <Badge size="md" color="brand" hierarchy="primary">Label</Badge>
-      <Badge size="lg" color="brand" hierarchy="primary">Label</Badge>
+      <Badge size="sm" color="brand" hierarchy="primary">
+        Label
+      </Badge>
+      <Badge size="md" color="brand" hierarchy="primary">
+        Label
+      </Badge>
+      <Badge size="lg" color="brand" hierarchy="primary">
+        Label
+      </Badge>
     </div>
   </div>
 );
@@ -76,11 +83,21 @@ Sizes.parameters = {
 export const Colors = () => (
   <div className="flex flex-col gap-4 items-start">
     <div className="flex gap-4 items-center">
-      <Badge size="md" color="brand" hierarchy="primary">Label</Badge>
-      <Badge size="md" color="destructive" hierarchy="primary">Label</Badge>
-      <Badge size="md" color="warning" hierarchy="primary">Label</Badge>
-      <Badge size="md" color="success" hierarchy="primary">Label</Badge>
-      <Badge size="md" color="gray" hierarchy="primary">Label</Badge>
+      <Badge size="md" color="brand" hierarchy="primary">
+        Label
+      </Badge>
+      <Badge size="md" color="destructive" hierarchy="primary">
+        Label
+      </Badge>
+      <Badge size="md" color="warning" hierarchy="primary">
+        Label
+      </Badge>
+      <Badge size="md" color="success" hierarchy="primary">
+        Label
+      </Badge>
+      <Badge size="md" color="gray" hierarchy="primary">
+        Label
+      </Badge>
     </div>
   </div>
 );
@@ -96,16 +113,23 @@ Colors.parameters = {
 export const Hierarchies = () => (
   <div className="flex flex-col gap-4 items-start">
     <div className="flex gap-4 items-center">
-      <Badge size="md" color="brand" hierarchy="primary">Label</Badge>
-      <Badge size="md" color="brand" hierarchy="secondary">Label</Badge>
-      <Badge size="md" color="brand" hierarchy="outlined">Label</Badge>
+      <Badge size="md" color="brand" hierarchy="primary">
+        Label
+      </Badge>
+      <Badge size="md" color="brand" hierarchy="secondary">
+        Label
+      </Badge>
+      <Badge size="md" color="brand" hierarchy="outlined">
+        Label
+      </Badge>
     </div>
   </div>
 );
 Hierarchies.parameters = {
   docs: {
     description: {
-      story: 'Variações de hierarquia: Primary (sólido), Secondary (fundo claro), Outlined (apenas borda)',
+      story:
+        'Variações de hierarquia: Primary (sólido), Secondary (fundo claro), Outlined (apenas borda)',
     },
   },
 };
@@ -114,9 +138,15 @@ Hierarchies.parameters = {
 export const States = () => (
   <div className="flex flex-col gap-4 items-start">
     <div className="flex gap-4 items-center">
-      <Badge size="md" color="brand" hierarchy="primary" state="default">Label</Badge>
-      <Badge size="md" color="brand" hierarchy="primary" state="hover">Label</Badge>
-      <Badge size="md" color="brand" hierarchy="primary" state="disabled">Label</Badge>
+      <Badge size="md" color="brand" hierarchy="primary" state="default">
+        Label
+      </Badge>
+      <Badge size="md" color="brand" hierarchy="primary" state="hover">
+        Label
+      </Badge>
+      <Badge size="md" color="brand" hierarchy="primary" state="disabled">
+        Label
+      </Badge>
     </div>
   </div>
 );
@@ -132,8 +162,12 @@ States.parameters = {
 export const WithWithoutDot = () => (
   <div className="flex flex-col gap-4 items-start">
     <div className="flex gap-4 items-center">
-      <Badge size="md" color="brand" hierarchy="primary" showDot={true}>Label</Badge>
-      <Badge size="md" color="brand" hierarchy="primary" showDot={false}>Label</Badge>
+      <Badge size="md" color="brand" hierarchy="primary" showDot={true}>
+        Label
+      </Badge>
+      <Badge size="md" color="brand" hierarchy="primary" showDot={false}>
+        Label
+      </Badge>
     </div>
   </div>
 );
@@ -149,8 +183,12 @@ WithWithoutDot.parameters = {
 export const WithIcon = () => (
   <div className="flex flex-col gap-4 items-start">
     <div className="flex gap-4 items-center">
-      <Badge size="md" color="brand" hierarchy="primary" rightIcon="Check">Label</Badge>
-      <Badge size="md" color="brand" hierarchy="primary" showDot={false} rightIcon="Check">Label</Badge>
+      <Badge size="md" color="brand" hierarchy="primary" rightIcon="Check">
+        Label
+      </Badge>
+      <Badge size="md" color="brand" hierarchy="primary" showDot={false} rightIcon="Check">
+        Label
+      </Badge>
     </div>
   </div>
 );
@@ -168,31 +206,61 @@ export const AllVariations = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Primary</span>
       <div className="flex gap-4 items-center flex-wrap">
-        <Badge size="sm" color="brand" hierarchy="primary">Label</Badge>
-        <Badge size="sm" color="destructive" hierarchy="primary">Label</Badge>
-        <Badge size="sm" color="warning" hierarchy="primary">Label</Badge>
-        <Badge size="sm" color="success" hierarchy="primary">Label</Badge>
-        <Badge size="sm" color="gray" hierarchy="primary">Label</Badge>
+        <Badge size="sm" color="brand" hierarchy="primary">
+          Label
+        </Badge>
+        <Badge size="sm" color="destructive" hierarchy="primary">
+          Label
+        </Badge>
+        <Badge size="sm" color="warning" hierarchy="primary">
+          Label
+        </Badge>
+        <Badge size="sm" color="success" hierarchy="primary">
+          Label
+        </Badge>
+        <Badge size="sm" color="gray" hierarchy="primary">
+          Label
+        </Badge>
       </div>
     </div>
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Secondary</span>
       <div className="flex gap-4 items-center flex-wrap">
-        <Badge size="sm" color="brand" hierarchy="secondary">Label</Badge>
-        <Badge size="sm" color="destructive" hierarchy="secondary">Label</Badge>
-        <Badge size="sm" color="warning" hierarchy="secondary">Label</Badge>
-        <Badge size="sm" color="success" hierarchy="secondary">Label</Badge>
-        <Badge size="sm" color="gray" hierarchy="secondary">Label</Badge>
+        <Badge size="sm" color="brand" hierarchy="secondary">
+          Label
+        </Badge>
+        <Badge size="sm" color="destructive" hierarchy="secondary">
+          Label
+        </Badge>
+        <Badge size="sm" color="warning" hierarchy="secondary">
+          Label
+        </Badge>
+        <Badge size="sm" color="success" hierarchy="secondary">
+          Label
+        </Badge>
+        <Badge size="sm" color="gray" hierarchy="secondary">
+          Label
+        </Badge>
       </div>
     </div>
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Outlined</span>
       <div className="flex gap-4 items-center flex-wrap">
-        <Badge size="sm" color="brand" hierarchy="outlined">Label</Badge>
-        <Badge size="sm" color="destructive" hierarchy="outlined">Label</Badge>
-        <Badge size="sm" color="warning" hierarchy="outlined">Label</Badge>
-        <Badge size="sm" color="success" hierarchy="outlined">Label</Badge>
-        <Badge size="sm" color="gray" hierarchy="outlined">Label</Badge>
+        <Badge size="sm" color="brand" hierarchy="outlined">
+          Label
+        </Badge>
+        <Badge size="sm" color="destructive" hierarchy="outlined">
+          Label
+        </Badge>
+        <Badge size="sm" color="warning" hierarchy="outlined">
+          Label
+        </Badge>
+        <Badge size="sm" color="success" hierarchy="outlined">
+          Label
+        </Badge>
+        <Badge size="sm" color="gray" hierarchy="outlined">
+          Label
+        </Badge>
       </div>
     </div>
   </div>
@@ -207,47 +275,73 @@ export const InTable = () => (
     <table className="w-full border-collapse">
       <thead>
         <tr className="bg-gray-5">
-          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">Nome</th>
-          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">Status</th>
-          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">Tipo</th>
-          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">Prioridade</th>
+          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">
+            Nome
+          </th>
+          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">
+            Status
+          </th>
+          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">
+            Tipo
+          </th>
+          <th className="px-4 py-3 text-left text-sm font-semibold text-gray-90 border-b border-gray-20">
+            Prioridade
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr className="hover:bg-gray-5">
           <td className="px-4 py-3 text-sm text-gray-90 border-b border-gray-10">Projeto Alpha</td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="success" hierarchy="secondary">Ativo</Badge>
+            <Badge size="sm" color="success" hierarchy="secondary">
+              Ativo
+            </Badge>
           </td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="brand" hierarchy="secondary">Desenvolvimento</Badge>
+            <Badge size="sm" color="brand" hierarchy="secondary">
+              Desenvolvimento
+            </Badge>
           </td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="warning" hierarchy="secondary">Alta</Badge>
+            <Badge size="sm" color="warning" hierarchy="secondary">
+              Alta
+            </Badge>
           </td>
         </tr>
         <tr className="hover:bg-gray-5">
           <td className="px-4 py-3 text-sm text-gray-90 border-b border-gray-10">Projeto Beta</td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="destructive" hierarchy="secondary">Pausado</Badge>
+            <Badge size="sm" color="destructive" hierarchy="secondary">
+              Pausado
+            </Badge>
           </td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="gray" hierarchy="secondary">Design</Badge>
+            <Badge size="sm" color="gray" hierarchy="secondary">
+              Design
+            </Badge>
           </td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="brand" hierarchy="secondary">Média</Badge>
+            <Badge size="sm" color="brand" hierarchy="secondary">
+              Média
+            </Badge>
           </td>
         </tr>
         <tr className="hover:bg-gray-5">
           <td className="px-4 py-3 text-sm text-gray-90 border-b border-gray-10">Projeto Gamma</td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="success" hierarchy="secondary">Concluído</Badge>
+            <Badge size="sm" color="success" hierarchy="secondary">
+              Concluído
+            </Badge>
           </td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="brand" hierarchy="secondary">QA</Badge>
+            <Badge size="sm" color="brand" hierarchy="secondary">
+              QA
+            </Badge>
           </td>
           <td className="px-4 py-3 border-b border-gray-10">
-            <Badge size="sm" color="gray" hierarchy="secondary">Baixa</Badge>
+            <Badge size="sm" color="gray" hierarchy="secondary">
+              Baixa
+            </Badge>
           </td>
         </tr>
       </tbody>
@@ -258,8 +352,8 @@ InTable.parameters = {
   layout: 'padded',
   docs: {
     description: {
-      story: 'Exemplo de uso do Badge em uma tabela. **Importante:** Em tabelas, sempre use a hierarquia `secondary` para manter a consistência visual e melhor legibilidade.',
+      story:
+        'Exemplo de uso do Badge em uma tabela. **Importante:** Em tabelas, sempre use a hierarquia `secondary` para manter a consistência visual e melhor legibilidade.',
     },
   },
 };
-

@@ -45,9 +45,7 @@ export const AllColors = () => {
 
   return (
     <div className="p-6 max-w-[1200px]">
-      <h1 className="text-[32px] font-bold mb-8">
-        Paleta de Cores
-      </h1>
+      <h1 className="text-[32px] font-bold mb-8">Paleta de Cores</h1>
       {Object.entries(colors).map(([paletteName, paletteColors]) => (
         <ColorPalette key={paletteName} paletteName={paletteName} colors={paletteColors} />
       ))}
@@ -94,4 +92,3 @@ export const Success = () => {
     </div>
   );
 };
-

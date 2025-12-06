@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente DropdownAccount do Design System Interstellar. Menu dropdown para conta do usuário com header, itens de menu e atalhos de teclado.',
+        component:
+          'Componente DropdownAccount do Design System Interstellar. Menu dropdown para conta do usuário com header, itens de menu e atalhos de teclado.',
       },
     },
   },
@@ -43,12 +44,24 @@ const Template = (args) => {
 const defaultMenuItems = [
   { value: 'profile', label: 'Perfil', icon: 'Search', shortcut: 'Ctrl + F' },
   { value: 'settings', label: 'Configurações', icon: 'Settings', shortcut: 'Ctrl + G' },
-  { value: 'payments', label: 'Pagamentos', icon: 'CreditCard', shortcut: 'Ctrl + Alt + D', divider: true },
+  {
+    value: 'payments',
+    label: 'Pagamentos',
+    icon: 'CreditCard',
+    shortcut: 'Ctrl + Alt + D',
+    divider: true,
+  },
   { value: 'time', label: 'Ponto digital', icon: 'Clock', shortcut: 'Ctrl + F' },
   { value: 'teams', label: 'Times', icon: 'Users', shortcut: 'Alt + N' },
   { value: 'users', label: '@ Usuários', icon: 'AtSign', shortcut: 'Ctrl + F' },
   { value: 'support', label: 'Suporte', icon: 'Headphones', shortcut: 'Alt + R' },
-  { value: 'community', label: 'Comunidade', icon: 'MessageCircle', shortcut: 'Ctrl + Alt + P', divider: true },
+  {
+    value: 'community',
+    label: 'Comunidade',
+    icon: 'MessageCircle',
+    shortcut: 'Ctrl + Alt + P',
+    divider: true,
+  },
   { value: 'logout', label: 'Sair', icon: 'LogOut', shortcut: 'Ctrl + F' },
 ];
 
@@ -60,7 +73,7 @@ Default.args = {
   user: {
     name: 'Cara do Marketing',
     email: 'ocaradomarketing@gmail.com',
-    status: 'online'
+    status: 'online',
   },
   menuItems: defaultMenuItems,
   onItemClick: (item) => console.log('Item clicked:', item),
@@ -78,7 +91,7 @@ export const TriggerTypes = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -90,7 +103,7 @@ export const TriggerTypes = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -102,7 +115,7 @@ export const TriggerTypes = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -130,7 +143,7 @@ export const States = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -143,7 +156,7 @@ export const States = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -156,7 +169,7 @@ export const States = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -169,7 +182,7 @@ export const States = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -196,7 +209,7 @@ export const WithStatus = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'online'
+            status: 'online',
           }}
           menuItems={defaultMenuItems}
         />
@@ -208,7 +221,7 @@ export const WithStatus = () => {
           user={{
             name: 'Cara do Marketing',
             email: 'ocaradomarketing@gmail.com',
-            status: 'offline'
+            status: 'offline',
           }}
           menuItems={defaultMenuItems}
         />
@@ -232,7 +245,7 @@ export const WithoutEmail = () => {
         triggerType="avatar"
         user={{
           name: 'Cara do Marketing',
-          status: 'online'
+          status: 'online',
         }}
         menuItems={defaultMenuItems}
       />
@@ -254,7 +267,13 @@ export const CustomMenuItems = () => {
     { value: 'projects', label: 'Projetos', icon: 'Folder', shortcut: 'Ctrl + P' },
     { value: 'tasks', label: 'Tarefas', icon: 'CheckSquare', shortcut: 'Ctrl + T', divider: true },
     { value: 'reports', label: 'Relatórios', icon: 'FileText', shortcut: 'Ctrl + R' },
-    { value: 'analytics', label: 'Analytics', icon: 'BarChart', shortcut: 'Ctrl + A', divider: true },
+    {
+      value: 'analytics',
+      label: 'Analytics',
+      icon: 'BarChart',
+      shortcut: 'Ctrl + A',
+      divider: true,
+    },
     { value: 'logout', label: 'Sair', icon: 'LogOut', shortcut: 'Ctrl + Q' },
   ];
 
@@ -265,7 +284,7 @@ export const CustomMenuItems = () => {
         user={{
           name: 'Cara do Marketing',
           email: 'ocaradomarketing@gmail.com',
-          status: 'online'
+          status: 'online',
         }}
         menuItems={customItems}
       />
@@ -282,9 +301,9 @@ CustomMenuItems.parameters = {
 
 // Sem atalhos
 export const WithoutShortcuts = () => {
-  const itemsWithoutShortcuts = defaultMenuItems.map(item => ({
+  const itemsWithoutShortcuts = defaultMenuItems.map((item) => ({
     ...item,
-    shortcut: undefined
+    shortcut: undefined,
   }));
 
   return (
@@ -294,7 +313,7 @@ export const WithoutShortcuts = () => {
         user={{
           name: 'Cara do Marketing',
           email: 'ocaradomarketing@gmail.com',
-          status: 'online'
+          status: 'online',
         }}
         menuItems={itemsWithoutShortcuts}
       />
@@ -317,7 +336,7 @@ Interactive.args = {
   user: {
     name: 'Cara do Marketing',
     email: 'ocaradomarketing@gmail.com',
-    status: 'online'
+    status: 'online',
   },
   menuItems: defaultMenuItems,
   onItemClick: (item) => alert(`Item clicado: ${item.label}`),
@@ -330,4 +349,3 @@ Interactive.parameters = {
     },
   },
 };
-

@@ -16,7 +16,7 @@ import { BadgeIcon } from './BadgeIcon';
 /**
  * Componente Table do Design System Interstellar
  * Tabela com suporte a múltiplos tipos de células e form controls
- * 
+ *
  * @param {Array} columns - Array de objetos com { key, label, type }
  * @param {Array} data - Array de objetos com dados das linhas
  * @param {string} formControl - Tipo de form control: 'none' | 'checkbox' | 'radio' | 'toggle'
@@ -150,7 +150,9 @@ export const Table = ({
             value={value || 0}
             size={column.ratingSize || 'md'}
             readonly={column.readonly !== false}
-            onChange={(newValue) => column.onRatingChange && column.onRatingChange(newValue, row, rowIndex)}
+            onChange={(newValue) =>
+              column.onRatingChange && column.onRatingChange(newValue, row, rowIndex)
+            }
           />
         );
 
@@ -254,13 +256,17 @@ export const Table = ({
     w-full
     border-collapse
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do header
   const headerClasses = `
     bg-gray-5
     border-b border-gray-20
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes da célula do header
   const headerCellClasses = `
@@ -270,30 +276,35 @@ export const Table = ({
     text-sm font-semibold leading-5 tracking-[-0.084px]
     text-gray-60
     font-primary
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes da linha
-  const rowClasses = (rowIndex) => `
+  const rowClasses = (rowIndex) =>
+    `
     border-b border-gray-20
     bg-gray-0
     hover:bg-gray-5
     transition-colors
-  `.trim().replace(/\s+/g, ' ');
+  `
+      .trim()
+      .replace(/\s+/g, ' ');
 
   // Classes da célula
   const cellClasses = `
     px-md
     py-sm
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className="w-full overflow-x-auto">
       <table className={tableClasses} {...props}>
         <thead className={headerClasses}>
           <tr>
-            {formControl !== 'none' && (
-              <th className={`${headerCellClasses} w-lg`}></th>
-            )}
+            {formControl !== 'none' && <th className={`${headerCellClasses} w-lg`}></th>}
             {columns.map((column) => (
               <th key={column.key} className={headerCellClasses}>
                 {column.label}
@@ -305,9 +316,7 @@ export const Table = ({
           {data.map((row, rowIndex) => (
             <tr key={rowIndex} className={rowClasses(rowIndex)}>
               {formControl !== 'none' && (
-                <td className={cellClasses}>
-                  {renderFormControl(rowIndex, row)}
-                </td>
+                <td className={cellClasses}>{renderFormControl(rowIndex, row)}</td>
               )}
               {columns.map((column) => (
                 <td key={column.key} className={cellClasses}>
@@ -323,4 +332,3 @@ export const Table = ({
 };
 
 export default Table;
-

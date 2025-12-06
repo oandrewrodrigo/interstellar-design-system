@@ -6,7 +6,7 @@ import { Radio } from './Radio';
 
 /**
  * Componente Dropdown do Design System Interstellar
- * 
+ *
  * @param {string} state - Estado do dropdown: 'default' | 'hover' | 'opened' | 'disabled' | 'error'
  * @param {string} itemType - Tipo de item: 'text' | 'text-icon' | 'avatar' | 'dot' | 'country'
  * @param {boolean} multiple - Se permite seleção múltipla (checkbox) ou única (radio)
@@ -44,17 +44,19 @@ export const Dropdown = ({
   const [searchQuery, setSearchQuery] = useState('');
   const dropdownRef = useRef(null);
   const triggerRef = useRef(null);
-  
+
   // Gerar um ID único para o grupo de radios
   const radioGroupName = `dropdown-${Math.random().toString(36).substr(2, 9)}`;
 
   // Filtrar opções baseado na busca
-  const filteredOptions = searchable && searchQuery
-    ? options.filter(option =>
-        option.label?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        option.value?.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : options;
+  const filteredOptions =
+    searchable && searchQuery
+      ? options.filter(
+          (option) =>
+            option.label?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            option.value?.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      : options;
 
   // Gerenciar click outside
   useEffect(() => {
@@ -81,16 +83,16 @@ export const Dropdown = ({
   // Obter texto exibido no trigger
   const getDisplayText = () => {
     if (!value) return placeholder;
-    
+
     if (multiple && Array.isArray(value)) {
       if (value.length === 0) return placeholder;
       if (value.length === 1) {
-        const option = options.find(opt => opt.value === value[0]);
+        const option = options.find((opt) => opt.value === value[0]);
         return option?.label || placeholder;
       }
       return `${value.length} selecionados`;
     } else {
-      const option = options.find(opt => opt.value === value);
+      const option = options.find((opt) => opt.value === value);
       return option?.label || placeholder;
     }
   };
@@ -110,9 +112,9 @@ export const Dropdown = ({
     if (multiple) {
       const currentValue = Array.isArray(value) ? value : [];
       const newValue = currentValue.includes(optionValue)
-        ? currentValue.filter(v => v !== optionValue)
+        ? currentValue.filter((v) => v !== optionValue)
         : [...currentValue, optionValue];
-      
+
       if (onChange) {
         onChange({ target: { value: newValue } });
       }
@@ -179,26 +181,32 @@ export const Dropdown = ({
     transition-colors
     cursor-pointer
     ${disabled || state === 'disabled' ? 'cursor-not-allowed' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do label
   const labelClasses = `
     ${labelTypographyClasses}
     ${state === 'error' ? 'text-destructive-60' : 'text-gray-80'}
     ${disabled || state === 'disabled' ? 'text-gray-50' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do helper text
   const helperTextClasses = `
     ${helperTextTypographyClasses}
     ${state === 'error' ? 'text-destructive-60' : 'text-gray-60'}
     ${disabled || state === 'disabled' ? 'text-gray-50' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Renderizar item do dropdown
   const renderItem = (option) => {
     const selected = isSelected(option.value);
-    
+
     return (
       <div
         key={option.value}
@@ -209,7 +217,9 @@ export const Dropdown = ({
           cursor-pointer
           transition-colors
           ${selected ? 'bg-brand-5' : 'hover:bg-gray-5'}
-        `.trim().replace(/\s+/g, ' ')}
+        `
+          .trim()
+          .replace(/\s+/g, ' ')}
       >
         {/* Checkbox ou Radio */}
         {multiple ? (
@@ -240,7 +250,11 @@ export const Dropdown = ({
           {itemType === 'avatar' && option.avatar && (
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-20 flex items-center justify-center overflow-hidden">
               {typeof option.avatar === 'string' ? (
-                <img src={option.avatar} alt={option.label} className="w-full h-full object-cover" />
+                <img
+                  src={option.avatar}
+                  alt={option.label}
+                  className="w-full h-full object-cover"
+                />
               ) : (
                 option.avatar
               )}
@@ -251,11 +265,15 @@ export const Dropdown = ({
           {itemType === 'dot' && option.dot && (
             <div
               className={`flex-shrink-0 w-2 h-2 rounded-full ${
-                option.dot === 'online' ? 'bg-success-60' :
-                option.dot === 'offline' ? 'bg-gray-40' :
-                option.dot === 'busy' ? 'bg-warning-60' :
-                option.dot === 'error' ? 'bg-destructive-60' :
-                'bg-brand-60'
+                option.dot === 'online'
+                  ? 'bg-success-60'
+                  : option.dot === 'offline'
+                    ? 'bg-gray-40'
+                    : option.dot === 'busy'
+                      ? 'bg-warning-60'
+                      : option.dot === 'error'
+                        ? 'bg-destructive-60'
+                        : 'bg-brand-60'
               }`}
             />
           )}
@@ -283,7 +301,9 @@ export const Dropdown = ({
           )}
 
           {/* Label */}
-          <span className={`${itemTypographyClasses} ${selected ? 'text-brand-60' : 'text-gray-60'} flex-1 min-w-0 truncate`}>
+          <span
+            className={`${itemTypographyClasses} ${selected ? 'text-brand-60' : 'text-gray-60'} flex-1 min-w-0 truncate`}
+          >
             {option.label}
           </span>
 
@@ -308,11 +328,7 @@ export const Dropdown = ({
   return (
     <div className={`flex flex-col gap-2 w-full relative ${className}`} {...props}>
       {/* Label */}
-      {label && (
-        <label className={labelClasses}>
-          {label}
-        </label>
-      )}
+      {label && <label className={labelClasses}>{label}</label>}
 
       {/* Trigger */}
       <div
@@ -327,9 +343,7 @@ export const Dropdown = ({
         }}
         className={triggerClasses}
       >
-        <span className="flex-1 min-w-0 truncate">
-          {getDisplayText()}
-        </span>
+        <span className="flex-1 min-w-0 truncate">{getDisplayText()}</span>
         <Icon
           name="ChevronDown"
           size="sm"
@@ -386,4 +400,3 @@ export const Dropdown = ({
 };
 
 export default Dropdown;
-

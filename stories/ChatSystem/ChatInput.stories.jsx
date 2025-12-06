@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente de input do chat com botões para anexar arquivos, gravar áudio e enviar mensagem.',
+        component:
+          'Componente de input do chat com botões para anexar arquivos, gravar áudio e enviar mensagem.',
       },
     },
   },
@@ -30,7 +31,7 @@ export default {
 
 export const Default = (args) => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[600px]">
       <ChatInput
@@ -57,7 +58,7 @@ Default.args = {
 
 export const WithoutButtons = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[600px]">
       <ChatInput
@@ -90,7 +91,7 @@ export const Disabled = () => {
 
 export const WithValue = () => {
   const [value, setValue] = useState('Olá, como você está?');
-  
+
   return (
     <div className="w-[600px]">
       <ChatInput
@@ -105,4 +106,3 @@ export const WithValue = () => {
     </div>
   );
 };
-

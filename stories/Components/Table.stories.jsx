@@ -8,7 +8,8 @@ export default {
     layout: 'padded',
     docs: {
       description: {
-        component: 'Componente Table do Design System Interstellar. Suporta múltiplos tipos de células e form controls (checkbox, radio, toggle).',
+        component:
+          'Componente Table do Design System Interstellar. Suporta múltiplos tipos de células e form controls (checkbox, radio, toggle).',
       },
     },
   },
@@ -77,10 +78,7 @@ const sampleData = [
     trend: { text: 'Receita', percentage: 25, color: 'success' },
     payment: 'R$ 2.100,00',
     avatar: 'https://i.pravatar.cc/150?img=3',
-    avatars: [
-      'https://i.pravatar.cc/150?img=11',
-      'https://i.pravatar.cc/150?img=12',
-    ],
+    avatars: ['https://i.pravatar.cc/150?img=11', 'https://i.pravatar.cc/150?img=12'],
     image: 'https://picsum.photos/100/100?random=3',
     flag: 'Portugal',
     badge: { text: 'VIP', color: 'warning', hierarchy: 'secondary' },
@@ -133,11 +131,7 @@ const Template = (args) => {
 
   return (
     <div className="p-8">
-      <Table
-        {...args}
-        selectedRows={selectedRows}
-        onRowSelect={handleRowSelect}
-      />
+      <Table {...args} selectedRows={selectedRows} onRowSelect={handleRowSelect} />
       {args.formControl !== 'none' && (
         <div className="mt-4 text-sm text-gray-60">
           Linhas selecionadas: {selectedRows.join(', ') || 'Nenhuma'}
@@ -399,4 +393,3 @@ WithInputField.args = {
   data: sampleData,
   formControl: 'checkbox',
 };
-

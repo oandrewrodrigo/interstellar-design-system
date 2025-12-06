@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Componente Toggle do Design System Interstellar
  * Switch/Toggle para alternar entre estados on/off
- * 
+ *
  * @param {boolean} checked - Se o toggle está ativado
  * @param {function} onChange - Função de callback quando o estado muda
  * @param {boolean} disabled - Se o toggle está desabilitado
@@ -108,7 +108,9 @@ export const Toggle = ({
     cursor-pointer
     ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do thumb
   const thumbClasses = `
@@ -120,7 +122,9 @@ export const Toggle = ({
     duration-200
     ease-in-out
     shadow-sm
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Posição do thumb baseado no estado checked
   const thumbPosition = checked ? sizeConfig.translateX : 'translate-x-0';
@@ -153,4 +157,3 @@ export const Toggle = ({
 };
 
 export default Toggle;
-

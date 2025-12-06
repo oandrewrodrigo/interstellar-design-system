@@ -5,7 +5,7 @@ import { Button } from './Button';
 /**
  * Componente Notification do Design System Interstellar
  * Componente de notificação/alerta com ícone, título, texto de suporte, botão de ação e botão de fechar
- * 
+ *
  * @param {string} color - Cor da notificação: 'brand' | 'gray' | 'destructive' | 'warning' | 'success'
  * @param {string} hierarchy - Hierarquia: 'primary' | 'secondary'
  * @param {string} title - Título da notificação
@@ -177,19 +177,13 @@ export const Notification = ({
   // Renderizar ícone
   const renderIcon = () => {
     if (icon === null) return null;
-    
+
     const defaultIcon = icon || 'Info';
-    
+
     if (typeof defaultIcon === 'string') {
-      return (
-        <Icon
-          name={defaultIcon}
-          size="sm"
-          color={colorClasses.icon}
-        />
-      );
+      return <Icon name={defaultIcon} size="sm" color={colorClasses.icon} />;
     }
-    
+
     return defaultIcon;
   };
 
@@ -198,7 +192,9 @@ export const Notification = ({
     border rounded-md
     ${colorClasses.container}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <div className={containerClasses} {...props}>
@@ -206,14 +202,8 @@ export const Notification = ({
       <div className="flex flex-col gap-1.5 flex-1 min-w-0">
         {/* Título com ícone */}
         <div className="flex items-start gap-2">
-          {renderIcon() && (
-            <div className="flex-shrink-0">
-              {renderIcon()}
-            </div>
-          )}
-          <h3 className={`${titleTypographyClasses} ${colorClasses.title} flex-1`}>
-            {title}
-          </h3>
+          {renderIcon() && <div className="flex-shrink-0">{renderIcon()}</div>}
+          <h3 className={`${titleTypographyClasses} ${colorClasses.title} flex-1`}>{title}</h3>
         </div>
 
         {/* Texto de suporte */}
@@ -241,7 +231,9 @@ export const Notification = ({
                 ${colorClasses.buttonBg || ''}
                 ${colorClasses.buttonTextColor}
                 ${colorClasses.buttonFocusRing || ''}
-              `.trim().replace(/\s+/g, ' ')}
+              `
+                .trim()
+                .replace(/\s+/g, ' ')}
             >
               {actionButtonLabel}
             </button>
@@ -265,11 +257,7 @@ export const Notification = ({
           className="flex-shrink-0 p-0 border-0 bg-transparent cursor-pointer"
           aria-label="Fechar notificação"
         >
-          <Icon
-            name="X"
-            size="sm"
-            color={colorClasses.closeIcon}
-          />
+          <Icon name="X" size="sm" color={colorClasses.closeIcon} />
         </button>
       )}
     </div>
@@ -277,4 +265,3 @@ export const Notification = ({
 };
 
 export default Notification;
-

@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Icon,
-  BadgeIcon,
-  DropdownAccount,
-} from '../../../src/components/index.js';
+import { Button, Icon, BadgeIcon, DropdownAccount } from '../../../src/components/index.js';
 
 // Importar telas
 import Dashboard from './screens/Dashboard';
@@ -20,7 +15,12 @@ import Configuracoes from './screens/Configuracoes';
 const CosmosProApp = () => {
   const [currentScreen, setCurrentScreen] = useState('dashboard');
   const [notifications, setNotifications] = useState([
-    { id: 1, type: 'info', title: 'Nova atualização disponível', message: 'Versão 2.0.0 foi lançada' },
+    {
+      id: 1,
+      type: 'info',
+      title: 'Nova atualização disponível',
+      message: 'Versão 2.0.0 foi lançada',
+    },
     { id: 2, type: 'success', title: 'Backup concluído', message: 'Backup realizado com sucesso' },
   ]);
 
@@ -63,12 +63,7 @@ const CosmosProApp = () => {
         <div className="flex items-center gap-lg">
           {/* Notificações */}
           <div className="relative">
-            <Button
-              size="md"
-              color="gray"
-              hierarchy="secondary"
-              leftIcon="Bell"
-            />
+            <Button size="md" color="gray" hierarchy="secondary" leftIcon="Bell" />
             {notifications.length > 0 && (
               <BadgeIcon
                 content={notifications.length}
@@ -137,13 +132,10 @@ const CosmosProApp = () => {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto bg-gray-5">
-          {renderScreen()}
-        </main>
+        <main className="flex-1 overflow-y-auto bg-gray-5">{renderScreen()}</main>
       </div>
     </div>
   );
 };
 
 export default CosmosProApp;
-

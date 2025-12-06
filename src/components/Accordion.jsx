@@ -5,7 +5,7 @@ import { Button } from './Button';
 /**
  * Componente Accordion do Design System Interstellar
  * Painel expansível/retrátil com header e conteúdo opcional
- * 
+ *
  * @param {string} title - Título do accordion
  * @param {React.ReactNode} children - Conteúdo do accordion (exibido quando aberto)
  * @param {string} contentText - Texto do conteúdo (alternativa a children)
@@ -52,7 +52,7 @@ export const Accordion = ({
 
   const handleToggle = () => {
     if (isDisabled) return;
-    
+
     if (isControlled) {
       if (onChange) {
         onChange(!isOpened);
@@ -125,13 +125,7 @@ export const Accordion = ({
     const stateClasses = getStateClasses();
 
     if (typeof icon === 'string') {
-      return (
-        <Icon
-          name={icon}
-          size="md"
-          color={stateClasses.iconColor}
-        />
-      );
+      return <Icon name={icon} size="md" color={stateClasses.iconColor} />;
     }
 
     return icon;
@@ -151,7 +145,9 @@ export const Accordion = ({
           flex items-center justify-center
           text-xs font-semibold leading-4 tracking-[0.36px]
           font-primary
-        `.trim().replace(/\s+/g, ' ')}
+        `
+          .trim()
+          .replace(/\s+/g, ' ')}
       >
         {badgeText}
       </div>
@@ -173,7 +169,9 @@ export const Accordion = ({
     transition-colors
     ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do header
   // Header sempre em linha com padding
@@ -184,7 +182,9 @@ export const Accordion = ({
     ${breakpointConfig.gap}
     ${breakpointConfig.padding}
     w-full
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do título
   const titleClasses = `
@@ -193,7 +193,9 @@ export const Accordion = ({
     ${stateConfig.text}
     font-primary
     ${breakpoint === 'mobile' ? 'whitespace-pre-wrap' : ''}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do conteúdo
   // Conteúdo expande abaixo do header com padding horizontal
@@ -204,7 +206,9 @@ export const Accordion = ({
     px-md
     pb-md
     w-full
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Classes do texto do conteúdo
   const contentTextClasses = `
@@ -212,7 +216,9 @@ export const Accordion = ({
     ${stateConfig.contentText}
     font-primary
     whitespace-pre-wrap
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   // Rotação do chevron quando aberto
   const chevronRotation = isOpened ? 'rotate-180' : 'rotate-0';
@@ -239,9 +245,7 @@ export const Accordion = ({
         {renderIcon(startIcon, isStartIcon)}
 
         {/* Título */}
-        <p className={titleClasses}>
-          {title}
-        </p>
+        <p className={titleClasses}>{title}</p>
 
         {/* Badge */}
         {renderBadge()}
@@ -259,9 +263,7 @@ export const Accordion = ({
         <div className={contentClasses}>
           {/* Texto do conteúdo */}
           {(contentText || children) && (
-            <p className={contentTextClasses}>
-              {contentText || children}
-            </p>
+            <p className={contentTextClasses}>{contentText || children}</p>
           )}
 
           {/* Botão CTA */}
@@ -287,4 +289,3 @@ export const Accordion = ({
 };
 
 export default Accordion;
-

@@ -16,4 +16,3 @@ export { default as DropdownAccountDefault } from '../DropdownAccount';
 
 // Export default para compatibilidade (Dropdown como default principal)
 export { default } from '../Dropdown';
-

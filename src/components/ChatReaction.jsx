@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * Componente ChatReaction do Design System Interstellar
  * Reação a uma mensagem (emoji ou texto)
- * 
+ *
  * @param {string} reaction - Texto ou emoji da reação
  * @param {string} size - Tamanho: 'sm' | 'md' | 'lg'
  * @param {boolean} isText - Se a reação é texto (emoji) ou não
@@ -48,10 +48,12 @@ export const ChatReaction = ({
     ${isSelected ? 'bg-brand-10 border border-brand-60' : 'bg-gray-0 border border-gray-30'}
     ${onClick ? 'cursor-pointer hover:bg-gray-5 transition-colors' : ''}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
-    <div 
+    <div
       className={containerClasses}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
@@ -91,4 +93,3 @@ ChatReaction.defaultProps = {
 };
 
 export default ChatReaction;
-

@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Notification do Design System Interstellar. Componente de notificação/alerta com ícone, título, texto de suporte, botão de ação e botão de fechar.',
+        component:
+          'Componente Notification do Design System Interstellar. Componente de notificação/alerta com ícone, título, texto de suporte, botão de ação e botão de fechar.',
       },
     },
   },
@@ -312,4 +313,3 @@ Interactive.parameters = {
     },
   },
 };
-

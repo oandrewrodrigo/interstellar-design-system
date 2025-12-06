@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente ButtonGroup do Design System Interstellar. Agrupa múltiplos botões conectados, com bordas arredondadas apenas nas extremidades.',
+        component:
+          'Componente ButtonGroup do Design System Interstellar. Agrupa múltiplos botões conectados, com bordas arredondadas apenas nas extremidades.',
       },
     },
   },
@@ -37,11 +38,7 @@ const Template = (args) => <ButtonGroup {...args} />;
 // Story padrão
 export const Default = Template.bind({});
 Default.args = {
-  buttons: [
-    { children: 'Primeiro' },
-    { children: 'Segundo' },
-    { children: 'Terceiro' },
-  ],
+  buttons: [{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }],
   size: 'md',
   color: 'brand',
   hierarchy: 'primary',
@@ -53,11 +50,7 @@ export const Sizes = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Large</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="lg"
         color="brand"
         hierarchy="primary"
@@ -66,11 +59,7 @@ export const Sizes = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Medium</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="md"
         color="brand"
         hierarchy="primary"
@@ -79,11 +68,7 @@ export const Sizes = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Small</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="sm"
         color="brand"
         hierarchy="primary"
@@ -101,11 +86,7 @@ export const Hierarchies = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Primary</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="lg"
         color="brand"
         hierarchy="primary"
@@ -114,11 +95,7 @@ export const Hierarchies = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Secondary</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="lg"
         color="brand"
         hierarchy="secondary"
@@ -127,11 +104,7 @@ export const Hierarchies = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Outlined</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="lg"
         color="brand"
         hierarchy="outlined"
@@ -149,11 +122,7 @@ export const Colors = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Brand</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="lg"
         color="brand"
         hierarchy="primary"
@@ -162,11 +131,7 @@ export const Colors = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Gray</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="lg"
         color="gray"
         hierarchy="primary"
@@ -175,11 +140,7 @@ export const Colors = () => (
     <div className="flex flex-col gap-2">
       <span className="text-sm text-gray-60">Destructive</span>
       <ButtonGroup
-        buttons={[
-          { children: 'Primeiro' },
-          { children: 'Segundo' },
-          { children: 'Terceiro' },
-        ]}
+        buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }, { children: 'Terceiro' }]}
         size="lg"
         color="destructive"
         hierarchy="primary"
@@ -323,9 +284,7 @@ MixedButtons.parameters = {
 export const SingleButton = () => (
   <div className="flex flex-col gap-2">
     <ButtonGroup
-      buttons={[
-        { children: 'Apenas um botão' },
-      ]}
+      buttons={[{ children: 'Apenas um botão' }]}
       size="lg"
       color="brand"
       hierarchy="primary"
@@ -340,10 +299,7 @@ SingleButton.parameters = {
 export const TwoButtons = () => (
   <div className="flex flex-col gap-2">
     <ButtonGroup
-      buttons={[
-        { children: 'Primeiro' },
-        { children: 'Segundo' },
-      ]}
+      buttons={[{ children: 'Primeiro' }, { children: 'Segundo' }]}
       size="lg"
       color="brand"
       hierarchy="primary"
@@ -353,4 +309,3 @@ export const TwoButtons = () => (
 TwoButtons.parameters = {
   layout: 'padded',
 };
-

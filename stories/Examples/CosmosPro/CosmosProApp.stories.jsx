@@ -8,7 +8,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Aplicação de exemplo Cosmos Pro demonstrando o uso de todos os componentes do Design System Interstellar em um contexto real de aplicação empresarial.',
+        component:
+          'Aplicação de exemplo Cosmos Pro demonstrando o uso de todos os componentes do Design System Interstellar em um contexto real de aplicação empresarial.',
       },
     },
   },
@@ -25,4 +26,3 @@ export const Default = () => {
 Default.parameters = {
   layout: 'fullscreen',
 };
-

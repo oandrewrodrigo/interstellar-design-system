@@ -9,7 +9,8 @@ export default {
     layout: 'padded',
     docs: {
       description: {
-        component: 'Componente Tab do Design System Interstellar. Suporta múltiplos estados, estilos, tamanhos e pode incluir ícone e badge.',
+        component:
+          'Componente Tab do Design System Interstellar. Suporta múltiplos estados, estilos, tamanhos e pode incluir ícone e badge.',
       },
     },
   },
@@ -53,10 +54,18 @@ Default.args = {
 export const States = () => (
   <div className="flex flex-col gap-4">
     <div className="flex gap-4 items-center">
-      <Tab state="default" size="md">Default</Tab>
-      <Tab state="hover" size="md">Hover</Tab>
-      <Tab state="active" size="md">Active</Tab>
-      <Tab state="disabled" size="md">Disabled</Tab>
+      <Tab state="default" size="md">
+        Default
+      </Tab>
+      <Tab state="hover" size="md">
+        Hover
+      </Tab>
+      <Tab state="active" size="md">
+        Active
+      </Tab>
+      <Tab state="disabled" size="md">
+        Disabled
+      </Tab>
     </div>
   </div>
 );
@@ -65,10 +74,18 @@ export const States = () => (
 export const Styles = () => (
   <div className="flex flex-col gap-4">
     <div className="flex gap-4 items-center">
-      <Tab style="default" active size="md">Default</Tab>
-      <Tab style="outlined" active size="md">Outlined</Tab>
-      <Tab style="bottomBorder" active size="md">Bottom Border</Tab>
-      <Tab style="leftBorder" active size="md">Left Border</Tab>
+      <Tab style="default" active size="md">
+        Default
+      </Tab>
+      <Tab style="outlined" active size="md">
+        Outlined
+      </Tab>
+      <Tab style="bottomBorder" active size="md">
+        Bottom Border
+      </Tab>
+      <Tab style="leftBorder" active size="md">
+        Left Border
+      </Tab>
     </div>
   </div>
 );
@@ -77,9 +94,15 @@ export const Styles = () => (
 export const Sizes = () => (
   <div className="flex flex-col gap-4">
     <div className="flex gap-4 items-center">
-      <Tab size="sm" active>Small</Tab>
-      <Tab size="md" active>Medium</Tab>
-      <Tab size="lg" active>Large</Tab>
+      <Tab size="sm" active>
+        Small
+      </Tab>
+      <Tab size="md" active>
+        Medium
+      </Tab>
+      <Tab size="lg" active>
+        Large
+      </Tab>
     </div>
   </div>
 );
@@ -88,9 +111,15 @@ export const Sizes = () => (
 export const WithIcon = () => (
   <div className="flex flex-col gap-4">
     <div className="flex gap-4 items-center">
-      <Tab leftIcon="User" size="md">Profile</Tab>
-      <Tab leftIcon="Settings" active size="md">Settings</Tab>
-      <Tab leftIcon="CreditCard" size="md">Payment</Tab>
+      <Tab leftIcon="User" size="md">
+        Profile
+      </Tab>
+      <Tab leftIcon="Settings" active size="md">
+        Settings
+      </Tab>
+      <Tab leftIcon="CreditCard" size="md">
+        Payment
+      </Tab>
     </div>
   </div>
 );
@@ -99,9 +128,15 @@ export const WithIcon = () => (
 export const WithBadge = () => (
   <div className="flex flex-col gap-4">
     <div className="flex gap-4 items-center">
-      <Tab badge={5} size="md">Notifications</Tab>
-      <Tab badge={12} active size="md">Messages</Tab>
-      <Tab badge={99} size="md">Updates</Tab>
+      <Tab badge={5} size="md">
+        Notifications
+      </Tab>
+      <Tab badge={12} active size="md">
+        Messages
+      </Tab>
+      <Tab badge={99} size="md">
+        Updates
+      </Tab>
     </div>
   </div>
 );
@@ -110,9 +145,15 @@ export const WithBadge = () => (
 export const WithIconAndBadge = () => (
   <div className="flex flex-col gap-4">
     <div className="flex gap-4 items-center">
-      <Tab leftIcon="User" badge={5} size="md">Profile</Tab>
-      <Tab leftIcon="Bell" badge={12} active size="md">Notifications</Tab>
-      <Tab leftIcon="Mail" badge={99} size="md">Messages</Tab>
+      <Tab leftIcon="User" badge={5} size="md">
+        Profile
+      </Tab>
+      <Tab leftIcon="Bell" badge={12} active size="md">
+        Notifications
+      </Tab>
+      <Tab leftIcon="Mail" badge={99} size="md">
+        Messages
+      </Tab>
     </div>
   </div>
 );
@@ -120,8 +161,12 @@ export const WithIconAndBadge = () => (
 // Largura fixed
 export const FixedWidth = () => (
   <div className="flex flex-col gap-4 w-64">
-    <Tab width="fixed" size="md">Fixed Width Tab</Tab>
-    <Tab width="fixed" active size="md">Active Fixed Width</Tab>
+    <Tab width="fixed" size="md">
+      Fixed Width Tab
+    </Tab>
+    <Tab width="fixed" active size="md">
+      Active Fixed Width
+    </Tab>
   </div>
 );
 
@@ -340,4 +385,3 @@ export const CompleteExample = () => {
     </div>
   );
 };
-

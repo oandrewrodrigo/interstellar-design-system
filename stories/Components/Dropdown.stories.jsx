@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Dropdown do Design System Interstellar. Suporta múltiplas variações de tipo de item, seleção única ou múltipla, busca e estados.',
+        component:
+          'Componente Dropdown do Design System Interstellar. Suporta múltiplas variações de tipo de item, seleção única ou múltipla, busca e estados.',
       },
     },
   },
@@ -94,13 +95,13 @@ export const States = () => {
   const [value3, setValue3] = useState('');
   const [value4, setValue4] = useState('');
   const [value5, setValue5] = useState('');
-  
+
   const options = [
     { value: 'option1', label: 'Opção 1' },
     { value: 'option2', label: 'Opção 2' },
     { value: 'option3', label: 'Opção 3' },
   ];
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Dropdown
@@ -159,7 +160,7 @@ States.parameters = {
 // Tipos de item - Text Only
 export const TextOnly = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[320px]">
       <Dropdown
@@ -195,7 +196,7 @@ TextOnly.parameters = {
 // Tipos de item - Text + Icon
 export const TextWithIcon = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[320px]">
       <Dropdown
@@ -231,7 +232,7 @@ TextWithIcon.parameters = {
 // Tipos de item - Avatar
 export const WithAvatar = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[320px]">
       <Dropdown
@@ -267,7 +268,7 @@ WithAvatar.parameters = {
 // Tipos de item - Dot (Status)
 export const WithDot = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[320px]">
       <Dropdown
@@ -303,7 +304,7 @@ WithDot.parameters = {
 // Tipos de item - Country
 export const WithCountry = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[320px]">
       <Dropdown
@@ -339,7 +340,7 @@ WithCountry.parameters = {
 // Seleção múltipla
 export const MultipleSelection = () => {
   const [value, setValue] = useState([]);
-  
+
   return (
     <div className="w-[320px]">
       <Dropdown
@@ -375,7 +376,7 @@ MultipleSelection.parameters = {
 // Sem busca
 export const WithoutSearch = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[320px]">
       <Dropdown
@@ -427,4 +428,3 @@ Interactive.parameters = {
     },
   },
 };
-

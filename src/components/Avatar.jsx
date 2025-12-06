@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * Componente Avatar do Design System Interstellar
- * 
+ *
  * @param {string} src - URL da imagem do avatar
  * @param {string} alt - Texto alternativo para a imagem
  * @param {string} size - Tamanho do avatar: 'sm' | 'md' | 'lg'
@@ -12,7 +12,7 @@ export function Avatar({ src, alt, size = 'md', className = '' }) {
   const sizeClasses = {
     sm: 'w-6 h-6', // 24px
     md: 'w-8 h-8', // 32px
-    lg: 'w-10 h-10' // 40px
+    lg: 'w-10 h-10', // 40px
   };
 
   return (
@@ -27,4 +27,3 @@ export function Avatar({ src, alt, size = 'md', className = '' }) {
 }
 
 export default Avatar;
-

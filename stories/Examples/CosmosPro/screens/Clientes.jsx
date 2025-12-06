@@ -51,10 +51,7 @@ const Clientes = () => {
       trend: { text: 'Estável', percentage: 0, color: 'gray' },
       payment: 'R$ 28.500,00',
       avatar: 'https://i.pravatar.cc/150?img=6',
-      avatars: [
-        'https://i.pravatar.cc/150?img=4',
-        'https://i.pravatar.cc/150?img=5',
-      ],
+      avatars: ['https://i.pravatar.cc/150?img=4', 'https://i.pravatar.cc/150?img=5'],
       active: false,
     },
     {
@@ -151,28 +148,16 @@ const Clientes = () => {
       {/* Header */}
       <div className="mb-xl flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">
-            Clientes
-          </h1>
+          <h1 className="text-3xl font-bold text-gray-90 font-primary mb-xs">Clientes</h1>
           <p className="text-md text-gray-60 font-primary">
             Gerencie seus clientes e relacionamentos
           </p>
         </div>
         <div className="flex items-center gap-sm">
-          <Button
-            size="md"
-            color="gray"
-            hierarchy="outlined"
-            leftIcon="Download"
-          >
+          <Button size="md" color="gray" hierarchy="outlined" leftIcon="Download">
             Exportar
           </Button>
-          <Button
-            size="md"
-            color="brand"
-            hierarchy="primary"
-            leftIcon="Plus"
-          >
+          <Button size="md" color="brand" hierarchy="primary" leftIcon="Plus">
             Novo Cliente
           </Button>
         </div>
@@ -235,20 +220,10 @@ const Clientes = () => {
             {selectedRows.length} cliente(s) selecionado(s)
           </span>
           <div className="flex items-center gap-sm">
-            <Button
-              size="sm"
-              color="brand"
-              hierarchy="secondary"
-              leftIcon="Mail"
-            >
+            <Button size="sm" color="brand" hierarchy="secondary" leftIcon="Mail">
               Enviar Email
             </Button>
-            <Button
-              size="sm"
-              color="destructive"
-              hierarchy="secondary"
-              leftIcon="Trash2"
-            >
+            <Button size="sm" color="destructive" hierarchy="secondary" leftIcon="Trash2">
               Excluir
             </Button>
           </div>
@@ -259,4 +234,3 @@ const Clientes = () => {
 };
 
 export default Clientes;
-

@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente de mensagem do chat que suporta múltiplos tipos de conteúdo (texto, imagem, vídeo, arquivo, link, resposta, gravação, digitando).',
+        component:
+          'Componente de mensagem do chat que suporta múltiplos tipos de conteúdo (texto, imagem, vídeo, arquivo, link, resposta, gravação, digitando).',
       },
     },
   },
@@ -215,7 +216,7 @@ export const LinkMessage = () => {
 
 export const RecordingMessage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  
+
   return (
     <div className="w-[400px] space-y-4">
       <ChatMessage
@@ -310,4 +311,3 @@ Interactive.args = {
   status: 'read',
   avatar: 'https://via.placeholder.com/40',
 };
-

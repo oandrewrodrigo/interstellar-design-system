@@ -8,7 +8,8 @@ export default {
     layout: 'fullwidth',
     docs: {
       description: {
-        component: 'Barra superior do chat com informações do usuário/conversa e ações (buscar, mais opções, voltar).',
+        component:
+          'Barra superior do chat com informações do usuário/conversa e ações (buscar, mais opções, voltar).',
       },
     },
   },
@@ -55,11 +56,7 @@ Default.args = {
 export const WithoutCaption = () => {
   return (
     <div className="w-full">
-      <ChatTopNav
-        name="Grupo de Trabalho"
-        avatar="https://via.placeholder.com/48"
-        caption={null}
-      />
+      <ChatTopNav name="Grupo de Trabalho" avatar="https://via.placeholder.com/48" caption={null} />
     </div>
   );
 };
@@ -80,11 +77,7 @@ export const WithBackButton = () => {
 export const Minimal = () => {
   return (
     <div className="w-full">
-      <ChatTopNav
-        name="Usuário"
-        showSearch={false}
-        showMore={false}
-      />
+      <ChatTopNav name="Usuário" showSearch={false} showMore={false} />
     </div>
   );
 };
@@ -104,4 +97,3 @@ export const WithLogo = () => {
     </div>
   );
 };
-

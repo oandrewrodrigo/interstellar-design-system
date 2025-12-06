@@ -8,7 +8,8 @@ export default {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Textarea do Design System Interstellar. Suporta múltiplas variações de estado, contador de caracteres e texto de ajuda.',
+        component:
+          'Componente Textarea do Design System Interstellar. Suporta múltiplas variações de estado, contador de caracteres e texto de ajuda.',
       },
     },
   },
@@ -82,7 +83,7 @@ export const States = () => {
   const [value4, setValue4] = useState('');
   const [value5, setValue5] = useState('');
   const [value6, setValue6] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Textarea
@@ -161,7 +162,7 @@ States.parameters = {
 export const WithCounter = () => {
   const [value1, setValue1] = useState('Texto de exemplo com contador');
   const [value2, setValue2] = useState('Texto de exemplo sem contador');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Textarea
@@ -198,9 +199,13 @@ WithCounter.parameters = {
 export const TextLengths = () => {
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('Texto curto');
-  const [value3, setValue3] = useState('Este é um texto médio que ocupa algumas linhas do textarea para demonstrar como ele se comporta com conteúdo mais extenso.');
-  const [value4, setValue4] = useState('Este é um texto muito longo que está próximo do limite máximo de caracteres permitidos. Ele demonstra como o contador funciona quando o usuário está digitando e se aproxima do limite. O textarea deve continuar funcionando normalmente mesmo com textos extensos.');
-  
+  const [value3, setValue3] = useState(
+    'Este é um texto médio que ocupa algumas linhas do textarea para demonstrar como ele se comporta com conteúdo mais extenso.'
+  );
+  const [value4, setValue4] = useState(
+    'Este é um texto muito longo que está próximo do limite máximo de caracteres permitidos. Ele demonstra como o contador funciona quando o usuário está digitando e se aproxima do limite. O textarea deve continuar funcionando normalmente mesmo com textos extensos.'
+  );
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Textarea
@@ -260,7 +265,7 @@ export const DifferentRows = () => {
   const [value2, setValue2] = useState('');
   const [value3, setValue3] = useState('');
   const [value4, setValue4] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Textarea
@@ -321,7 +326,7 @@ DifferentRows.parameters = {
 // Sem label e helper text
 export const Minimal = () => {
   const [value, setValue] = useState('');
-  
+
   return (
     <div className="w-[320px]">
       <Textarea
@@ -348,7 +353,7 @@ export const WithMaxLength = () => {
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('');
   const [value3, setValue3] = useState('');
-  
+
   return (
     <div className="flex flex-col gap-4 w-[320px]">
       <Textarea
@@ -408,4 +413,3 @@ Interactive.parameters = {
     },
   },
 };
-

@@ -3,7 +3,7 @@ import { Icon } from './Icon';
 
 /**
  * Componente Checkbox do Design System Interstellar
- * 
+ *
  * @param {string} size - Tamanho do checkbox: 'sm' | 'md' | 'lg'
  * @param {string} state - Estado do checkbox: 'default' | 'hover' | 'focused' | 'disabled'
  * @param {boolean} checked - Se o checkbox está marcado
@@ -108,7 +108,9 @@ export const Checkbox = ({
     transition-colors
     ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
   return (
     <label className="inline-flex items-center cursor-pointer">
@@ -130,17 +132,9 @@ export const Checkbox = ({
         {(checked || indeterminate) && (
           <div className="flex items-center justify-center">
             {indeterminate ? (
-              <Icon
-                name="Minus"
-                size={sizeConfig.iconSize}
-                color={stateClasses.iconColor}
-              />
+              <Icon name="Minus" size={sizeConfig.iconSize} color={stateClasses.iconColor} />
             ) : (
-              <Icon
-                name="Check"
-                size={sizeConfig.iconSize}
-                color={stateClasses.iconColor}
-              />
+              <Icon name="Check" size={sizeConfig.iconSize} color={stateClasses.iconColor} />
             )}
           </div>
         )}
@@ -150,4 +144,3 @@ export const Checkbox = ({
 };
 
 export default Checkbox;
-

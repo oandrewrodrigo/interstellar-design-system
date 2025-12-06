@@ -26,10 +26,8 @@ const TypographyExample = ({ tokenName, token }) => {
       <div className="mb-3">
         <h3 className="text-base font-semibold mb-2">{tokenName}</h3>
         <div className="text-xs text-gray-50 font-mono">
-          font-size: {token.$value.fontSize}px | 
-          font-weight: {token.$value.fontWeight} | 
-          line-height: {token.$value.lineHeight}px | 
-          letter-spacing: {token.$value.letterSpacing}px
+          font-size: {token.$value.fontSize}px | font-weight: {token.$value.fontWeight} |
+          line-height: {token.$value.lineHeight}px | letter-spacing: {token.$value.letterSpacing}px
         </div>
       </div>
       <div style={style} className="mb-6">
@@ -46,9 +44,7 @@ const TypographyCategory = ({ category, tokens }) => {
 
   return (
     <div className="mb-12">
-      <h2 className="text-2xl font-bold mb-6 capitalize">
-        {category}
-      </h2>
+      <h2 className="text-2xl font-bold mb-6 capitalize">{category}</h2>
       {categoryTokens.map(([tokenName, token]) => (
         <TypographyExample key={tokenName} tokenName={tokenName} token={token} />
       ))}
@@ -59,9 +55,7 @@ const TypographyCategory = ({ category, tokens }) => {
 export const AllTypography = () => {
   return (
     <div className="p-6 max-w-[1200px]">
-      <h1 className="text-[32px] font-bold mb-8">
-        Sistema de Tipografia
-      </h1>
+      <h1 className="text-[32px] font-bold mb-8">Sistema de Tipografia</h1>
       <TypographyCategory category="display" tokens={tokensData} />
       <TypographyCategory category="heading" tokens={tokensData} />
       <TypographyCategory category="text" tokens={tokensData} />
@@ -110,4 +104,3 @@ export const Label = () => {
     </div>
   );
 };
-

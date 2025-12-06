@@ -12,4 +12,3 @@ export { default as ProgressBarDefault } from '../ProgressBar';
 
 // Export default para compatibilidade (Notification como default principal)
 export { default } from '../Notification';
-

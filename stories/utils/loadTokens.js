@@ -25,7 +25,7 @@ export function getTokensSync() {
   if (tokensCache) {
     return tokensCache;
   }
-  
+
   try {
     // Tentar require (Node.js) - apenas para compatibilidade
     if (typeof require !== 'undefined') {
@@ -36,7 +36,6 @@ export function getTokensSync() {
   } catch (e) {
     // Ignorar erro
   }
-  
+
   return null;
 }
-

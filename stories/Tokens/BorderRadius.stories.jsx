@@ -37,13 +37,10 @@ export const AllBorderRadius = () => {
 
   return (
     <div className="p-6 max-w-[800px]">
-      <h1 className="text-[32px] font-bold mb-8">
-        Sistema de Raio de Borda
-      </h1>
+      <h1 className="text-[32px] font-bold mb-8">Sistema de Raio de Borda</h1>
       {sortedTokens.map(([name, token]) => (
         <BorderRadiusExample key={name} name={name} value={token.$value} />
       ))}
     </div>
   );
 };
-
