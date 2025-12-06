@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input } from '../../src/components/Input';
 
 export default {
-  title: 'Components/Input',
+  title: 'Components/Forms/Input',
   component: Input,
   parameters: {
     layout: 'centered',

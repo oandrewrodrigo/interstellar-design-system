@@ -1,5 +1,3 @@
-import React, { useMemo, useCallback, useId } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from './Icon';
 
 /**
@@ -40,11 +38,6 @@ export const Input = ({
   className = '',
   ...props
 }) => {
-  // Mapeamento de tamanho do input para tamanho do ícone (memoizado)
-  const iconSizeMap = useMemo(() => ({
-    md: 'sm',   // 20px
-    lg: 'sm',   // 20px
-  }), []);
 
   // Mapeamento de tamanhos para classes Tailwind
   const sizeClasses = {
@@ -70,45 +63,10 @@ export const Input = ({
     lg: 'text-sm font-medium leading-5 tracking-[-0.084px]', // text-sm-medium: 14px, 20px line-height
   };
 
-  // Cor do ícone baseado no estado (memoizado)
-  const iconColor = useMemo(() => {
-    if (state === 'error') return 'destructive-60';
-    if (state === 'disabled') return 'gray-50';
-    return 'gray-60';
-  }, [state]);
-
-  // Renderizar ícones uma única vez (memoizado)
-  const leftIconElement = useMemo(() => {
-    if (!leftIcon) return null;
-    
-    if (typeof leftIcon === 'string') {
-      return (
-        <Icon
-          name={leftIcon}
-          size={iconSizeMap[size]}
-          color={iconColor}
         />
       );
     }
     
-    return leftIcon;
-  }, [leftIcon, size, iconColor, iconSizeMap]);
-
-  const rightIconElement = useMemo(() => {
-    if (!rightIcon) return null;
-    
-    if (typeof rightIcon === 'string') {
-      return (
-        <Icon
-          name={rightIcon}
-          size={iconSizeMap[size]}
-          color={iconColor}
-        />
-      );
-    }
-    
-    return rightIcon;
-  }, [rightIcon, size, iconColor, iconSizeMap]);
 
   // Função para obter classes de estado do input
   const getInputStateClasses = () => {
@@ -184,11 +142,6 @@ export const Input = ({
     ${disabled || state === 'disabled' ? 'text-gray-50' : ''}
   `.trim().replace(/\s+/g, ' ');
 
-  // Verificar se o tipo aceita apenas números (memoizado)
-  const isNumericType = useMemo(() => {
-    return ['phone', 'number', 'currency', 'credit-card'].includes(type);
-  }, [type]);
-
   // Determinar o tipo HTML do input baseado no type prop
   const getInputType = () => {
     if (type === 'password') return 'password';
@@ -199,9 +152,6 @@ export const Input = ({
     return 'text';
   };
 
-  // Handler para bloquear caracteres não numéricos (usando useCallback)
-  const handleKeyDown = useCallback((e) => {
-    if (isNumericType && !disabled && state !== 'disabled') {
       const char = e.key;
       // Permitir números (0-9)
       const isNumber = /[0-9]/.test(char);
@@ -224,13 +174,6 @@ export const Input = ({
     if (props.onKeyDown) {
       props.onKeyDown(e);
     }
-  }, [isNumericType, disabled, state, props]);
-
-  // Handler para onChange que filtra apenas números (usando useCallback)
-  const handleChange = useCallback((e) => {
-    if (!onChange) return;
-    
-    if (isNumericType && !disabled && state !== 'disabled') {
       let newValue = e.target.value;
       // Para tipos numéricos, remover caracteres não numéricos (exceto formatação)
       if (type === 'number' || type === 'currency') {
@@ -238,39 +181,16 @@ export const Input = ({
         newValue = newValue.replace(/[^0-9.,]/g, '');
       } else if (type === 'phone') {
         // Para phone, permitir números e caracteres de formatação comuns
-        newValue = newValue.replace(/[^0-9\s-()]/g, '');
-      } else if (type === 'credit-card') {
-        // Para credit-card, permitir números e espaços/hífens
-        newValue = newValue.replace(/[^0-9\s-]/g, '');
       }
       
       // Só atualizar se o valor mudou (para evitar loops)
       if (newValue !== e.target.value) {
         // Criar novo evento com valor filtrado
-        e.target.value = newValue;
-        // Criar novo evento sintético mantendo todas as propriedades
         const syntheticEvent = {
           ...e,
           target: {
             ...e.target,
             value: newValue
-          },
-          currentTarget: {
-            ...e.currentTarget,
-            value: newValue
-          }
-        };
-        
-        onChange(syntheticEvent);
-      } else {
-        // Se não mudou, passar o evento original
-        onChange(e);
-      }
-    } else {
-      // Para tipos não numéricos, passar o evento original
-      onChange(e);
-    }
-  }, [onChange, isNumericType, type, disabled, state]);
 
   // Renderizar adornment à esquerda
   const renderLeftAdornment = () => {
@@ -296,15 +216,10 @@ export const Input = ({
     return null;
   };
 
-  // Gerar ID único para o input e label
-  const generatedId = useId();
-  const inputId = props.id || (label ? `input-${generatedId}` : undefined);
-
   return (
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
       {label && (
-        <label htmlFor={inputId} className={labelClasses}>
           {label}
         </label>
       )}
@@ -312,9 +227,6 @@ export const Input = ({
       {/* Input Container */}
       <div className={inputContainerClasses}>
         {/* Left Icon */}
-        {leftIconElement && (
-          <span className="flex-shrink-0">
-            {leftIconElement}
           </span>
         )}
 
@@ -324,14 +236,11 @@ export const Input = ({
         {/* Input Field */}
         <input
           type={getInputType()}
-          id={inputId}
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           disabled={disabled || state === 'disabled'}
-          aria-invalid={state === 'error'}
-          aria-describedby={helperText || errorMessage ? `${inputId || 'input'}-helper` : undefined}
           className="flex-1 min-w-0 bg-transparent border-0 outline-none focus:outline-none focus:ring-0 p-0"
           {...props}
         />
@@ -340,54 +249,17 @@ export const Input = ({
         {renderRightAdornment()}
 
         {/* Right Icon */}
-        {rightIconElement && (
-          <span className="flex-shrink-0">
-            {rightIconElement}
           </span>
         )}
       </div>
 
       {/* Helper Text ou Error Message */}
       {(helperText || errorMessage) && (
-        <p 
-          id={inputId ? `${inputId}-helper` : undefined}
-          className={helperTextClasses}
-          role={state === 'error' ? 'alert' : undefined}
-        >
           {state === 'error' && errorMessage ? errorMessage : helperText}
         </p>
       )}
     </div>
   );
-};
-
-Input.propTypes = {
-  size: PropTypes.oneOf(['md', 'lg']),
-  type: PropTypes.oneOf(['default', 'action', 'currency', 'credit-card', 'date', 'link', 'password', 'phone', 'number']),
-  state: PropTypes.oneOf(['default', 'hover', 'filled', 'focused', 'disabled', 'error']),
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  helperText: PropTypes.string,
-  errorMessage: PropTypes.string,
-  leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  leftAdornment: PropTypes.string,
-  rightAdornment: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  id: PropTypes.string,
-};
-
-Input.defaultProps = {
-  size: 'md',
-  type: 'default',
-  state: 'default',
-  placeholder: '',
-  disabled: false,
-  className: '',
 };
 
 export default Input;

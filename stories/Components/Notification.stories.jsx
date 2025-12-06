@@ -2,7 +2,7 @@ import React from 'react';
 import { Notification } from '../../src/components/Notification';
 
 export default {
-  title: 'Components/Notification',
+  title: 'Components/Feedback/Notification',
   component: Notification,
   parameters: {
     layout: 'centered',

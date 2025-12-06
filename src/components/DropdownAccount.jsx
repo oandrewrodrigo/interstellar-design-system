@@ -1,5 +1,3 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from './Icon';
 
 /**
@@ -37,20 +35,12 @@ export const DropdownAccount = ({
   const triggerRef = useRef(null);
 
   // Atualizar estado baseado na prop state
-  // Sincronização controlada - necessário usar useEffect para sincronizar com prop externa
   useEffect(() => {
     if (state === 'opened') {
       setIsOpen(true);
     } else if (state !== 'opened' && state !== 'hover') {
       setIsOpen(false);
     }
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- Sincronização controlada necessária
-  }, [state]);
-
-  // Fechar dropdown ao clicar fora (melhorado com cleanup)
-  useEffect(() => {
-    if (!isOpen) return;
-
     const handleClickOutside = (event) => {
       if (
         dropdownRef.current &&
@@ -62,17 +52,6 @@ export const DropdownAccount = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
-    };
-  }, [isOpen]);
-
-  // Handler para clicar em item (memoizado com useCallback)
-  const handleItemClick = useCallback((item) => {
     if (disabled || state === 'disabled') return;
     
     if (item.value === 'logout' && onLogout) {
@@ -82,7 +61,6 @@ export const DropdownAccount = ({
     }
     
     setIsOpen(false);
-  }, [disabled, state, onLogout, onItemClick]);
 
   // Formatar atalho de teclado
   const formatShortcut = (shortcut) => {
@@ -105,10 +83,6 @@ export const DropdownAccount = ({
         <div
           ref={triggerRef}
           onClick={() => !disabled && state !== 'disabled' && setIsOpen(!isOpen)}
-          className="flex items-center gap-2 cursor-pointer"
-        >
-          <div className="relative">
-            <div className="w-10 h-10 rounded-full bg-gray-20 flex items-center justify-center overflow-hidden">
               {user.avatar ? (
                 typeof user.avatar === 'string' ? (
                   <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
@@ -139,7 +113,6 @@ export const DropdownAccount = ({
           ref={triggerRef}
           onClick={() => !disabled && state !== 'disabled' && setIsOpen(!isOpen)}
           className={`
-            flex items-center gap-2
             px-4 py-2.5
             border border-gray-30
             rounded-md
@@ -190,26 +163,11 @@ export const DropdownAccount = ({
   return (
     <div className={`relative ${className}`} {...props}>
       {/* Trigger */}
-      <div
-        role="button"
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-        tabIndex={disabled || state === 'disabled' ? -1 : 0}
-      >
-        {renderTrigger()}
-      </div>
 
       {/* Dropdown Panel */}
       {isOpen && !disabled && state !== 'disabled' && (
         <div
           ref={dropdownRef}
-          role="menu"
-          className="absolute top-full right-0 mt-2 w-80 bg-gray-0 border border-gray-20 rounded-md shadow-lg z-50 overflow-hidden"
-        >
-          {/* Header */}
-          <div className="flex items-center gap-3 p-4 border-b border-gray-20">
-            <div className="relative flex-shrink-0">
-              <div className="w-10 h-10 rounded-full bg-gray-20 flex items-center justify-center overflow-hidden">
                 {user.avatar ? (
                   typeof user.avatar === 'string' ? (
                     <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
@@ -224,7 +182,6 @@ export const DropdownAccount = ({
                 <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-success-50 border-2 border-gray-0 rounded-full" />
               )}
             </div>
-            <div className="flex flex-col gap-1 flex-1 min-w-0">
               <span className={`${nameTypographyClasses} text-gray-80 truncate`}>
                 {user.name}
               </span>
@@ -246,7 +203,6 @@ export const DropdownAccount = ({
                 <div
                   onClick={() => handleItemClick(item)}
                   className={`
-                    flex items-center gap-3
                     px-4 py-2.5
                     cursor-pointer
                     transition-colors
@@ -287,42 +243,6 @@ export const DropdownAccount = ({
       )}
     </div>
   );
-};
-
-DropdownAccount.propTypes = {
-  triggerType: PropTypes.oneOf(['avatar', 'button', 'button-icon']),
-  state: PropTypes.oneOf(['default', 'hover', 'opened', 'disabled']),
-  user: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    avatar: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    status: PropTypes.oneOf(['online', 'offline', 'busy']),
-  }),
-  menuItems: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    shortcut: PropTypes.string,
-    divider: PropTypes.bool,
-  })),
-  onItemClick: PropTypes.func,
-  onLogout: PropTypes.func,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-};
-
-DropdownAccount.defaultProps = {
-  triggerType: 'avatar',
-  state: 'default',
-  user: {
-    name: 'Cara do Marketing',
-    email: 'ocaradomarketing@gmail.com',
-    avatar: null,
-    status: 'online'
-  },
-  menuItems: [],
-  disabled: false,
-  className: '',
 };
 
 export default DropdownAccount;

@@ -1,5 +1,3 @@
-import React, { useCallback, useId } from 'react';
-import PropTypes from 'prop-types';
 
 /**
  * Componente Radio do Design System Interstellar
@@ -22,7 +20,6 @@ export const Radio = ({
   disabled = false,
   name,
   value,
-  id,
   className = '',
   ...props
 }) => {
@@ -97,17 +94,10 @@ export const Radio = ({
 
   const stateClasses = getStateClasses();
 
-  // Gerar ID único se não fornecido
-  const generatedId = useId();
-  const radioId = id || `radio-${generatedId}`;
-
-  // Handler para mudança (usando useCallback)
-  const handleChange = useCallback((e) => {
     if (isDisabled) return;
     if (onChange) {
       onChange(e);
     }
-  }, [isDisabled, onChange]);
 
   // Classes do container
   const containerClasses = `
@@ -123,13 +113,6 @@ export const Radio = ({
   `.trim().replace(/\s+/g, ' ');
 
   return (
-    <label 
-      htmlFor={radioId}
-      className={`relative inline-flex ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-    >
-      <input
-        type="radio"
-        id={radioId}
         checked={checked}
         onChange={handleChange}
         disabled={isDisabled}
@@ -146,26 +129,6 @@ export const Radio = ({
       </div>
     </label>
   );
-};
-
-Radio.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  state: PropTypes.oneOf(['default', 'hover', 'focused', 'disabled']),
-  checked: PropTypes.bool,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  className: PropTypes.string,
-  id: PropTypes.string,
-};
-
-Radio.defaultProps = {
-  size: 'sm',
-  state: 'default',
-  checked: false,
-  disabled: false,
-  className: '',
 };
 
 export default Radio;

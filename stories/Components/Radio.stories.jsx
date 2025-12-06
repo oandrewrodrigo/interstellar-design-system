@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Radio } from '../../src/components/Radio';
 
 export default {
-  title: 'Components/Radio',
+  title: 'Components/Forms/Radio',
   component: Radio,
   parameters: {
     layout: 'centered',

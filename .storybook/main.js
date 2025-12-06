@@ -14,12 +14,10 @@ const config = {
     autodocs: 'tag',
   },
   viteFinal: async (config) => {
-    // Garantir que PostCSS está configurado corretamente
-    if (!config.css) {
-      config.css = {};
-    }
-
-    // Configurações do servidor para evitar problemas
+    // Garantir que PostCSS está configurado
+    config.css = config.css || {};
+    
+    // Configurações do servidor
     config.server = {
       ...config.server,
       fs: {
@@ -27,8 +25,49 @@ const config = {
         strict: false,
         allow: ['..'],
       },
+      hmr: {
+        overlay: true,
+      },
     };
-
+    
+    // Otimização de dependências
+    config.optimizeDeps = {
+      ...config.optimizeDeps,
+      include: ['react', 'react-dom', 'lucide-react'],
+      exclude: [],
+    };
+    
+    // Configurações de build
+    config.build = {
+      ...config.build,
+      commonjsOptions: {
+        include: [/node_modules/],
+      },
+      rollupOptions: {
+        ...config.build?.rollupOptions,
+        output: {
+          ...config.build?.rollupOptions?.output,
+          format: 'es',
+        },
+      },
+    };
+    
+    // Resolver duplicatas de dependências e extensões
+    config.resolve = {
+      ...config.resolve,
+      dedupe: ['react', 'react-dom'],
+      extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json'],
+      alias: {
+        ...config.resolve?.alias,
+      },
+    };
+    
+    // Configuração para melhorar o carregamento de módulos dinâmicos
+    config.define = {
+      ...config.define,
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    };
+    
     return config;
   },
 };

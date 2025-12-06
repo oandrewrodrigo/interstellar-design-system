@@ -48,7 +48,7 @@ export const tokensFallback = {
     "size-icon-2xs": { "$type": "number", "$value": 12 }
   },
   // Nota: Este fallback contém apenas estrutura básica
-  // Para uso completo, use tokens/index.mjs
+  // Para uso completo, use tokens/index.js
   "colors": {},
   "font-family": {
     "font-family-primary": {

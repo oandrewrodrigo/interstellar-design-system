@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../../src/components/Button';
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Actions/Button',
   component: Button,
   parameters: {
     layout: 'centered',

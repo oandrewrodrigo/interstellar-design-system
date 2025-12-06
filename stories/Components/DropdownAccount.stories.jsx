@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DropdownAccount } from '../../src/components/DropdownAccount';
 
 export default {
-  title: 'Components/DropdownAccount',
+  title: 'Components/Navigation/DropdownAccount',
   component: DropdownAccount,
   parameters: {
     layout: 'centered',

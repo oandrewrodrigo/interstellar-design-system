@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from './Icon';
 import { Button } from './Button';
 
@@ -196,8 +195,6 @@ export const Notification = ({
 
   // Classes do container
   const containerClasses = `
-    flex gap-3 items-center
-    p-3
     border rounded-md
     ${colorClasses.container}
     ${className}
@@ -208,7 +205,6 @@ export const Notification = ({
       {/* Conteúdo principal */}
       <div className="flex flex-col gap-1.5 flex-1 min-w-0">
         {/* Título com ícone */}
-        <div className="flex items-center gap-2">
           {renderIcon() && (
             <div className="flex-shrink-0">
               {renderIcon()}
@@ -264,7 +260,6 @@ export const Notification = ({
       {/* Botão de fechar */}
       {showClose && (
         <button
-          type="button"
           onClick={onClose}
           className="flex-shrink-0 p-0 border-0 bg-transparent cursor-pointer"
           aria-label="Fechar notificação"
@@ -278,30 +273,6 @@ export const Notification = ({
       )}
     </div>
   );
-};
-
-Notification.propTypes = {
-  color: PropTypes.oneOf(['brand', 'gray', 'destructive', 'warning', 'success']),
-  hierarchy: PropTypes.oneOf(['primary', 'secondary']),
-  title: PropTypes.string,
-  supportingText: PropTypes.string,
-  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  actionButtonLabel: PropTypes.string,
-  onActionClick: PropTypes.func,
-  onClose: PropTypes.func,
-  showActionButton: PropTypes.bool,
-  showClose: PropTypes.bool,
-  className: PropTypes.string,
-};
-
-Notification.defaultProps = {
-  color: 'gray',
-  hierarchy: 'secondary',
-  title: 'Titulo do Alerta',
-  actionButtonLabel: 'Botão',
-  showActionButton: true,
-  showClose: true,
-  className: '',
 };
 
 export default Notification;

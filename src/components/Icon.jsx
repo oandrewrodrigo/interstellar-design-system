@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as LucideIcons from 'lucide-react';
 import tokensData from '../../tokens/index.js';
 
@@ -85,18 +84,6 @@ export const getAvailableIcons = () => {
   return Object.keys(LucideIcons).filter(
     (key) => typeof LucideIcons[key] === 'function' && key[0] === key[0].toUpperCase()
   );
-};
-
-Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['2xs', 'xs', 'sm', 'md', 'lg']),
-  color: PropTypes.string,
-  className: PropTypes.string,
-};
-
-Icon.defaultProps = {
-  size: 'md',
-  className: '',
 };
 
 export default Icon;

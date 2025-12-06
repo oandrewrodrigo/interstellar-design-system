@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from '../../src/components/Icon';
 
 export default {
-  title: 'Components/Icon',
+  title: 'Components/Primitives/Icon',
   component: Icon,
   parameters: {
     layout: 'centered',

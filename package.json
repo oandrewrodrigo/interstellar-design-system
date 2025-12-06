@@ -25,56 +25,29 @@
     "build-storybook": "storybook build",
     "build": "npm run build:tokens && vite build",
     "build:tokens": "node scripts/build-tokens.cjs",
-    "prepublishOnly": "npm run build",
-    "lint": "eslint . --max-warnings 0",
-    "lint:fix": "eslint . --ext .js,.jsx --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,json,md}\"",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:a11y": "jest --testPathPattern=a11y",
-    "analyze": "npm run build && npx webpack-bundle-analyzer dist/stats.json",
-    "size-check": "npm run build && du -sh dist/* && echo 'Build sizes:' && ls -lh dist/"
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "lucide-react": "^0.263.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "dependencies": {
-    "prop-types": "^15.8.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
-    "@babel/preset-react": "^7.28.5",
     "@storybook/addon-essentials": "^7.6.0",
     "@storybook/addon-interactions": "^7.6.0",
     "@storybook/addon-links": "^7.6.0",
     "@storybook/react": "^7.6.0",
     "@storybook/react-vite": "^7.6.0",
-    "@types/react": "^19.2.6",
-    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.2.0",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^9.39.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "globals": "^16.5.0",
-    "jest-axe": "^10.0.0",
+    "autoprefixer": "^10.4.22",
     "lucide-react": "^0.263.0",
-    "postcss": "^8.4.32",
-    "prettier": "^3.6.2",
+    "postcss": "^8.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.0",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5.9.3",
-    "vite": "^5.0.0",
-    "webpack-bundle-analyzer": "^5.0.1"
+    "tailwindcss": "^3.4.18",
+    "vite": "^5.0.0"
   },
   "keywords": [
     "design-system",
@@ -89,13 +62,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/seu-usuario/interstellar-design-system.git"
-  },
-  "homepage": "https://github.com/seu-usuario/interstellar-design-system#readme",
-  "bugs": {
-    "url": "https://github.com/seu-usuario/interstellar-design-system/issues"
-  },
-  "author": "",
-  "optionalDependencies": {
-    "@esbuild/darwin-arm64": "^0.27.0"
   }
 }

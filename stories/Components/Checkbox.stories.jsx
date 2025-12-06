@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Checkbox } from '../../src/components/Checkbox';
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Components/Forms/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'centered',

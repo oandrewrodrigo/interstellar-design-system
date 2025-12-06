@@ -1,5 +1,3 @@
-import React, { useId } from 'react';
-import PropTypes from 'prop-types';
 
 /**
  * Componente Textarea do Design System Interstellar
@@ -30,12 +28,6 @@ export const Textarea = ({
   onChange,
   disabled = false,
   rows = 4,
-  id,
-  className = '',
-  ...props
-}) => {
-  // Calcular caracteres atuais
-  const currentLength = value ? value.length : 0;
   const counterText = maxLength ? `${currentLength}/${maxLength}` : `${currentLength}`;
 
   // Classes de tipografia para label
@@ -133,15 +125,10 @@ export const Textarea = ({
     ${disabled || state === 'disabled' ? 'text-gray-30' : 'text-gray-40'}
   `.trim().replace(/\s+/g, ' ');
 
-  // Gerar ID único para o textarea e label
-  const generatedId = useId();
-  const textareaId = id || (label ? `textarea-${generatedId}` : undefined);
-
   return (
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
       {label && (
-        <label htmlFor={textareaId} className={labelClasses}>
           {label}
         </label>
       )}
@@ -150,15 +137,12 @@ export const Textarea = ({
       <div className={textareaContainerClasses}>
         {/* Textarea Field */}
         <textarea
-          id={textareaId}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
           disabled={disabled || state === 'disabled'}
           rows={rows}
           maxLength={maxLength}
-          aria-invalid={state === 'error'}
-          aria-describedby={helperText || errorMessage ? `${textareaId || 'textarea'}-helper` : undefined}
           className={`
             flex-1 min-w-0
             bg-transparent
@@ -206,42 +190,11 @@ export const Textarea = ({
 
       {/* Helper Text ou Error Message */}
       {(helperText || errorMessage) && (
-        <p 
-          id={textareaId ? `${textareaId}-helper` : undefined}
-          className={helperTextClasses}
-          role={state === 'error' ? 'alert' : undefined}
-        >
           {state === 'error' && errorMessage ? errorMessage : helperText}
         </p>
       )}
     </div>
   );
-};
-
-Textarea.propTypes = {
-  state: PropTypes.oneOf(['default', 'hover', 'filled', 'focused', 'disabled', 'error']),
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  helperText: PropTypes.string,
-  errorMessage: PropTypes.string,
-  showCounter: PropTypes.bool,
-  maxLength: PropTypes.number,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-  rows: PropTypes.number,
-  className: PropTypes.string,
-  id: PropTypes.string,
-};
-
-Textarea.defaultProps = {
-  state: 'default',
-  placeholder: '',
-  showCounter: true,
-  value: '',
-  disabled: false,
-  rows: 4,
-  className: '',
 };
 
 export default Textarea;

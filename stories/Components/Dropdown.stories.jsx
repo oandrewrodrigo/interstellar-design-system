@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dropdown } from '../../src/components/Dropdown';
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Components/Navigation/Dropdown',
   component: Dropdown,
   parameters: {
     layout: 'centered',

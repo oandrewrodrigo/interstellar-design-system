@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Textarea } from '../../src/components/Textarea';
 
 export default {
-  title: 'Components/Textarea',
+  title: 'Components/Forms/Textarea',
   component: Textarea,
   parameters: {
     layout: 'centered',

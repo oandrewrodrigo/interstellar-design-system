@@ -1,5 +1,3 @@
-import React, { useCallback, useId } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from './Icon';
 
 /**
@@ -91,13 +89,10 @@ export const Checkbox = ({
 
   const stateClasses = getStateClasses();
 
-  // Handler para mudança (usando useCallback)
-  const handleChange = useCallback((e) => {
     if (isDisabled) return;
     if (onChange) {
       onChange(e);
     }
-  }, [isDisabled, onChange]);
 
   // Classes do container
   const containerClasses = `
@@ -111,18 +106,6 @@ export const Checkbox = ({
     ${className}
   `.trim().replace(/\s+/g, ' ');
 
-  // Gerar ID único se não fornecido
-  const generatedId = useId();
-  const checkboxId = props.id || `checkbox-${generatedId}`;
-
-  return (
-    <label 
-      htmlFor={checkboxId}
-      className={`relative inline-flex ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-    >
-      <input
-        type="checkbox"
-        id={checkboxId}
         checked={checked}
         onChange={handleChange}
         disabled={isDisabled}
@@ -132,7 +115,6 @@ export const Checkbox = ({
             input.indeterminate = indeterminate;
           }
         }}
-        aria-checked={indeterminate ? 'mixed' : checked}
         {...props}
       />
       <div className={containerClasses}>
@@ -157,26 +139,6 @@ export const Checkbox = ({
       </div>
     </label>
   );
-};
-
-Checkbox.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  state: PropTypes.oneOf(['default', 'hover', 'focused', 'disabled']),
-  checked: PropTypes.bool,
-  indeterminate: PropTypes.bool,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  id: PropTypes.string,
-};
-
-Checkbox.defaultProps = {
-  size: 'sm',
-  state: 'default',
-  checked: false,
-  indeterminate: false,
-  disabled: false,
-  className: '',
 };
 
 export default Checkbox;

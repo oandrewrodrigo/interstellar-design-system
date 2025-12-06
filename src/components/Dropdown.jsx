@@ -1,5 +1,3 @@
-import React, { useState, useRef, useEffect, useCallback, useId } from 'react';
-import PropTypes from 'prop-types';
 import { Icon } from './Icon';
 import { Input } from './Input';
 import { Checkbox } from './Checkbox';
@@ -47,8 +45,6 @@ export const Dropdown = ({
   const triggerRef = useRef(null);
   
   // Gerar um ID único para o grupo de radios
-  const generatedId = useId();
-  const radioGroupName = props.id ? `dropdown-${props.id}` : `dropdown-${generatedId}`;
 
   // Filtrar opções baseado na busca
   const filteredOptions = searchable && searchQuery
@@ -57,10 +53,6 @@ export const Dropdown = ({
         option.value?.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : options;
-
-  // Fechar dropdown ao clicar fora (melhorado com cleanup)
-  useEffect(() => {
-    if (!isOpen) return;
 
     const handleClickOutside = (event) => {
       if (
@@ -74,12 +66,6 @@ export const Dropdown = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [isOpen]);
 
@@ -108,8 +94,6 @@ export const Dropdown = ({
     return value === optionValue;
   };
 
-  // Handler para selecionar item (memoizado com useCallback)
-  const handleSelect = useCallback((optionValue) => {
     if (disabled || state === 'disabled') return;
 
     if (multiple) {
@@ -127,7 +111,6 @@ export const Dropdown = ({
       }
       setIsOpen(false);
     }
-  }, [disabled, state, multiple, value, onChange]);
 
   // Classes de tipografia para label
   const labelTypographyClasses = 'text-sm font-bold leading-5 tracking-[-0.084px]'; // text-sm-bold: 14px, 20px line-height
@@ -177,7 +160,6 @@ export const Dropdown = ({
 
   // Classes do trigger
   const triggerClasses = `
-    flex items-center gap-3
     h-12 px-3
     ${triggerTypographyClasses}
     ${getTriggerStateClasses()}
@@ -210,7 +192,6 @@ export const Dropdown = ({
         key={option.value}
         onClick={() => handleSelect(option.value)}
         className={`
-          flex items-center gap-2
           min-h-10 px-2 py-2
           rounded-md
           cursor-pointer
@@ -242,7 +223,6 @@ export const Dropdown = ({
         )}
 
         {/* Conteúdo do item baseado no tipo */}
-        <div className="flex items-center gap-2 flex-1 min-w-0">
           {/* Avatar */}
           {itemType === 'avatar' && option.avatar && (
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-20 flex items-center justify-center overflow-hidden">
@@ -333,11 +313,6 @@ export const Dropdown = ({
           }
         }}
         className={triggerClasses}
-        role="combobox"
-        aria-expanded={isOpen}
-        aria-haspopup="listbox"
-        aria-controls={props.id ? `${props.id}-listbox` : undefined}
-        tabIndex={disabled || state === 'disabled' ? -1 : 0}
       >
         <span className="flex-1 min-w-0 truncate">
           {getDisplayText()}
@@ -354,13 +329,10 @@ export const Dropdown = ({
       {isOpen && !disabled && state !== 'disabled' && (
         <div
           ref={dropdownRef}
-          id={props.id ? `${props.id}-listbox` : undefined}
-          role="listbox"
           className="absolute top-full left-0 right-0 mt-1 bg-gray-0 border border-gray-20 rounded-md shadow-lg z-50 max-h-80 overflow-hidden flex flex-col"
         >
           {/* Search */}
           {searchable && (
-            <div className="p-2 border-b border-gray-20">
               <div className="[&>div]:!gap-0 [&>div>div]:!bg-gray-5 [&>div>div]:!border-0 [&>div>div]:!p-2 [&>div>div]:!min-h-10 [&>div>div]:!h-auto">
                 <Input
                   type="default"
@@ -377,7 +349,6 @@ export const Dropdown = ({
           )}
 
           {/* Options List */}
-          <div className="overflow-y-auto p-1 flex flex-col gap-1">
             {filteredOptions.length > 0 ? (
               filteredOptions.map(renderItem)
             ) : (
@@ -397,49 +368,6 @@ export const Dropdown = ({
       )}
     </div>
   );
-};
-
-Dropdown.propTypes = {
-  state: PropTypes.oneOf(['default', 'hover', 'opened', 'disabled', 'error']),
-  itemType: PropTypes.oneOf(['text', 'text-icon', 'avatar', 'dot', 'country']),
-  multiple: PropTypes.bool,
-  label: PropTypes.string,
-  placeholder: PropTypes.string,
-  helperText: PropTypes.string,
-  errorMessage: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    label: PropTypes.string.isRequired,
-    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    avatar: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    dot: PropTypes.oneOf(['online', 'offline', 'busy', 'error']),
-    flag: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    code: PropTypes.string,
-    handle: PropTypes.string,
-  })),
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
-  ]),
-  onChange: PropTypes.func,
-  searchable: PropTypes.bool,
-  searchPlaceholder: PropTypes.string,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  id: PropTypes.string,
-};
-
-Dropdown.defaultProps = {
-  state: 'default',
-  itemType: 'text',
-  multiple: false,
-  placeholder: 'Placeholder Text',
-  options: [],
-  searchable: true,
-  searchPlaceholder: 'Search',
-  disabled: false,
-  className: '',
 };
 
 export default Dropdown;
