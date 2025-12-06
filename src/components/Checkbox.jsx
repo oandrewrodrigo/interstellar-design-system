@@ -112,13 +112,18 @@ export const Checkbox = ({
     .trim()
     .replace(/\s+/g, ' ');
 
+  const checkboxId = props.id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+  const ariaChecked = indeterminate ? 'mixed' : checked ? 'true' : 'false';
+
   return (
-    <label className="inline-flex items-center cursor-pointer">
+    <label htmlFor={checkboxId} className={`inline-flex items-center cursor-pointer ${className}`}>
       <input
         type="checkbox"
+        id={checkboxId}
         checked={checked}
         onChange={handleChange}
         disabled={isDisabled}
+        aria-checked={ariaChecked}
         className="sr-only"
         ref={(input) => {
           if (input) {

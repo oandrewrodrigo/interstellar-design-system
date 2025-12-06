@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 /**
  * Componente Textarea do Design System Interstellar
@@ -32,6 +32,10 @@ export const Textarea = ({
   className = '',
   ...props
 }) => {
+  const textareaId = useId();
+  const helperTextId = helperText || errorMessage ? `${textareaId}-helper` : undefined;
+  const isError = state === 'error';
+
   // Calcular comprimento atual e texto do contador
   const currentLength = value ? value.length : 0;
   const counterText = maxLength ? `${currentLength}/${maxLength}` : `${currentLength}`;
@@ -142,18 +146,26 @@ export const Textarea = ({
   return (
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
-      {label && <label className={labelClasses}>{label}</label>}
+      {label && (
+        <label htmlFor={props.id || textareaId} className={labelClasses}>
+          {label}
+        </label>
+      )}
 
       {/* Textarea Container */}
       <div className={textareaContainerClasses}>
         {/* Textarea Field */}
         <textarea
-          value={value}
+          id={props.id || textareaId}
+          value={onChange && value !== undefined ? value : undefined}
+          defaultValue={!onChange && value !== undefined ? value : undefined}
           onChange={onChange}
           placeholder={placeholder}
           disabled={disabled || state === 'disabled'}
           rows={rows}
           maxLength={maxLength}
+          aria-invalid={isError ? 'true' : undefined}
+          aria-describedby={helperTextId || undefined}
           className={`
             flex-1 min-w-0
             bg-transparent
@@ -199,7 +211,7 @@ export const Textarea = ({
 
       {/* Helper Text ou Error Message */}
       {(helperText || errorMessage) && (
-        <p className={helperTextClasses}>
+        <p id={helperTextId} className={helperTextClasses}>
           {state === 'error' && errorMessage ? errorMessage : helperText}
         </p>
       )}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { Icon } from './Icon';
 
 /**
@@ -39,6 +39,10 @@ export const Input = ({
   className = '',
   ...props
 }) => {
+  const inputId = useId();
+  const helperTextId = helperText || errorMessage ? `${inputId}-helper` : undefined;
+  const isError = state === 'error';
+
   // Mapeamento de tamanhos para classes Tailwind
   const sizeClasses = {
     md: 'h-10 px-3', // 40px altura, 12px padding horizontal
@@ -293,9 +297,13 @@ export const Input = ({
   };
 
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className={`flex flex-col gap-2 w-full ${className}`}>
       {/* Label */}
-      {label && <label className={labelClasses}>{label}</label>}
+      {label && (
+        <label htmlFor={props.id || inputId} className={labelClasses}>
+          {label}
+        </label>
+      )}
 
       {/* Input Container */}
       <div className={inputContainerClasses}>
@@ -308,11 +316,14 @@ export const Input = ({
         {/* Input Field */}
         <input
           type={getInputType()}
+          id={props.id || inputId}
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           disabled={disabled || state === 'disabled'}
+          aria-invalid={isError ? 'true' : undefined}
+          aria-describedby={helperTextId || undefined}
           className="flex-1 min-w-0 bg-transparent border-0 outline-none focus:outline-none focus:ring-0 p-0"
           {...props}
         />
@@ -326,7 +337,7 @@ export const Input = ({
 
       {/* Helper Text ou Error Message */}
       {(helperText || errorMessage) && (
-        <p className={helperTextClasses}>
+        <p id={helperTextId} className={helperTextClasses}>
           {state === 'error' && errorMessage ? errorMessage : helperText}
         </p>
       )}
