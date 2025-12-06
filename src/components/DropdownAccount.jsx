@@ -1,3 +1,4 @@
+import React, { useState, useRef, useEffect } from 'react';
 import { Icon } from './Icon';
 
 /**
@@ -52,6 +53,16 @@ export const DropdownAccount = ({
       }
     };
 
+    if (isOpen && !disabled && state !== 'disabled') {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isOpen, disabled, state]);
+
+  // Handler para clicar em um item do menu
+  const handleItemClick = (item) => {
     if (disabled || state === 'disabled') return;
     
     if (item.value === 'logout' && onLogout) {
@@ -61,6 +72,7 @@ export const DropdownAccount = ({
     }
     
     setIsOpen(false);
+  };
 
   // Formatar atalho de teclado
   const formatShortcut = (shortcut) => {
@@ -83,16 +95,18 @@ export const DropdownAccount = ({
         <div
           ref={triggerRef}
           onClick={() => !disabled && state !== 'disabled' && setIsOpen(!isOpen)}
-              {user.avatar ? (
-                typeof user.avatar === 'string' ? (
-                  <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
-                ) : (
-                  user.avatar
-                )
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <div className="relative w-10 h-10 rounded-full overflow-hidden">
+            {user.avatar ? (
+              typeof user.avatar === 'string' ? (
+                <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
               ) : (
-                <Icon name="User" size="md" color="gray-60" />
-              )}
-            </div>
+                user.avatar
+              )
+            ) : (
+              <Icon name="User" size="md" color="gray-60" />
+            )}
             {user.status && user.status === 'online' && (
               <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-success-50 border-2 border-gray-0 rounded-full" />
             )}
@@ -163,11 +177,18 @@ export const DropdownAccount = ({
   return (
     <div className={`relative ${className}`} {...props}>
       {/* Trigger */}
+      {renderTrigger()}
 
       {/* Dropdown Panel */}
       {isOpen && !disabled && state !== 'disabled' && (
         <div
           ref={dropdownRef}
+          className="absolute top-full mt-2 right-0 w-80 bg-gray-0 border border-gray-30 rounded-md shadow-lg z-50"
+        >
+          {/* User Header */}
+          <div className="px-4 py-3 border-b border-gray-20">
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                 {user.avatar ? (
                   typeof user.avatar === 'string' ? (
                     <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
@@ -177,19 +198,20 @@ export const DropdownAccount = ({
                 ) : (
                   <Icon name="User" size="md" color="gray-60" />
                 )}
+                {user.status && user.status === 'online' && (
+                  <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-success-50 border-2 border-gray-0 rounded-full" />
+                )}
               </div>
-              {user.status && user.status === 'online' && (
-                <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-success-50 border-2 border-gray-0 rounded-full" />
-              )}
-            </div>
-              <span className={`${nameTypographyClasses} text-gray-80 truncate`}>
-                {user.name}
-              </span>
-              {user.email && (
-                <span className={`${emailTypographyClasses} text-gray-50 truncate`}>
-                  {user.email}
+              <div className="flex flex-col min-w-0 flex-1">
+                <span className={`${nameTypographyClasses} text-gray-80 truncate`}>
+                  {user.name}
                 </span>
-              )}
+                {user.email && (
+                  <span className={`${emailTypographyClasses} text-gray-50 truncate`}>
+                    {user.email}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
 
@@ -203,6 +225,7 @@ export const DropdownAccount = ({
                 <div
                   onClick={() => handleItemClick(item)}
                   className={`
+                    flex items-center gap-3
                     px-4 py-2.5
                     cursor-pointer
                     transition-colors

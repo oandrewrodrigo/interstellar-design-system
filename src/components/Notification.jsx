@@ -205,6 +205,7 @@ export const Notification = ({
       {/* Conteúdo principal */}
       <div className="flex flex-col gap-1.5 flex-1 min-w-0">
         {/* Título com ícone */}
+        <div className="flex items-start gap-2">
           {renderIcon() && (
             <div className="flex-shrink-0">
               {renderIcon()}

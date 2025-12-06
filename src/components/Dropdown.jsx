@@ -1,3 +1,4 @@
+import React, { useState, useRef, useEffect } from 'react';
 import { Icon } from './Icon';
 import { Input } from './Input';
 import { Checkbox } from './Checkbox';
@@ -45,6 +46,7 @@ export const Dropdown = ({
   const triggerRef = useRef(null);
   
   // Gerar um ID único para o grupo de radios
+  const radioGroupName = `dropdown-${Math.random().toString(36).substr(2, 9)}`;
 
   // Filtrar opções baseado na busca
   const filteredOptions = searchable && searchQuery
@@ -54,6 +56,8 @@ export const Dropdown = ({
       )
     : options;
 
+  // Gerenciar click outside
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         dropdownRef.current &&
@@ -66,7 +70,12 @@ export const Dropdown = ({
       }
     };
 
-    };
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
   }, [isOpen]);
 
   // Obter texto exibido no trigger
@@ -94,6 +103,8 @@ export const Dropdown = ({
     return value === optionValue;
   };
 
+  // Handler para selecionar um item
+  const handleSelect = (optionValue) => {
     if (disabled || state === 'disabled') return;
 
     if (multiple) {
@@ -103,14 +114,15 @@ export const Dropdown = ({
         : [...currentValue, optionValue];
       
       if (onChange) {
-        onChange(newValue);
+        onChange({ target: { value: newValue } });
       }
     } else {
       if (onChange) {
-        onChange(optionValue);
+        onChange({ target: { value: optionValue } });
       }
       setIsOpen(false);
     }
+  };
 
   // Classes de tipografia para label
   const labelTypographyClasses = 'text-sm font-bold leading-5 tracking-[-0.084px]'; // text-sm-bold: 14px, 20px line-height
@@ -223,6 +235,7 @@ export const Dropdown = ({
         )}
 
         {/* Conteúdo do item baseado no tipo */}
+        <div className="flex items-center gap-2 min-w-0 flex-1">
           {/* Avatar */}
           {itemType === 'avatar' && option.avatar && (
             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-20 flex items-center justify-center overflow-hidden">
@@ -333,6 +346,7 @@ export const Dropdown = ({
         >
           {/* Search */}
           {searchable && (
+            <div className="p-2 border-b border-gray-20">
               <div className="[&>div]:!gap-0 [&>div>div]:!bg-gray-5 [&>div>div]:!border-0 [&>div>div]:!p-2 [&>div>div]:!min-h-10 [&>div>div]:!h-auto">
                 <Input
                   type="default"
@@ -349,6 +363,7 @@ export const Dropdown = ({
           )}
 
           {/* Options List */}
+          <div className="overflow-y-auto">
             {filteredOptions.length > 0 ? (
               filteredOptions.map(renderItem)
             ) : (

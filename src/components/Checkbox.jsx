@@ -1,3 +1,4 @@
+import React from 'react';
 import { Icon } from './Icon';
 
 /**
@@ -89,10 +90,13 @@ export const Checkbox = ({
 
   const stateClasses = getStateClasses();
 
+  // Handler para mudança de estado
+  const handleChange = (e) => {
     if (isDisabled) return;
     if (onChange) {
       onChange(e);
     }
+  };
 
   // Classes do container
   const containerClasses = `
@@ -106,6 +110,10 @@ export const Checkbox = ({
     ${className}
   `.trim().replace(/\s+/g, ' ');
 
+  return (
+    <label className="inline-flex items-center cursor-pointer">
+      <input
+        type="checkbox"
         checked={checked}
         onChange={handleChange}
         disabled={isDisabled}

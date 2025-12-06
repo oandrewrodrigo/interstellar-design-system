@@ -1,3 +1,4 @@
+import React from 'react';
 import { Icon } from './Icon';
 
 /**
@@ -62,11 +63,6 @@ export const Input = ({
     md: 'text-sm font-medium leading-5 tracking-[-0.084px]', // text-sm-medium: 14px, 20px line-height
     lg: 'text-sm font-medium leading-5 tracking-[-0.084px]', // text-sm-medium: 14px, 20px line-height
   };
-
-        />
-      );
-    }
-    
 
   // Função para obter classes de estado do input
   const getInputStateClasses = () => {
@@ -152,6 +148,9 @@ export const Input = ({
     return 'text';
   };
 
+  // Handler para keyDown (validação de entrada para tipos específicos)
+  const handleKeyDown = (e) => {
+    if (type === 'number' || type === 'currency' || type === 'credit-card' || type === 'phone') {
       const char = e.key;
       // Permitir números (0-9)
       const isNumber = /[0-9]/.test(char);
@@ -174,23 +173,76 @@ export const Input = ({
     if (props.onKeyDown) {
       props.onKeyDown(e);
     }
-      let newValue = e.target.value;
-      // Para tipos numéricos, remover caracteres não numéricos (exceto formatação)
-      if (type === 'number' || type === 'currency') {
-        // Para number e currency, permitir apenas números e ponto/vírgula decimal
-        newValue = newValue.replace(/[^0-9.,]/g, '');
-      } else if (type === 'phone') {
-        // Para phone, permitir números e caracteres de formatação comuns
-      }
+  };
+
+  // Handler para onChange (filtragem de valores)
+  const handleChange = (e) => {
+    let newValue = e.target.value;
+    // Para tipos numéricos, remover caracteres não numéricos (exceto formatação)
+    if (type === 'number' || type === 'currency') {
+      // Para number e currency, permitir apenas números e ponto/vírgula decimal
+      newValue = newValue.replace(/[^0-9.,]/g, '');
+    } else if (type === 'phone') {
+      // Para phone, permitir números e caracteres de formatação comuns
+      newValue = newValue.replace(/[^0-9\s\-()]/g, '');
+    }
+    
+    // Só atualizar se o valor mudou (para evitar loops)
+    if (newValue !== e.target.value) {
+      // Criar novo evento com valor filtrado
+      const syntheticEvent = {
+        ...e,
+        target: {
+          ...e.target,
+          value: newValue
+        }
+      };
       
-      // Só atualizar se o valor mudou (para evitar loops)
-      if (newValue !== e.target.value) {
-        // Criar novo evento com valor filtrado
-        const syntheticEvent = {
-          ...e,
-          target: {
-            ...e.target,
-            value: newValue
+      if (onChange) {
+        onChange(syntheticEvent);
+      }
+    } else {
+      if (onChange) {
+        onChange(e);
+      }
+    }
+  };
+
+  // Renderizar ícone à esquerda
+  const renderLeftIcon = () => {
+    if (leftIcon) {
+      if (typeof leftIcon === 'string') {
+        return (
+          <Icon
+            name={leftIcon}
+            size="sm"
+            color={disabled || state === 'disabled' ? 'gray-50' : 'gray-60'}
+            className="flex-shrink-0"
+          />
+        );
+      }
+      return <span className="flex-shrink-0">{leftIcon}</span>;
+    }
+    return null;
+  };
+
+  // Renderizar ícone à direita
+  const renderRightIcon = () => {
+    if (rightIcon) {
+      if (typeof rightIcon === 'string') {
+        return (
+          <Icon
+            name={rightIcon}
+            size="sm"
+            color={disabled || state === 'disabled' ? 'gray-50' : 'gray-60'}
+            className="flex-shrink-0"
+          />
+        );
+      }
+      return <span className="flex-shrink-0">{rightIcon}</span>;
+    }
+    return null;
+  };
 
   // Renderizar adornment à esquerda
   const renderLeftAdornment = () => {
@@ -220,6 +272,7 @@ export const Input = ({
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
       {label && (
+        <label className={labelClasses}>
           {label}
         </label>
       )}
@@ -227,8 +280,7 @@ export const Input = ({
       {/* Input Container */}
       <div className={inputContainerClasses}>
         {/* Left Icon */}
-          </span>
-        )}
+        {renderLeftIcon()}
 
         {/* Left Adornment */}
         {renderLeftAdornment()}
@@ -249,12 +301,12 @@ export const Input = ({
         {renderRightAdornment()}
 
         {/* Right Icon */}
-          </span>
-        )}
+        {renderRightIcon()}
       </div>
 
       {/* Helper Text ou Error Message */}
       {(helperText || errorMessage) && (
+        <p className={helperTextClasses}>
           {state === 'error' && errorMessage ? errorMessage : helperText}
         </p>
       )}
@@ -263,4 +315,3 @@ export const Input = ({
 };
 
 export default Input;
-

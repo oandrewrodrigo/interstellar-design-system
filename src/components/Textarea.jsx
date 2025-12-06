@@ -1,3 +1,4 @@
+import React from 'react';
 
 /**
  * Componente Textarea do Design System Interstellar
@@ -28,6 +29,11 @@ export const Textarea = ({
   onChange,
   disabled = false,
   rows = 4,
+  className = '',
+  ...props
+}) => {
+  // Calcular comprimento atual e texto do contador
+  const currentLength = value ? value.length : 0;
   const counterText = maxLength ? `${currentLength}/${maxLength}` : `${currentLength}`;
 
   // Classes de tipografia para label
@@ -129,6 +135,7 @@ export const Textarea = ({
     <div className="flex flex-col gap-2 w-full">
       {/* Label */}
       {label && (
+        <label className={labelClasses}>
           {label}
         </label>
       )}
@@ -190,6 +197,7 @@ export const Textarea = ({
 
       {/* Helper Text ou Error Message */}
       {(helperText || errorMessage) && (
+        <p className={helperTextClasses}>
           {state === 'error' && errorMessage ? errorMessage : helperText}
         </p>
       )}

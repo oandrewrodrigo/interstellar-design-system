@@ -1,3 +1,4 @@
+import React from 'react';
 
 /**
  * Componente Radio do Design System Interstellar
@@ -94,10 +95,13 @@ export const Radio = ({
 
   const stateClasses = getStateClasses();
 
+  // Handler para mudança de estado
+  const handleChange = (e) => {
     if (isDisabled) return;
     if (onChange) {
       onChange(e);
     }
+  };
 
   // Classes do container
   const containerClasses = `
@@ -113,6 +117,9 @@ export const Radio = ({
   `.trim().replace(/\s+/g, ' ');
 
   return (
+    <label className="inline-flex items-center cursor-pointer">
+      <input
+        type="radio"
         checked={checked}
         onChange={handleChange}
         disabled={isDisabled}

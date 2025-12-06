@@ -42,12 +42,10 @@ export default [
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-      'react-hooks/purity': 'warn',
-      'react-hooks/set-state-in-effect': 'warn',
     },
   },
   {
-    files: ['scripts/**/*.{js,cjs,mjs}'],
+    files: ['scripts/**/*.{js,cjs,mjs}', '*.config.{js,cjs,mjs}'],
     languageOptions: {
       globals: {
         ...globals.node,
@@ -55,6 +53,7 @@ export default [
     },
     rules: {
       'no-console': 'off',
+      'no-undef': 'off',
     },
   },
   {
